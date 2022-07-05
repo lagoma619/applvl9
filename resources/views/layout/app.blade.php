@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
-    <title>
-        {{config('app.name')}} | @yield('title')
-    </title>
+
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
@@ -18,7 +16,14 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="{{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="{{asset('assets/css/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
+    <link id="pagestyle" href="{{asset('assets/css/argon-dashboard.css')}}" rel="stylesheet" />
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+    <title>
+        {{config('app.name')}} | @yield('title')
+    </title>
+
 </head>
 
 
@@ -46,45 +51,24 @@
                 <div class="collapse " id="dashboardsExamples">
                     <ul class="nav ms-4">
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/dashboards/landing.html">
+                            <a class="nav-link " href="">
                                 <span class="sidenav-mini-icon"> L </span>
                                 <span class="sidenav-normal"> Sin asignar </span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/dashboards/default.html">
+                            <a class="nav-link " href="">
                                 <span class="sidenav-mini-icon"> D </span>
                                 <span class="sidenav-normal"> Asignados </span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/dashboards/automotive.html">
+                            <a class="nav-link " href="">
                                 <span class="sidenav-mini-icon"> A </span>
                                 <span class="sidenav-normal"> Terminados </span>
                             </a>
                         </li>
-                        <li class="nav-item " hidden>
-                            <a class="nav-link " data-bs-toggle="collapse" aria-expanded="false" href="#vrExamples">
-                                <span class="sidenav-mini-icon"> V </span>
-                                <span class="sidenav-normal"> Virtual Reality <b class="caret"></b></span>
-                            </a>
-                            <div class="collapse " id="vrExamples">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/dashboards/vr/vr-default.html">
-                                            <span class="sidenav-mini-icon text-xs"> V </span>
-                                            <span class="sidenav-normal"> VR Default </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/dashboards/vr/vr-info.html">
-                                            <span class="sidenav-mini-icon text-xs"> V </span>
-                                            <span class="sidenav-normal"> VR Info </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+
                     </ul>
                 </div>
             </li>
@@ -119,7 +103,7 @@
                     <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
                         <i class="ni ni-ui-04 text-info text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Clientes</span>
+                    <span class="nav-link-text ms-1">CLIENTES</span>
                 </a>
                 <div class="collapse " id="applicationsExamples">
                     <ul class="nav ms-4">
@@ -151,20 +135,49 @@
                 </div>
             </li>
             <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#pagesExamples" class="nav-link collapsed" aria-controls="pagesExamples" role="button" aria-expanded="false">
+                    <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
+                        <i class="ni ni-ungroup text-warning text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">USUARIOS</span>
+                </a>
+                <div class="collapse" id="pagesExamples">
+                    <ul class="nav ms-4">
+                        <li class="nav-item ">
+                            <a class="nav-link " href="#profileExample">
+                                <span class="sidenav-mini-icon"> P </span>
+                                <span class="sidenav-normal"> Consultar <b ></b></span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{url('/users/create')}}">
+                                <span class="sidenav-mini-icon"> U </span>
+                                <span class="sidenav-normal"> Crear usuario <b class="caret"></b></span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
                 <hr class="horizontal dark" />
 
             </li>
-        </ul>
-    </div>
-    <div class="sidenav-footer mx-3 my-3">
 
-        <a href="{{ route('logout.perform') }}" class="btn btn-dark btn-sm w-100 mb-3">Cerrar sesión</a>
+
+        </ul>
+        <div class="sidenav-footer mx-3 my-3">
+            <a href="{{ route('logout.perform') }}" class="btn btn-dark btn-sm w-100 mb-3">Cerrar sesión</a>
+
+        </div>
     </div>
+
 </aside>
 
 
 <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
+
     <nav class="navbar navbar-main navbar-expand-lg  px-0 mx-4 shadow-none border-radius-xl z-index-sticky " id="navbarBlur" data-scroll="false">
         <div class="container-fluid py-1 px-3">
 
@@ -208,7 +221,7 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 " alt="user image">
+                                            <img src="{{asset('assets/img/team-2.jpg')}}" class="avatar avatar-sm  me-3 " alt="user image">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -226,7 +239,7 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="../../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 " alt="logo spotify">
+                                            <img src="{{asset('/assets/img/small-logos/logo-spotify.svg')}}" class="avatar avatar-sm bg-gradient-dark  me-3 " alt="logo spotify">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -279,42 +292,37 @@
     <!-- End Navbar -->
     <!-- Contenedor -->
 
-    <div class="container-fluid py-4">
-        <div class="row min-vh-80">
-            <div class="col-lg-8 col-md-12 mx-auto">
+    @yield('content')
 
-                @yield('content')
 
-            </div>
-        </div>
         <footer class="footer pt-3  ">
+
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-start">
-                            © <script>
-                                document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                            for a better web.
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
+
+                    <div class="col-lg-6" hidden>
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                                <a href="" class="nav-link text-muted" target="_blank" hidden>By lagoma619</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank" hidden>About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank" hidden>Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank"hidden>License</a>
                             </li>
                         </ul>
+                    </div>
+                    <div class="align-content-end">
+                        <div class="copyright text-center text-sm text-muted text-lg-end">
+                            © <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="" class="font-weight-bold" target="_blank">By lagoma619</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -325,14 +333,13 @@
 </main>
 <!--   Menú configuración visual   -->
 <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" hidden>
         <i class="fa fa-cog py-2"> </i>
     </a>
     <div class="card shadow-lg">
         <div class="card-header pb-0 pt-3 bg-transparent ">
             <div class="float-start">
                 <h5 class="mt-3 mb-0">Configurar interfaz</h5>
-                <p>See our dashboard options.</p>
             </div>
             <div class="float-end mt-4">
                 <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
@@ -345,10 +352,10 @@
         <div class="card-body pt-sm-3 pt-0 overflow-auto">
             <!-- Sidebar Backgrounds -->
             <div>
-                <h6 class="mb-0">Color panel lateral</h6>
+                <h6 class="mb-0" hidden>Color del panel lateral</h6>
             </div>
             <a href="javascript:void(0)" class="switch-trigger background-color">
-                <div class="badge-colors my-2 text-start">
+                <div class="badge-colors my-2 text-start" hidden>
                     <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
                     <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
                     <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
@@ -395,6 +402,7 @@
 </div>
 
 <!--   Core JS Files   -->
+
 <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
 <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
@@ -402,7 +410,19 @@
 <!-- Kanban scripts -->
 <script src="{{asset('assets/js/plugins/dragula/dragula.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/jkanban/jkanban.js')}}"></script>
-<script src="{{asset('assets/js/plugins/sweetalert.min.js')}}"></script>
+
+
+<!-- Argon Scripts -->
+<!-- Core -->
+
+<script src="{{asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Optional JS -->
+<script src="{{asset('assets/vendor/chart.js/dist/Chart.min.js')}}"></script>
+<script src="{{asset('assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
+
+
+@yield('scripts')
+
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -415,7 +435,7 @@
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{asset('assets/js/argon-dashboard.min.js?v=2.0.4')}}"></script>
+<script src="{{asset('assets/js/argon-dashboard.min.js')}}"></script>
 </body>
 
 </html>
