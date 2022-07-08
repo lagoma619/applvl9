@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','INICIO | AQUITOY MENSAJERÍA')
+@section('title','INICIO')
 
 @section('content')
     <div class="container-fluid py-4">
@@ -129,7 +129,7 @@
                 <div class="card card-carousel overflow-hidden h-100 p-0">
                     <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
                         <div class="carousel-inner border-radius-lg h-100">
-                            <div class="carousel-item h-100 active" style="background-image: url('../../assets/img/img-2.jpg');
+                            <div class="carousel-item h-100 active" style="background-image: url({{asset('assets/img/img-2.jpg')}});
       background-size: cover;">
                                 <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                     <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">

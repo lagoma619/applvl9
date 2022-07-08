@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/app', function () {
     return view('layouts.app');
 });
+Route::get('/user/new', function () {
+    return view('user.new');
+});
 
 
 Auth::routes();
