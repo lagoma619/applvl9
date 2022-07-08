@@ -9,6 +9,7 @@
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto h-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
+
             <li class="nav-item">
                 <a href="{{ route('home') }}" class="nav-link active" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
                     <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
@@ -22,6 +23,7 @@
                     </div>
                     <span class="nav-link-text ms-1">DOMICILIOS</span>
                 </a>
+                <!-- MENÚ DOMICILIOS -->
                 <div class="collapse" id="dashboardsExamples">
                     <ul class="nav ms-4">
                         <li class="nav-item ">
@@ -51,9 +53,8 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item mt-3">
-                <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">PAGES</h6>
-            </li>
+            <!-- FIN DOMICILIOS -->
+
             <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#pagesExamples" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
                     <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
@@ -63,118 +64,6 @@
                 </a>
                 <div class="collapse " id="pagesExamples">
                     <ul class="nav ms-4">
-                        <li class="nav-item ">
-                            <a class="nav-link " data-bs-toggle="collapse" aria-expanded="false" href="#profileExample">
-                                <span class="sidenav-mini-icon"> P </span>
-                                <span class="sidenav-normal"> Profile <b class="caret"></b></span>
-                            </a>
-                            <div class="collapse " id="profileExample">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/profile/overview.html">
-                                            <span class="sidenav-mini-icon text-xs"> P </span>
-                                            <span class="sidenav-normal"> Profile Overview </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/profile/teams.html">
-                                            <span class="sidenav-mini-icon text-xs"> T </span>
-                                            <span class="sidenav-normal"> Teams </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/profile/projects.html">
-                                            <span class="sidenav-mini-icon text-xs"> A </span>
-                                            <span class="sidenav-normal"> All Projects </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " data-bs-toggle="collapse" aria-expanded="false" href="#usersExample">
-                                <span class="sidenav-mini-icon"> U </span>
-                                <span class="sidenav-normal"> Users <b class="caret"></b></span>
-                            </a>
-                            <div class="collapse " id="usersExample">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/users/reports.html">
-                                            <span class="sidenav-mini-icon text-xs"> R </span>
-                                            <span class="sidenav-normal"> Reports </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/users/new-user.html">
-                                            <span class="sidenav-mini-icon text-xs"> N </span>
-                                            <span class="sidenav-normal"> New User </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " data-bs-toggle="collapse" aria-expanded="false" href="#accountExample">
-                                <span class="sidenav-mini-icon"> A </span>
-                                <span class="sidenav-normal"> Account <b class="caret"></b></span>
-                            </a>
-                            <div class="collapse " id="accountExample">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/account/settings.html">
-                                            <span class="sidenav-mini-icon text-xs"> S </span>
-                                            <span class="sidenav-normal"> Settings </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/account/billing.html">
-                                            <span class="sidenav-mini-icon text-xs"> B </span>
-                                            <span class="sidenav-normal"> Billing </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/account/invoice.html">
-                                            <span class="sidenav-mini-icon text-xs"> I </span>
-                                            <span class="sidenav-normal"> Invoice </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/account/security.html">
-                                            <span class="sidenav-mini-icon text-xs"> S </span>
-                                            <span class="sidenav-normal"> Security </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link " data-bs-toggle="collapse" aria-expanded="false" href="#projectsExample">
-                                <span class="sidenav-mini-icon"> P </span>
-                                <span class="sidenav-normal"> Projects <b class="caret"></b></span>
-                            </a>
-                            <div class="collapse " id="projectsExample">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/projects/general.html">
-                                            <span class="sidenav-mini-icon text-xs"> G </span>
-                                            <span class="sidenav-normal"> General </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/projects/timeline.html">
-                                            <span class="sidenav-mini-icon text-xs"> T </span>
-                                            <span class="sidenav-normal"> Timeline </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../../pages/pages/projects/new-project.html">
-                                            <span class="sidenav-mini-icon text-xs"> N </span>
-                                            <span class="sidenav-normal"> New Project </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
                         <li class="nav-item ">
                             <a class="nav-link " href="../../pages/pages/pricing-page.html">
                                 <span class="sidenav-mini-icon"> P </span>
@@ -214,6 +103,7 @@
                     </ul>
                 </div>
             </li>
+
             <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#applicationsExamples" class="nav-link " aria-controls="applicationsExamples" role="button" aria-expanded="false">
                     <div class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
