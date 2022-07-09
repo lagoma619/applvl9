@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a6a07b6a-8742-4512-abd3-838e45b245e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argon2/pages/pages/projects/new-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/argon2/pages/pages/projects/new-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/new.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +156,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "C:/xampp/htdocs/applvl9/public/assets/fontawesome/css",
+    "last_opened_file_path": "C:/xampp/htdocs/applvl9/public/assets/vendor",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -177,11 +173,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\applvl9\public\assets\vendor" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\fontawesome\css" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\fontawesome" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\css" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\img\logos" />
-      <recent name="C:\xampp\htdocs\applvl9\public\assets\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\applvl9\public\assets" />
@@ -219,7 +215,7 @@
       <workItem from="1657091799827" duration="262000" />
       <workItem from="1657092109192" duration="967000" />
       <workItem from="1657093475783" duration="18906000" />
-      <workItem from="1657244368724" duration="18282000" />
+      <workItem from="1657244368724" duration="27319000" />
     </task>
     <servers />
   </component>
