@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6a07b6a-8742-4512-abd3-838e45b245e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/applvl9.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/applvl9.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/new.blade.php" afterDir="false" />
     </list>
@@ -156,13 +157,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.laravel-idea.search-composer-json": "true",
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "C:/xampp/htdocs/applvl9/public/assets/vendor",
+    "last_opened_file_path": "/home/laptop/htdocs/applvl9",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -216,6 +217,10 @@
       <workItem from="1657092109192" duration="967000" />
       <workItem from="1657093475783" duration="18906000" />
       <workItem from="1657244368724" duration="27319000" />
+      <workItem from="1657419435758" duration="1496000" />
+      <workItem from="1657421058762" duration="600000" />
+      <workItem from="1657422459514" duration="3406000" />
+      <workItem from="1657433468330" duration="8310000" />
     </task>
     <servers />
   </component>
