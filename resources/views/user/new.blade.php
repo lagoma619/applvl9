@@ -23,6 +23,7 @@
         <div class="row mb-5">
 
     <!-- Card Basic Info -->
+            <form action="" method="POST">
     <div class="card mt-4" id="basic-info">
         <div class="card-body">
         <div class="card-header">
@@ -39,7 +40,7 @@
                         </label>
                     </label>
                     <div class="form-check form-switch ms-2">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault23" checked onchange="visible()">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault23" checked onchange="visible()"/>
                     </div>
                 </div>
             </div>
@@ -52,13 +53,13 @@
                 <div class="col-6">
                     <label class="form-label">NOMBRES</label>
                     <div class="input-group">
-                        <input id="name" name="name" class="form-control" type="text" placeholder="CARLOS ANTONIO" required="required" onkeyup="this.value = this.value.toUpperCase();">
+                        <input id="name" name="name" class="form-control" type="text" placeholder="CARLOS ANTONIO" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                     </div>
                 </div>
                 <div class="col-6">
                     <label class="form-label">APELLIDOS</label>
                     <div class="input-group">
-                        <input id="lastname" name="lastname" class="form-control" type="text" placeholder="GALLEGO FERMÍN" required="required" onkeyup="this.value = this.value.toUpperCase();">
+                        <input id="lastname" name="lastname" class="form-control" type="text" placeholder="GALLEGO FERMÍN" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                     </div>
                 </div>
             </div>
@@ -78,7 +79,7 @@
                 <div class="col-6">
                     <label class="form-label mt-4">NÚMERO DOCUMENTO</label>
                     <div class="input-group">
-                        <input id="numdocumento" name="numdocumento" class="form-control" type="number" placeholder="1130897654">
+                        <input id="numdocumento" name="numdocumento" class="form-control" type="number" placeholder="1130897654"/>
                     </div>
                 </div>
             </div>
@@ -94,7 +95,7 @@
                     <div class="row">
                         <label class="form-label mt-4">FECHA DE NACIMIENTO</label>
                         <div class="input-group">
-                        <input class="form-control datepicker" type="text"  name="date" placeholder="1979-04-16">
+                        <input class="form-control datepicker" type="text"  name="date" placeholder="1979-04-16" />
                         </div>
                     </div>
                 </div>
@@ -103,13 +104,13 @@
                 <div class="col-6">
                     <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                     <div class="input-group">
-                        <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com">
+                        <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" />
                     </div>
                 </div>
                 <div class="col-6">
                     <label class="form-label mt-4">DIRECCIÓN</label>
                     <div class="input-group">
-                        <input id="confirmation" name="confirmation" class="form-control" type="email" placeholder="CALLE 3 OESTE #23-45" onkeyup="this.value = this.value.toUpperCase();">
+                        <input id="confirmation" name="confirmation" class="form-control" type="email" placeholder="CALLE 3 OESTE #23-45" onkeyup="this.value = this.value.toUpperCase();"/>
                     </div>
                 </div>
             </div>
@@ -117,13 +118,13 @@
                 <div class="col-6">
                     <label class="form-label mt-4">CIUDAD</label>
                     <div class="input-group">
-                        <input id="location" name="city" class="form-control" type="text" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();">
+                        <input id="location" name="city" class="form-control" type="text" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();"/>
                     </div>
                 </div>
                 <div class="col-6">
                     <label class="form-label mt-4">NÚMERO TEL</label>
                     <div class="input-group">
-                        <input id="phone" name="phone" class="form-control" type="number" placeholder="3117895623">
+                        <input id="phone" name="phone" class="form-control" type="number" placeholder="3117895623"/>
                     </div>
                 </div>
             </div>
@@ -132,7 +133,7 @@
                     <div class="row">
                         <label class="form-label mt-4">FECHA DE CONTRATACIÓN</label>
                         <div class="input-group">
-                            <input class="form-control datepicker" type="text"  name="fechacontrato" placeholder="">
+                            <input class="form-control datepicker" type="text"  name="fechacontrato" placeholder="" />
                         </div>
                     </div>
                 </div>
@@ -155,7 +156,10 @@
                     <input class="form-control" id="contrasena" type="password" placeholder="******" />
                 </div>
             </div>
+            <div class="d-flex justify-content-center mt-6">
+                <button type="submit" class="btn btn-primary btn-lg w-80">GUARDAR</button>
+            </div>
         </div>
     </div>
-
+            </form>
 @endsection
