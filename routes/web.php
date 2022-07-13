@@ -24,6 +24,10 @@ Route::get('/user/new', function () {
     return view('user.new');
 });
 
+Route::get('/client/new', function () {
+    return view('client.new');
+});
+
 
 Auth::routes();
 

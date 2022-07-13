@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a6a07b6a-8742-4512-abd3-838e45b245e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/new.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/new.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,13 +161,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/laptop/htdocs/applvl9&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/applvl9/public/assets/js&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -173,18 +178,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\applvl9\public\assets\js" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\vendor" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\fontawesome\css" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\fontawesome" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\css" />
-      <recent name="C:\xampp\htdocs\applvl9\public\assets\img\logos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\applvl9\public\assets\css" />
+      <recent name="C:\xampp\htdocs\applvl9\resources\views\client" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\vendor\bootstrap" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\vendor\bootstrap\dist\js" />
-      <recent name="C:\xampp\htdocs\applvl9\public\assets\vendor\bootstrap\dist\css" />
-      <recent name="C:\xampp\htdocs\applvl9\public\assets\vendor\bootstrap\dist" />
     </key>
   </component>
   <component name="RunManager">
@@ -221,6 +226,7 @@
       <workItem from="1657422459514" duration="3406000" />
       <workItem from="1657433468330" duration="8310000" />
       <workItem from="1657474791984" duration="2367000" />
+      <workItem from="1657699397810" duration="10345000" />
     </task>
     <servers />
   </component>

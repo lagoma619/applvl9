@@ -84,35 +84,68 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
-                    <label class="form-label mt-4">SEXO</label>
-                    <select class="form-control" name="choices-gender" id="choices-gender">
-                        <option value="Masculino">Masculino</option>
-                        <option value="Femenino">Femenino</option>
-                    </select>
-                </div>
-                <div class="col-6">
-                    <div class="row">
-                        <label class="form-label mt-4">FECHA DE NACIMIENTO</label>
-                        <div class="input-group">
-                        <input class="form-control datepicker" type="text"  name="date" placeholder="1979-04-16" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
-                    <div class="input-group">
-                        <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" />
-                    </div>
-                </div>
+
                 <div class="col-6">
                     <label class="form-label mt-4">DIRECCIÓN</label>
                     <div class="input-group">
                         <input id="confirmation" name="confirmation" class="form-control" type="email" placeholder="CALLE 3 OESTE #23-45" onkeyup="this.value = this.value.toUpperCase();"/>
                     </div>
                 </div>
+                <div class="col-6">
+                    <div class="row">
+                        <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
+                        <div class="input-group">
+                            <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" />
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-label mt-4">TELÉFONO 1</label>
+                    <div class="input-group">
+                        <input id="location" name="city" class="form-control" type="number" placeholder="3158963569"/>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label class="form-label mt-4">TELÉFONO 2</label>
+                    <div class="input-group">
+                        <input id="phone" name="phone" class="form-control" type="number" placeholder="3117895623"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-6">
+                    <label class="form-label mt-4">FECHA DE NACIMIENTO</label>
+                    <div class="input-group">
+                        <input class="form-control datepicker" type="text"  name="date" placeholder="1979-04-16" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label class="form-label mt-4">SEXO</label>
+                    <select class="form-control" name="choices-gender" id="choices-gender">
+                        <option value="Masculino">MASCULINO</option>
+                        <option value="Femenino">FEMENINO</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label mt-4">TIPO DE USUARIO</label>
+                    <div class="input-group">
+                        <select class="form-control" name="gender" id="gender">
+                            <option value="MENSAJERO">MENSAJERO</option>
+                            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                            <option value="AUXILIAR">AUXILIAR ADMIN</option>
+                            <option value="CLIENTE">CLIENTE</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
             <div class="row">
                 <div class="col-6">
@@ -130,36 +163,31 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <div class="row">
-                        <label class="form-label mt-4">FECHA DE CONTRATACIÓN</label>
-                        <div class="input-group">
-                            <input class="form-control datepicker" type="text"  name="fechacontrato" placeholder="" />
-                        </div>
-                    </div>
+                    <label class="form-label mt-4"><mark>CONTRASEÑA</mark></label>
+                    <input class="form-control" id="password" type="password" placeholder="******" />
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label mt-4">CONTRASEÑA</label>
-                    <input class="form-control" id="contrasena" type="password" placeholder="******" />
+                    <label class="form-label mt-4"><mark>REPETIR CONTRASEÑA</mark></label>
+                    <input class="form-control" id="password2" type="password" placeholder="******" />
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-6">
-                    <div class="row">
-                        <label class="form-label mt-4">TIPO DE USUARIO</label>
-                        <div class="input-group">
-                            <input id="location" name="city" class="form-control" type="text" placeholder="MENSAJERO" onkeyup="this.value = this.value.toUpperCase();">
-                        </div>
-                    </div>
+
+                <label class="form-label mt-4">NOTAS</label>
+                <div class="input-group">
+                <div class="form-control" id="notes" type="text">
+                    <textarea class="form-control-plaintext" id="notes" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO"></textarea>
                 </div>
-                <div class="col-md-6">
-                    <label class="form-label mt-4">CONTRASEÑA</label>
-                    <input class="form-control" id="contrasena" type="password" placeholder="******" />
                 </div>
             </div>
-            <div class="d-flex justify-content-center mt-6">
-                <button type="submit" class="btn btn-primary btn-lg w-80">GUARDAR</button>
+
+            </div>
+
+            <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg w-50">GUARDAR</button>
             </div>
         </div>
-    </div>
+
             </form>
 @endsection
