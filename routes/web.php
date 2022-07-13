@@ -27,6 +27,9 @@ Route::get('/user/new', function () {
 Route::get('/client/new', function () {
     return view('client.new');
 });
+Route::get('/client/sedenew', function () {
+    return view('client.sedenew');
+});
 
 
 Auth::routes();

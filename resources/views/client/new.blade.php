@@ -61,13 +61,13 @@
                             <div class="col-6">
                                 <label class="form-label">NOMBRE</label>
                                 <div class="input-group">
-                                    <input id="name" name="name" class="form-control" type="text" placeholder="CARLOS ANTONIO" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="name" name="name" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label">NOMBRE COMERCIAL</label>
                                 <div class="input-group">
-                                    <input id="lastname" name="lastname" class="form-control" type="text" placeholder="GALLEGO FERMÍN" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="lastname" name="lastname" class="form-control" type="text" placeholder="CLINICA ESENSA" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -87,15 +87,15 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">NÚMERO DOCUMENTO</label>
                                 <div class="input-group">
-                                    <input id="numdocumento" name="numdocumento" class="form-control" type="number" placeholder="1130897654"/>
+                                    <input id="numdocumento" name="numdocumento" class="form-control" type="number" placeholder="901402789-9"/>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <label class="form-label mt-4">CONTACTO</label>
+                                <label class="form-label mt-4">TELÉFONO</label>
                                 <div class="input-group">
-                                    <input id="numdocumento" name="numdocumento" class="form-control" type="number" placeholder="1130897654"/>
+                                    <input id="numdocumento" name="numdocumento" class="form-control" type="number" placeholder="6023808010"/>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -117,7 +117,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DIRECCIÓN</label>
                                 <div class="input-group">
-                                    <input id="confirmation" name="confirmation" class="form-control" type="email" placeholder="CALLE 3 OESTE #23-45" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="confirmation" name="confirmation" class="form-control" type="email" placeholder="CARRERA 44 #9C-58" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -125,11 +125,25 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CIUDAD</label>
                                 <div class="input-group">
-                                    <input id="location" name="city" class="form-control" type="text" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="location" name="city" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <label class="form-label mt-4">NÚMERO TEL</label>
+                                <label class="form-label mt-4">TELÉFONO CONTACTO</label>
+                                <div class="input-group">
+                                    <input id="phone" name="phone" class="form-control" type="number" placeholder="3117895623"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label mt-4">PERSONA CONTACTO</label>
+                                <div class="input-group">
+                                    <input id="location" name="city" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label mt-4">TELÉFONO CONTACTO</label>
                                 <div class="input-group">
                                     <input id="phone" name="phone" class="form-control" type="number" placeholder="3117895623"/>
                                 </div>
@@ -167,8 +181,17 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label mt-4">CONTRASEÑA</label>
-                                <input class="form-control" id="contrasena" type="password" placeholder="******" />
+                                <label class="form-label mt-4">SITIO WEB</label>
+                                <input id="location" name="web" class="form-control" type="text" placeholder="www.clinicaesensa.com" onkeyup="this.value = this.value.toUpperCase();">
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <label class="form-label mt-4">NOTAS</label>
+                            <div class="input-group">
+                                <div class="form-control" id="notes" type="text">
+                                    <textarea class="form-control-plaintext" id="notes" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL CLIENTE"></textarea>
+                                </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center mt-6">
