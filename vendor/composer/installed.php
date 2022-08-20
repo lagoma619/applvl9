@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => '5c46dc0d1dacd01b78258322954a6e64bf83bfae',
+    'reference' => 'e6fed3b2da4519b38d50198bc174c8696aeaefd7',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
+    'bennett-treptow/laravel-migration-generator' => 
+    array (
+      'pretty_version' => '4.3.0',
+      'version' => '4.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ba257c854f37e096ca6b56a26e1323b26fedccec',
+    ),
     'brick/math' => 
     array (
       'pretty_version' => '0.9.3',
@@ -416,7 +425,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '5c46dc0d1dacd01b78258322954a6e64bf83bfae',
+      'reference' => 'e6fed3b2da4519b38d50198bc174c8696aeaefd7',
     ),
     'laravel/sail' => 
     array (
@@ -498,6 +507,15 @@
       array (
       ),
       'reference' => 'ff6248ea87a9f116e78edd6002e39e5128a0d4dd',
+    ),
+    'marcj/topsort' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '972f58e42b5f110a0a1d8433247f65248abcfd5c',
     ),
     'mockery/mockery' => 
     array (

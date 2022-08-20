@@ -32,6 +32,7 @@
 
             <!-- Card Basic Info -->
             <form action="" method="POST">
+                @csrf
                 <div class="card mt-4" id="basic-info">
                     <div class="card-body">
                         <div class="card-header">
@@ -61,13 +62,13 @@
                             <div class="col-6">
                                 <label class="form-label">NOMBRE</label>
                                 <div class="input-group">
-                                    <input id="name" name="name" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="nombre" name="nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label">NOMBRE COMERCIAL</label>
                                 <div class="input-group">
-                                    <input id="lastname" name="lastname" class="form-control" type="text" placeholder="CLINICA ESENSA" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="nombre_comercial" name="nombre_comercial" class="form-control" type="text" placeholder="CLINICA ESENSA" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +76,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DOCUMENTO</label>
                                 <div class="input-group">
-                                    <select class="form-control">
+                                    <select class="form-control" id="tipo_documento" name="tipo_documento">
                                         <option value="cc">CEDULA DE CIUDADANÍA</option>
                                         <option value="ce">CEDULA DE EXTRANJERÍA</option>
                                         <option value="nit">NÚMERO DE IDENTIFICACIÓN TRIBUTARIA - NIT</option>
@@ -87,7 +88,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">NÚMERO DOCUMENTO</label>
                                 <div class="input-group">
-                                    <input id="numdocumento" name="numdocumento" class="form-control" type="number" placeholder="901402789-9"/>
+                                    <input id="numero_documento" name="numero_documento" class="form-control" type="number" placeholder="901402789-9"/>
                                 </div>
                             </div>
                         </div>
@@ -95,14 +96,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO</label>
                                 <div class="input-group">
-                                    <input id="numdocumento" name="numdocumento" class="form-control" type="number" placeholder="6023808010"/>
+                                    <input id="telefono" name="telefono" class="form-control" type="number" placeholder="6023808010"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="row">
                                     <label class="form-label mt-4">INICIO DE CONTRATO</label>
                                     <div class="input-group">
-                                        <input class="form-control datepicker" type="text"  name="date" placeholder="1979-04-16" />
+                                        <input class="form-control datepicker" type="text"  name="inicio_contrato" placeholder="2018-04-16" />
                                     </div>
                                 </div>
                             </div>
@@ -111,13 +112,13 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                                 <div class="input-group">
-                                    <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" />
+                                    <input id="correo_electronico" name="correo_electronico" class="form-control" type="email" placeholder="example@email.com" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">DIRECCIÓN</label>
                                 <div class="input-group">
-                                    <input id="confirmation" name="confirmation" class="form-control" type="email" placeholder="CARRERA 44 #9C-58" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="direccion" name="direccion" class="form-control" type="email" placeholder="CARRERA 44 #9C-58" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -125,13 +126,13 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CIUDAD</label>
                                 <div class="input-group">
-                                    <input id="location" name="city" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="ciudad" name="ciudad" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="phone" name="phone" class="form-control" type="number" placeholder="3117895623"/>
+                                    <input id="telefono_contacto" name="telefono_contacto" class="form-control" type="number" placeholder="3117895623"/>
                                 </div>
                             </div>
                         </div>
@@ -139,15 +140,10 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">PERSONA CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="location" name="city" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="contacto" name="contacto" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <label class="form-label mt-4">TELÉFONO CONTACTO</label>
-                                <div class="input-group">
-                                    <input id="phone" name="phone" class="form-control" type="number" placeholder="3117895623"/>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-6">

@@ -17,27 +17,45 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/app', function () {
-    return view('layouts.app');
-});
-Route::get('/user/new', function () {
-    return view('user.new');
-});
 
-Route::get('/client/new', function () {
-    return view('client.new');
-});
-Route::get('/client/sedenew', function () {
-    return view('client.sedenew');
-});
 
 
 Auth::routes();
 
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/app', function () {
+        /* return view('layouts.app');*/
+    });
+
+    Route::get('/users',[\App\Http\Controllers\User\UserController::class, 'index'])->name('users.index');
+
+
+
+    Route::get('/users/new', function () {
+        return view('users.new');
+    })->name('usernew');
+
+    Route::get('/clients/new', function () {
+        return view('clients.new');
+    })->name('clientenew');
+
+    Route::get('/clients/sedenew', function () {
+        return view('clients.sedenew');
+    })->name('sedenew');
+
+//Usuarios
+    //Route::resource('usuarios', 'App\Http\Controllers\User\UserController');
+
+
+
+
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/*
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+*/

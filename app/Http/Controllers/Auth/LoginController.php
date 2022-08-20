@@ -28,6 +28,10 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    public function username()
+    {
+        return 'numero_documento';
+    }
     /**
      * Create a new controller instance.
      *
@@ -37,4 +41,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+
 }
