@@ -17,10 +17,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $primaryKey = 'userid';
     protected $fillable = [
-        'id',
         'numero_documento',
-        'estado',
+        'id_usuestado',
+        'id_tipos_usuario',
+        'id_personas',
         'email',
         'password',
         'nota',
@@ -46,6 +49,9 @@ class User extends Authenticatable
     ];
     public function persona(){
         return $this->hasOne(Persona::class,'id','id_personas');
+    }
+    public function tiposusuario(){
+        return $this->hasOne(TiposUsuario::class,'id','id_tipos_usuario');
     }
 
 

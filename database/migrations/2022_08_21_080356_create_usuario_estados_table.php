@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateUsuarioEstadosTable extends Migration
+
 {
     /**
      * Run the migrations.
@@ -13,9 +14,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('personas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('usuario_estados', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->string('usuestado_nombre', 30)->nullable();
+            $table->string('usuestado_descripcion', 30)->nullable();
+            $table->timestamps( );
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personas');
+        //
     }
 };

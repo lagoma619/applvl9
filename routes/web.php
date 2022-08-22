@@ -28,13 +28,16 @@ Route::middleware(['auth'])->group(function () {
         /* return view('layouts.app');*/
     });
 
+
+    Route::resource('users','App\Http\Controllers\User\UserController');
+/*
     Route::get('/users',[\App\Http\Controllers\User\UserController::class, 'index'])->name('users.index');
+    Route::get('/users/new',[\App\Http\Controllers\User\UserController::class, 'index'])->name('users.new');
+*/
 
-
-
-    Route::get('/users/new', function () {
+  /*  Route::get('/users/new', function () {
         return view('users.new');
-    })->name('usernew');
+    })->name('usernew'); */
 
     Route::get('/clients/new', function () {
         return view('clients.new');

@@ -18,7 +18,7 @@ class Persona extends Model
      */
     protected $fillable = [
         'id',
-        'tipo_documento',
+        'id_tipo_documento',
         'nombres',
         'apellidos',
         'cel_personal',

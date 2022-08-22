@@ -38,7 +38,7 @@
                     </div>
                 @endif
                 <div class="col" >
-                    <a href="{{url('/users/new')}}" class="btn btn-sm btn-success">NUEVO USUARIO</a>
+                    <a href="{{url('/users/create')}}" class="btn btn-sm btn-success">NUEVO USUARIO</a>
                 </div>
             <!-- Card Basic Info -->
                 <div class="row my-4">
@@ -54,24 +54,25 @@
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">ESTADO</th>
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">CELULAR</th>
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">ID</th>
+                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">OPCIONES</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {{dd($usuarios)}}
+                                    <!--dd($usuarios)-->
                                     @foreach($usuarios as $usuario)
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
-                                                    <div>
+                                                    <div hidden>
                                                         <img src="{{asset('assets/img/bruce-mars.jpg')}}" class="avatar avatar-sm me-3" alt="avatar image">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{$usuario->nombres}}</h6>
+                                                        <h6 class="mb-0 text-sm">{{$usuario->nombres}} {{$usuario->apellidos}}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-sm text-secondary mb-0">{{$usuario->tipo_usuario}}</p>
+                                                <p class="text-sm text-secondary mb-0">{{$usuario->tipousu_nombre}}</p>
                                             </td>
                                             <td>
                                       <span class="badge badge-dot me-4">
@@ -80,13 +81,20 @@
                                       </span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <p class="text-secondary mb-0 text-sm">{{$usuario->estado}}</p>
+                                                <p class="text-secondary mb-0 text-sm">{{$usuario->usuestado_nombre}}</p>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <span class="text-secondary text-sm">{{$usuario->cel_corporativo}}</span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$usuario->id}}</span>
+                                                <span class="text-secondary text-sm">{{$usuario->userid}}</span>
+                                            </td>
+                                            <td>
+
+                                                <form action="{{url('/users/'.$usuario->userid)}}" method="post">
+                                                    @csrf
+                                                    <a href="{{url('/users/'.$usuario->userid.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
