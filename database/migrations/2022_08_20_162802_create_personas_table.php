@@ -26,7 +26,7 @@ class CreatePersonasTable extends Migration
             $table->timestamps( 6);
             $table->string('fecha_nacimiento', 30)->nullable();
             $table->string('ciudad', 20)->nullable();
-            $table->string('nota', 500)->nullable();
+            $table->string('notapersona', 500)->nullable();
         });
     }
 

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','CREAR USUARIO')
+@section('title','EDITAR USUARIO')
 @section('scripts')
     <!-- SELECTOR DE FECHA -->
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
@@ -38,12 +38,12 @@
                 </div>
             @endif
             <div class="col" >
-                <a href="{{url('/users/')}}" class="btn btn-sm btn-success">CANCELAR</a>
+                <a href="{{url('users/')}}" class="btn btn-sm btn-success">CANCELAR</a>
             </div>
             <!-- Card Basic Info -->
-            <form action="{{url('users')}}" method="POST">
-
+            <form action="{{url('users/'.$usuario->userid)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="card mt-4" id="basic-info">
 
                     <div class="card-body">
@@ -66,13 +66,13 @@
                             <div class="col-6">
                                 <label class="form-label">NOMBRES</label>
                                 <div class="input-group">
-                                    <input id="nombres" name="nombres" class="form-control" type="text" placeholder="CARLOS ANTONIO" required="required" value="{{old('nombres')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="nombres" name="nombres" class="form-control" type="text" placeholder="CARLOS ANTONIO" required="required" value="{{old('nombres',$usuario->nombres)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label">APELLIDOS</label>
                                 <div class="input-group">
-                                    <input id="apellidos" name="apellidos" class="form-control" type="text" placeholder="GALLEGO FERMÍN" required="required" value="{{old('apellidos')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="apellidos" name="apellidos" class="form-control" type="text" placeholder="GALLEGO FERMÍN" required="required" value="{{old('apellidos',$usuario->apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_tipo_documento" id="id_tipo_documento">
                                         @foreach($tiposdocumentos as $tipodocumento)
-                                            <option value="{{$tipodocumento->id}}">{{$tipodocumento->tipodocumento_nombre}}</option>
+                                            <option value="{{$tipodocumento->id}}" @selected(old('id_tipo_documento', $tipodocumento->id) == $usuario->id_tipo_documento) >{{$tipodocumento->tipodocumento_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -90,7 +90,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">NÚMERO DOCUMENTO</label>
                                 <div class="input-group">
-                                    <input id="numero_documento" name="numero_documento" class="form-control" type="text" required="required" value="{{old('numero_documento')}}" placeholder="1130897654" />
+                                    <input id="numero_documento" name="numero_documento" class="form-control" type="text" required="required" value="{{old('numero_documento',$usuario->numero_documento)}}" placeholder="1130897654" />
                                 </div>
                             </div>
                         </div>
@@ -99,14 +99,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DIRECCIÓN</label>
                                 <div class="input-group">
-                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CALLE 3 OESTE #23-45" value="{{old('direccion')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CALLE 3 OESTE #23-45" value="{{old('direccion',$usuario->direccion)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="row">
                                     <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                                     <div class="input-group">
-                                        <input id="email" name="email" class="form-control" type="email" required="required" placeholder="example@email.com" value="{{old('email')}}" />
+                                        <input id="email" name="email" class="form-control" type="email" required="required" placeholder="example@email.com" value="{{old('email',$usuario->email)}}" />
                                     </div>
 
                                 </div>
@@ -118,13 +118,13 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO PERSONAL</label>
                                 <div class="input-group">
-                                    <input id="cel_personal" name="cel_personal" class="form-control" type="text" required="required" placeholder="3158963569" value="{{old('cel_personal')}}"/>
+                                    <input id="cel_personal" name="cel_personal" class="form-control" type="text" required="required" placeholder="3158963569" value="{{old('cel_personal',$usuario->cel_personal)}}"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO CORPORATIVO</label>
                                 <div class="input-group">
-                                    <input id="cel_corporativo" name="cel_corporativo" class="form-control" type="text" placeholder="3117895623" value="{{old('cel_corporativo')}}"/>
+                                    <input id="cel_corporativo" name="cel_corporativo" class="form-control" type="text" placeholder="3117895623" value="{{old('cel_corporativo',$usuario->cel_corporativo)}}"/>
                                 </div>
                             </div>
                         </div>
@@ -133,14 +133,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">FECHA DE NACIMIENTO</label>
                                 <div class="input-group">
-                                    <input class="form-control datepicker" id="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off" placeholder="1979-04-16" value="{{old('fecha_nacimiento')}}" />
+                                    <input class="form-control datepicker" id="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off" placeholder="1979-04-16" value="{{old('fecha_nacimiento',$usuario->fecha_nacimiento)}}" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">SEXO</label>
                                 <select class="form-control" id="sexo" name="sexo">
-                                    <option value="MASCULINO">MASCULINO</option>
-                                    <option value="FEMENINO">FEMENINO</option>
+                                    <option value="MASCULINO"@if($usuario->sexo == 'MASCULINO')selected @endif>MASCULINO</option>
+                                    <option value="FEMENINO"@if($usuario->sexo == 'FEMENINO')selected @endif>FEMENINO</option>
                                 </select>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_tipos_usuario" id="id_tipos_usuario">
                                         @foreach($tiposusuarios as $tipousuario)
-                                            <option value="{{$tipousuario->id}}">{{$tipousuario->tipousu_nombre}}</option>
+                                            <option value="{{$tipousuario->id}}" @selected(old('id_tipos_usuario', $tipousuario->id) == $usuario->id_tipos_usuario)>{{$tipousuario->tipousu_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -159,7 +159,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CIUDAD</label>
                                 <div class="input-group">
-                                    <input id="location" name="ciudad" class="form-control" type="text" required="required" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="location" name="ciudad" class="form-control" type="text" required="required" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();" value="{{old('ciudad',$usuario->ciudad)}}" />
                                 </div>
                             </div>
 
@@ -167,7 +167,8 @@
                         <div class="row">
                             <div class="col-6">
                                 <label class="form-label mt-4"><mark>CONTRASEÑA</mark></label>
-                                <input class="form-control" id="password" name="password" type="text" placeholder="******" required="required" />
+                                <input class="form-control" id="password" name="password" type="text" placeholder="******" />
+                                <figcaption class="footer">Ingrese un valor si desea modificar la contraseña</figcaption>
                             </div>
 
                             <div class="col-md-6">
@@ -175,7 +176,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_usuestado" id="id_usuestado">
                                         @foreach($usuarioestados as $usuarioestado)
-                                            <option value="{{$usuarioestado->id}}">{{$usuarioestado->usuestado_nombre}}</option>
+                                            <option value="{{$usuarioestado->id}}" @selected(old('id_usuestado', $usuarioestado->id) == $usuario->id_usuestado)>{{$usuarioestado->usuestado_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -187,7 +188,7 @@
                             <label class="form-label mt-4">NOTAS</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" id="nota" name="nota" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO"></textarea>
+                                    <textarea class="form-control-plaintext" id="notapersona" name="notapersona" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO">{{old('notapersona',$usuario->notapersona)}}</textarea>
                                 </div>
                             </div>
 

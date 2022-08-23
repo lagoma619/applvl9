@@ -28,7 +28,7 @@ class Persona extends Model
         'sexo',
         'fecha_nacimiento',
         'ciudad',
-        'nota',
+        'notapersona',
     ];
 
     /**

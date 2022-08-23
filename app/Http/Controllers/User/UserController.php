@@ -44,7 +44,7 @@ class UserController extends Controller
 
     public function index(){
 
-        $usuarios = User::join('personas','personas.id','=', 'users.id_personas')
+        $usuarios = User::orderBy('users.userid','asc')->join('personas','personas.id','=', 'users.id_personas')
                         ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
                         ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
                         ->get()->all();
@@ -87,7 +87,14 @@ class UserController extends Controller
     }
     public function edit($id){
 
-        $usuario = User::all()->where('users.userid','=', $id);
+        //$usuario = User::personas()->findOrFail($id);
+        $usuario = User::join('personas','personas.id','=', 'users.id_personas')
+            ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
+            ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
+            ->get()->find($id);
+        //$usuario = User::join('personas','personas.id','=', 'users.id_personas')->where('users.userid','=', $id)->get()->all();
+        //dd($usuario);
+        //$usuario = User::all()->where('users.userid','=', $id);
         $tiposdocumentos = TipoDocumento::all();
         $usuarioestados = UsuarioEstado::all();
         $tiposusuarios = TiposUsuario::all();
@@ -97,7 +104,23 @@ class UserController extends Controller
 
     }
 
-    public function update(){
+    public function update(Request $request, $id){
+
+
+        $user = User::personas()->find($id);
+
+        $datapersona = $request->only('nombres','apellidos','id_tipo_documento','','id_tipos_usuario','email','cel_personal'.'cel_corporativo','direccion','sexo','fecha_nacimiento', 'ciudad', 'notapersona',);
+        $datauser = $request->only('numero_documento','id_usuestado',);
+        $password = $request->input('password');
+        if($password)
+            $datauser['password'] = bcrypt($password);
+
+        $user->fill($datauser);
+        $user->fill($datapersona);
+        dd($user);
+        $user->save();
+        $notification = 'La información del usuario se ha actualizado correctamente.';
+        return redirect('/users')->with(compact('notification'));
 
     }
 }

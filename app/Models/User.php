@@ -54,5 +54,12 @@ class User extends Authenticatable
         return $this->hasOne(TiposUsuario::class,'id','id_tipos_usuario');
     }
 
+    public function scopePersonas($query){
+
+       return $query = User::join('personas','personas.id','=', 'users.id_personas')
+           ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
+           ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
+           ->get();
+    }
 
 }

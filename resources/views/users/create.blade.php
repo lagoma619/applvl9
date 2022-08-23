@@ -187,7 +187,7 @@
                 <label class="form-label mt-4">NOTAS</label>
                 <div class="input-group">
                     <div class="form-control" id="notes" type="text">
-                        <textarea class="form-control-plaintext" id="nota" name="nota" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO"></textarea>
+                        <textarea class="form-control-plaintext" id="notapersona" name="notapersona" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO"></textarea>
                     </div>
                 </div>
 
