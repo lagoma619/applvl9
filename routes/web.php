@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::resource('users','App\Http\Controllers\User\UserController');
+    Route::resource('clients','App\Http\Controllers\Client\ClienteController');
 /*
     Route::get('/users',[\App\Http\Controllers\User\UserController::class, 'index'])->name('users.index');
     Route::get('/users/new',[\App\Http\Controllers\User\UserController::class, 'index'])->name('users.new');
@@ -40,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('usernew'); */
 
     Route::get('/clients/new', function () {
-        return view('clients.new');
+        return view('clients.create');
     })->name('clientenew');
 
     Route::get('/clients/sedenew', function () {

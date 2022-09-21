@@ -15,7 +15,7 @@ class CreateDomiciliosTable extends Migration
     {
         Schema::create('domicilios', function (Blueprint $table) {
             $table->string('id', 30)->primary();
-            $table->string('estado', 30)->nullable();
+            $table->string('id_estado_domicilio', 30)->nullable();
             $table->string('asignado_a', 30)->nullable();
             $table->string('origen', 30)->nullable();
             $table->string('destino', 30)->nullable();
@@ -24,9 +24,9 @@ class CreateDomiciliosTable extends Migration
             $table->string('fecha_fin', 30)->nullable();
             $table->string('notas', 30)->nullable();
             $table->tinyInteger('entrega_efectivo')->nullable();
-            $table->string('cod_cliente', 30)->nullable()->index('IX_Relationship5');
+            $table->string('id_cliente', 30)->nullable()->index('IX_Relationship5');
             $table->string('cod_tipo_vehiculo', 30)->nullable()->index('IX_Relationship2');
-            $table->string('cod_tipo_servicio', 30)->nullable()->index('IX_Relationship3');
+            $table->string('id_tipo_servicio', 30)->nullable()->index('IX_Relationship3');
             $table->timestamps( );
         });
     }

@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -23,10 +24,10 @@ class User extends Authenticatable
         'numero_documento',
         'id_usuestado',
         'id_tipos_usuario',
-        'id_personas',
         'email',
         'password',
         'nota',
+        'id_personas',
     ];
 
     /**
@@ -47,6 +48,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Autenticación API
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+    //
+
+
     public function persona(){
         return $this->hasOne(Persona::class,'id','id_personas');
     }
@@ -56,10 +72,7 @@ class User extends Authenticatable
 
     public function scopePersonas($query){
 
-       return $query = User::join('personas','personas.id','=', 'users.id_personas')
-           ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
-           ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
-           ->get();
+       return $query = User::join('personas','personas.id','=', 'users.id_personas')->get();
     }
 
 }

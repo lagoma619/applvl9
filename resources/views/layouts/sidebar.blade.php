@@ -96,7 +96,7 @@
                 <div class="collapse " id="applicationsExamples">
                     <ul class="nav ms-4">
                         <li class="nav-item ">
-                            <a class="nav-link " href="{{route('clientenew')}}">
+                            <a class="nav-link " href="{{route('clients.index')}}">
                                 <span class="sidenav-mini-icon"> K </span>
                                 <span class="sidenav-normal"> Clientes </span>
                             </a>

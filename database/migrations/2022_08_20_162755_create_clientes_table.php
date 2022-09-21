@@ -17,11 +17,11 @@ class CreateClientesTable extends Migration
             $table->string('id', 30)->primary();
             $table->string('nombre', 30)->nullable();
             $table->string('nombre_comercial', 30)->nullable();
-            $table->string('tipo_documento', 30)->nullable();
+            $table->string('id_tipo_documento', 30)->nullable();
             $table->string('numero_documento', 30)->nullable();
             $table->string('telefono', 12)->nullable();
             $table->date('inicio_contrato')->nullable();
-            $table->string('correo_electronico', 30)->nullable();
+            $table->string('email', 30)->nullable();
             $table->string('direccion', 30)->nullable();
             $table->string('ciudad', 20)->nullable();
             $table->string('contacto', 30)->nullable();
@@ -32,7 +32,7 @@ class CreateClientesTable extends Migration
             $table->string('pagina_web', 30)->nullable();
             $table->string('numero_telefono', 30)->nullable();
             $table->string('notas', 30)->nullable();
-            $table->string('estado', 30)->nullable();
+            $table->string('id_estado', 30)->nullable();
         });
     }
 

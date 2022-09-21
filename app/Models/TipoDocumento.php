@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TipoDocumento extends Model
 {
     protected $table = 'tipos_documento';
+    public function persona(){
+        return $this->belongsTo(Persona::class);
+    }
     use HasFactory;
 }

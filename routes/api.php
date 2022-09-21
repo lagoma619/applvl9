@@ -13,7 +13,19 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/*
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+}); */
+
+//Route::post('/login',\App\Http\Controllers\Api\AuthController::class);
+//Route::resource('api','AuthController');
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+
+    Route::post('user','App\Http\Controllers\UserController@getAuthenticatedUser');
+
 });
+
+Route::post('/login',[\App\Http\Controllers\Api\AuthController::class, 'login']);
+Route::post('/register',[\App\Http\Controllers\Api\AuthController::class, 'register']);

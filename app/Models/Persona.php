@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class Persona extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -50,7 +51,11 @@ class Persona extends Model
         'email_verified_at' => 'datetime',
     ];
     public function user(){
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function tiposdocumento(){
+        return $this->hasOne(TipoDocumento::class,'id','id_tipo_documento');
     }
 
 

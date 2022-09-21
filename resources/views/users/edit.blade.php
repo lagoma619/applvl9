@@ -38,10 +38,10 @@
                 </div>
             @endif
             <div class="col" >
-                <a href="{{url('users/')}}" class="btn btn-sm btn-success">CANCELAR</a>
+                <a href="{{route('users.index')}}" class="btn btn-sm btn-success">CANCELAR</a>
             </div>
             <!-- Card Basic Info -->
-            <form action="{{url('users/'.$usuario->userid)}}" method="POST">
+            <form action="{{route('users.update',$usuario->userid)}}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card mt-4" id="basic-info">
@@ -118,7 +118,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO PERSONAL</label>
                                 <div class="input-group">
-                                    <input id="cel_personal" name="cel_personal" class="form-control" type="text" required="required" placeholder="3158963569" value="{{old('cel_personal',$usuario->cel_personal)}}"/>
+                                    <input id="cel_personal" name="cel_personal" class="form-control" type="text" placeholder="3158963569" value="{{old('cel_personal',$usuario->cel_personal)}}"/>
                                 </div>
                             </div>
                             <div class="col-6">
