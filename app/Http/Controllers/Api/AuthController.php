@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -45,14 +46,15 @@ class AuthController extends Controller
 
         if (!$token) {
             return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized',
+                'success' => 'false',
+                'message' => 'Credenciales inválidas',
             ], 401);
         }
 
-        $user = Auth::user();
+        //$user = Auth::user();
+        $user = Auth::guard('api')->user();
         return response()->json([
-            'status' => 'success',
+            'success' => 'success',
             'user' => $user,
             'authorisation' => [
                 'token' => $token,
@@ -72,7 +74,7 @@ class AuthController extends Controller
             'numero_documento' => $request->numero_documento,
             'password' => Hash::make($request->password),
         ]);
-
+/*
         $token = Auth::login($user);
         return response()->json([
             'status' => 'success',
@@ -82,11 +84,17 @@ class AuthController extends Controller
                 'token' => $token,
                 'type' => 'bearer',
             ]
-        ]);
+        ]); */
     }
 
     public function logout()
     {
+        /*
+        Auth::guard('api')->logout();
+        $success = true;
+        return compact('success');
+        */
+
         Auth::logout();
         return response()->json([
             'status' => 'success',
@@ -104,5 +112,10 @@ class AuthController extends Controller
                 'type' => 'bearer',
             ]
         ]);
+    }
+
+    public function user()
+    {
+        return 'PRIVADO';
     }
 }

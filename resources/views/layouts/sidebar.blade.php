@@ -45,7 +45,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/dashboards/smart-home.html">
+                            <a class="nav-link " href="{{route('domicilios.create')}}">
                                 <span class="sidenav-mini-icon"> S </span>
                                 <span class="sidenav-normal"> Crear domicilio </span>
                             </a>

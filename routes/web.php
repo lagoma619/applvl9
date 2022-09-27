@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
         /* return view('layouts.app');*/
     });
 
-
+    Route::resource('domicilios','App\Http\Controllers\Domicilio\DomicilioController');
     Route::resource('users','App\Http\Controllers\User\UserController');
     Route::resource('clients','App\Http\Controllers\Client\ClienteController');
 /*

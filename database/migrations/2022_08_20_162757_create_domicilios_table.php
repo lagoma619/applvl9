@@ -23,9 +23,9 @@ class CreateDomiciliosTable extends Migration
             $table->string('fecha_inicio', 30)->nullable();
             $table->string('fecha_fin', 30)->nullable();
             $table->string('notas', 30)->nullable();
-            $table->tinyInteger('entrega_efectivo')->nullable();
+            $table->tinyInteger('efectivo_entrega')->nullable();
             $table->string('id_cliente', 30)->nullable()->index('IX_Relationship5');
-            $table->string('cod_tipo_vehiculo', 30)->nullable()->index('IX_Relationship2');
+            $table->string('id_tipo_vehiculo', 30)->nullable()->index('IX_Relationship2');
             $table->string('id_tipo_servicio', 30)->nullable()->index('IX_Relationship3');
             $table->timestamps( );
         });
