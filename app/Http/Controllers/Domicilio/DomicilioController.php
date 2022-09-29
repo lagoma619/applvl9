@@ -16,8 +16,9 @@ class DomicilioController extends Controller
     public function index()
     {
         $domicilios = Domicilio::orderBy('domicilios.id','asc')->get()->all();
-        //dd($clientes);
-        return view('domicilios.index', compact('domicilios'));
+        return $domicilios;
+        //dd($domicilios);
+        //return view('domicilios.index', compact('domicilios'));
     }
 
     /**
