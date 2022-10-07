@@ -13,11 +13,11 @@ class Cliente extends Model
     protected $fillable = [
         'nombre',
         'nombre_comercial',
-        'tipo_documento',
+        'id_tipo_documento',
         'numero_documento',
         'telefono',
         'inicio_contrato',
-        'correo_electronico',
+        'email',
         'direccion',
         'ciudad',
         'contacto',
@@ -25,9 +25,11 @@ class Cliente extends Model
         'horario_inicio',
         'horario_fin',
         'pagina_web',
-        'numero_telefono',
         'notas',
-        'estado',
+        'id_estado',
         ];
 
+    public function sedes(){
+        return $this->hasMany(CliSede::class);
+    }
 }

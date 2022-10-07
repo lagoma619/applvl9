@@ -13,15 +13,15 @@ class CreateAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('areas', function (Blueprint $table) {
+        Schema::create('cli_areas', function (Blueprint $table) {
             $table->string('id', 30)->primary();
-            $table->string('nombre', 30)->nullable();
+            $table->string('nombres', 30)->nullable();
             $table->string('ubicacion', 30)->nullable();
             $table->string('numero_telefono', 30)->nullable();
             $table->string('nombre_contacto', 30)->nullable();
             $table->string('origen_destino_recurrente', 30)->nullable();
             $table->string('estado', 30)->nullable();
-            $table->string('cod_sede', 30)->nullable()->index('IX_Relationship2');
+            $table->string('id_sede', 30)->nullable()->index('IX_Relationship2');
             $table->timestamps( );
         });
     }
@@ -33,6 +33,6 @@ class CreateAreasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas');
+        Schema::dropIfExists('cli_areas');
     }
 }

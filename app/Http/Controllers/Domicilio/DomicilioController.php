@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
+use App\Models\CliArea;
+use App\Models\Cliente;
+use App\Models\CliSede;
 use App\Models\Domicilio;
+use App\Models\User;
+use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
 class DomicilioController extends Controller
@@ -28,7 +33,16 @@ class DomicilioController extends Controller
      */
     public function create()
     {
-        return view('domicilios.create');
+        $usuarios = User::orderBy('personas.nombres','asc')->join('personas','personas.id','=', 'users.id_personas')
+            ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
+            ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
+            ->get()->all();
+        $clientes = Cliente::all();
+        $sedes = CliSede::all();
+        $areas = CliArea::all();
+        //dd($origen_destinos);
+        $tipovehiculos = Vehiculo::all();
+        return view('domicilios.create')->with(compact('usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas'));
     }
 
     /**

@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Cliente;
 use App\Models\TipoDocumento;
+use App\Models\TiposUsuario;
+use App\Models\User;
 use App\Models\UsuarioEstado;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class ClienteController extends Controller
@@ -19,10 +23,10 @@ class ClienteController extends Controller
     private function performValidation($request){
 
         $rules = [
-            'nombres'=> 'required|min:3',
+            'nombre'=> 'min:3',
             'email'=> 'required|email',
-            'direccion'=> 'nullable|min:5',
-            'numero_documento'=> 'between:6,10',
+            'direccion'=> 'min:5',
+            'numero_documento'=> 'between:6,15',
             'phone'=> 'min:8'
         ];
         $messages = [
@@ -60,6 +64,9 @@ class ClienteController extends Controller
             return redirect('/clients/create')->with(compact('notification',$request));
         }else{
             DB::transaction(function () use ($request){
+                //$request['id_tipo_documento']= (int)$request['id_tipo_documento'];
+                //$request['id_estado']= (int)$request['id_estado'];
+                //dd($request);
                 $cliente = Cliente::create($request->all());
                 //$user = User::create($request->only('numero_documento','id_tipos_usuario','id_usuestado','nota')+['id_personas'=> $persona->id]+['password' => bcrypt($request->input('password'))]);
             });
@@ -82,52 +89,43 @@ class ClienteController extends Controller
     public function edit($id){
 
         //$usuario = User::personas()->findOrFail($id);
-        $usuario = User::join('personas','personas.id','=', 'users.id_personas')
-            ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
-            ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
-            ->get()->find($id);
-        //$usuario = User::join('personas','personas.id','=', 'users.id_personas')->where('users.userid','=', $id)->get()->all();
-        //dd($usuario);
-        //$usuario = User::all()->where('users.userid','=', $id);
+        $cliente = Cliente::all()->find($id);
+        //dd($cliente);
         $tiposdocumentos = TipoDocumento::all();
         $usuarioestados = UsuarioEstado::all();
-        $tiposusuarios = TiposUsuario::all();
-        //return view('doctors.edit')->with(compact('doctor', 'specialties','specialty_ids'));
-        //dd($specialty_ids->all());
-        return view('users.edit')->with(compact('usuario','tiposusuarios','usuarioestados','tiposdocumentos'));
+
+        return view('clients.edit')->with(compact('cliente','tiposdocumentos','usuarioestados'));
 
     }
 
     public function update(Request $request, $id){
 
-        //$user = User::personas()->find($id);
-        $user = User::find($id);
-        $persona = Persona::find($user['id_personas']);
 
-        $password = $request->input('password');
-        if($password) $user['password'] = bcrypt($password);
+        $cliente = Cliente::find($id);
 
-        $user['numero_documento']= request('numero_documento');
-        $user['id_tipos_usuario']=request('id_tipos_usuario');
-        $user['id_usuestado']=request('id_usuestado');
-        $persona['id_tipo_documento']=request('id_tipo_documento');
-        $persona['nombres'] = request('nombres');
-        $persona['apellidos']= request('apellidos');
-        $persona['email']=request('email');
-        $persona['cel_personal']=request('cel_personal');
-        $persona['cel_corporativo']=request('cel_corporativo');
-        $persona['direccion']=request('direccion');
-        $persona['sexo']=request('sexo');
-        $persona['fecha_nacimiento']=request('fecha_nacimiento');
-        $persona['ciudad']=request('ciudad');
-        $persona['notapersona']=request('notapersona');
-        //dd($user,$persona);
-        $user->save();
-        $persona->save();
+        $cliente['nombre']= request('nombre');
+        $cliente['nombre_comercial']=request('nombre_comercial');
+        $cliente['id_tipo_documento']=request('id_tipo_documento');
+        $cliente['numero_documento'] = request('numero_documento');
+        $cliente['telefono']= request('telefono');
+        $cliente['inicio_contrato']=request('inicio_contrato');
+        $cliente['email']=request('email');
+        $cliente['direccion']=request('direccion');
+        $cliente['ciudad']=request('ciudad');
+        $cliente['contacto']=request('contacto');
+        $cliente['telefono_contacto']=request('telefono_contacto');
+        $cliente['horario_inicio']=request('horario_inicio');
+        $cliente['horario_fin']=request('horario_fin');
+        $cliente['pagina_web']=request('pagina_web');
+        $cliente['notas']=request('notas');
+        $cliente['id_estado']=request('id_estado');
+        //dd($cliente);
+        $cliente->save();
 
 
-        $notification = 'La información del usuario se ha actualizado correctamente.';
-        return redirect('/users')->with(compact('notification'));
+
+        $notification = 'La información del cliente se ha actualizado correctamente.';
+        return redirect('/clients')->with(compact('notification'));
 
     }
 }

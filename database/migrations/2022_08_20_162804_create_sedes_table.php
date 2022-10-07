@@ -13,15 +13,15 @@ class CreateSedesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sedes', function (Blueprint $table) {
+        Schema::create('cli_sedes', function (Blueprint $table) {
             $table->string('id', 30)->primary();
-            $table->string('nombres', 30)->nullable();
+            $table->string('nombre', 30)->nullable();
             $table->string('direccion', 30)->nullable();
-            $table->string('numero_telefono', 30)->nullable();
+            $table->string('telefono_contacto', 30)->nullable();
             $table->string('nombre_contacto', 30)->nullable();
             $table->string('origen_destino_recurrente', 30)->nullable();
-            $table->string('estado', 30)->nullable();
-            $table->string('cod_cliente', 30)->nullable()->index('IX_Relationship1');
+            $table->string('id_estado', 30)->nullable();
+            $table->string('id_cliente', 30)->nullable()->index('IX_Relationship1');
             $table->timestamps( );
         });
     }
@@ -33,6 +33,6 @@ class CreateSedesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sedes');
+        Schema::dropIfExists('cli_sedes');
     }
 }

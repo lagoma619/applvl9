@@ -66,13 +66,22 @@
                             <div class="col-6">
                                 <label class="form-label">QUIÉN SOLICITA?</label>
                                 <div class="input-group">
-                                    <input id="nombres" name="nombres" class="form-control" type="text" placeholder="CARLOS ANTONIO" required="required" value="{{old('nombres')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <select class="form-control" name="id_userid" id="id_userid">
+                                        @foreach($usuarios as $usuario)
+                                            <option value="{{$usuario->userid}}" @selected(old('', $usuario->userid) == auth()->id())> {{$usuario->nombres.' '.$usuario->apellidos}} </option>
+                                        @endforeach
+                                    </select>
+                                    <!-- <input id="ususolicita" name="ususolicita" disabled class="form-control" type="text" required="required" value="{{old('',$usuario->nombres.' '.$usuario->apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/> -->
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label">TIPO VEHÍCULO</label>
                                 <div class="input-group">
-                                    <input id="apellidos" name="apellidos" class="form-control" type="text" placeholder="GALLEGO FERMÍN" required="required" value="{{old('apellidos')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <select class="form-control" name="id_tipovehiculo" id="id_tipovehiculo">
+                                        @foreach($tipovehiculos as $tipovehiculo)
+                                            <option value="{{$tipovehiculo->id}}">{{$tipovehiculo->nombre}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -80,8 +89,13 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">ORIGEN</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_tipo_documento" id="id_tipo_documento">
+                                    <select class="form-control" name="origen" id="origen">
+                                        @foreach($clientes as $cliente)
+                                            @foreach($sedes as $sede)
+                                                <option value="{{$sede}}">{{$sede}} </option>
+                                            @endforeach
 
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

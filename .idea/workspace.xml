@@ -5,13 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6a07b6a-8742-4512-abd3-838e45b245e8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Models/CliSede.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/JwtMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/JwtMiddleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162757_create_domicilios_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_08_20_162757_create_domicilios_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/ClienteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sede/SedeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sede/SedeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Sede.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162752_create_areas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_08_20_162752_create_areas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162804_create_sedes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_08_20_162804_create_sedes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clients/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clients/sedenew.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +174,7 @@
     </include_path>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2BJmiuOOqMhW4nfuGhn0H3xCUWu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -173,37 +184,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/applvl9/resources/views/clients&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;sql.rename.search.for.storage.occurrences&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.laravel-idea.search-composer-json": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "last_opened_file_path": "C:/xampp/htdocs/applvl9/resources/views/sedes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "sql.rename.search.for.storage.occurrences": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\applvl9\resources\views\sedes" />
+      <recent name="C:\xampp\htdocs\applvl9\resources\views" />
       <recent name="C:\xampp\htdocs\applvl9\resources\views\clients" />
       <recent name="$PROJECT_DIR$/resources/views/client" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\js" />
-      <recent name="C:\xampp\htdocs\applvl9\public\assets\vendor" />
-      <recent name="C:\xampp\htdocs\applvl9\public\assets\fontawesome\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\applvl9\argon2" />
@@ -295,6 +306,9 @@
       <workItem from="1663585432726" duration="4259000" />
       <workItem from="1663591486344" duration="4200000" />
       <workItem from="1663870092659" duration="20640000" />
+      <workItem from="1664377978362" duration="6459000" />
+      <workItem from="1664913046647" duration="15898000" />
+      <workItem from="1665152397658" duration="20600000" />
     </task>
     <servers />
   </component>
@@ -318,6 +332,11 @@
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Auth/LogoutController.php</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php</url>
+          <line>98</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

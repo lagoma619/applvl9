@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','CREAR CLIENTE')
+@section('title','EDITAR CLIENTE')
 @section('scripts')
 
     <script src=
@@ -39,10 +39,10 @@
 
 
 
-            // Below code sets format to the
-            // datetimepicker having id as
-            // datetime
-            $('#datetime').datetime({
+        // Below code sets format to the
+        // datetimepicker having id as
+        // datetime
+        $('#datetime').datetime({
             format: 'hh:mm:ss a'
         });
     </script>
@@ -72,11 +72,12 @@
             @endif
 
             <div class="col" >
-                <a href="{{url('/clients/')}}" class="btn btn-sm btn-success">CANCELAR</a>
+                <a href="{{route('clients.index')}}" class="btn btn-sm btn-success">CANCELAR</a>
             </div>
             <!-- Card Basic Info -->
-            <form action="{{url('clients')}}" method="POST">
+            <form action="{{route('clients.update',$cliente->id)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="card mt-4" id="basic-info">
                     <div class="card-body">
                         <div class="card-header">
@@ -96,13 +97,13 @@
                             <div class="col-6">
                                 <label class="form-label">NOMBRE</label>
                                 <div class="input-group">
-                                    <input id="nombre" name="nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="nombre" name="nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required"  value="{{old('nombre',$cliente->nombre)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label">NOMBRE COMERCIAL</label>
                                 <div class="input-group">
-                                    <input id="nombre_comercial" name="nombre_comercial" class="form-control" type="text" placeholder="CLINICA ESENSA" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="nombre_comercial" name="nombre_comercial" class="form-control" type="text" placeholder="CLINICA ESENSA" required="required" value="{{old('nombre_comercial',$cliente->nombre_comercial)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +113,7 @@
                                 <div class="input-group">
                                     <select class="form-control" id="id_tipo_documento" name="id_tipo_documento">
                                         @foreach($tiposdocumentos as $tipodocumento)
-                                            <option value="{{$tipodocumento->id}}">{{$tipodocumento->tipodocumento_nombre}}</option>
+                                            <option value="{{$tipodocumento->id}}" @selected(old('id_tipo_documento', $tipodocumento->id) == $cliente->id_tipo_documento) >{{$tipodocumento->tipodocumento_nombre}}</option>
                                         @endforeach
                                     </select>
 
@@ -121,7 +122,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">NÚMERO DOCUMENTO</label>
                                 <div class="input-group">
-                                    <input id="numero_documento" name="numero_documento" class="form-control" type="text" placeholder="901402789-9"/>
+                                    <input id="numero_documento" name="numero_documento" class="form-control" type="text" placeholder="901402789-9" value="{{old('numero_documento',$cliente->numero_documento)}}"/>
                                 </div>
                             </div>
                         </div>
@@ -129,14 +130,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DIRECCIÓN</label>
                                 <div class="input-group">
-                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CARRERA 44 #9C-58" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CARRERA 44 #9C-58" value="{{old('direccion',$cliente->direccion)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">CIUDAD</label>
                                 <div class="input-group">
-                                    <input id="ciudad" name="ciudad" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="ciudad" name="ciudad" class="form-control" type="text" placeholder="CALI" value="{{old('ciudad',$cliente->ciudad)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
@@ -145,13 +146,13 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO</label>
                                 <div class="input-group">
-                                    <input id="telefono" name="telefono" class="form-control" type="text" placeholder="6023808010"/>
+                                    <input id="telefono" name="telefono" class="form-control" type="text" placeholder="6023808010" value="{{old('telefono',$cliente->telefono)}}" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                                 <div class="input-group">
-                                    <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" />
+                                    <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" value="{{old('email',$cliente->email)}}"/>
                                 </div>
                             </div>
 
@@ -161,14 +162,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">PERSONA CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="contacto" name="contacto" class="form-control" type="text" placeholder="CAMILA CABELLO" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="contacto" name="contacto" class="form-control" type="text" placeholder="CAMILA CABELLO" value="{{old('contacto',$cliente->contacto)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="telefono_contacto" name="telefono_contacto" class="form-control" type="number" placeholder="3117895623"/>
+                                    <input id="telefono_contacto" name="telefono_contacto" class="form-control" type="number" placeholder="3117895623" value="{{old('telefono_contacto',$cliente->telefono_contacto)}}"/>
                                 </div>
                             </div>
                         </div>
@@ -185,15 +186,15 @@
                             <div class="col-6">
                                 <div class="row">
                                     <div class="col">
-                                    <label class="form-label mt-4">HORA INICIO</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="time" name="horario_inicio" id="horario_inicio" value="" />
-                                    </div>
+                                        <label class="form-label mt-4">HORA INICIO</label>
+                                        <div class="input-group">
+                                            <input class="form-control" type="time" name="horario_inicio" id="horario_inicio" value="{{old('horario_inicio',$cliente->horario_inicio)}}" />
+                                        </div>
                                     </div>
                                     <div class="col">
                                         <label class="form-label mt-4">HORA FINAL</label>
                                         <div class="input-group">
-                                            <input class="form-control" type="time" name="horario_fin" id="horario_fin" value="" />
+                                            <input class="form-control" type="time" name="horario_fin" id="horario_fin" value="{{old('horario_fin',$cliente->horario_fin)}}" />
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +202,7 @@
                             <div class="col-md-6">
                                 <label class="form-label mt-4">INICIO DE CONTRATO</label>
                                 <div class="input-group">
-                                    <input class="form-control datepicker" type="text"  name="inicio_contrato" placeholder="2018-04-16" />
+                                    <input class="form-control datepicker" type="text"  name="inicio_contrato" placeholder="2018-04-16" value="{{old('inicio_contrato',$cliente->inicio_contrato)}}"/>
                                 </div>
                             </div>
                         </div>
@@ -209,27 +210,27 @@
 
                             <div class="col-md-6">
                                 <label class="form-label mt-4">SITIO WEB</label>
-                                <input id="pagina_web" name="pagina_web" class="form-control" type="text" placeholder="www.clinicaesensa.com" onkeyup="this.value = this.value.toUpperCase();">
+                                <input id="pagina_web" name="pagina_web" class="form-control" type="text" placeholder="www.clinicaesensa.com" onkeyup="this.value = this.value.toUpperCase();" value="{{old('pagina_web',$cliente->pagina_web)}}">
                             </div>
 
-                        <div class="col-md-6">
-                            <label class="form-label mt-4">ESTADO CLIENTE</label>
-                            <div class="input-group">
-                                <select class="form-control" name="id_estado" id="id_estado">
-                                    @foreach($usuarioestados as $usuarioestado)
-                                        <option value="{{$usuarioestado->id}}" @if($usuarioestado->id==3 or $usuarioestado->id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label mt-4">ESTADO CLIENTE</label>
+                                <div class="input-group">
+                                    <select class="form-control" name="id_estado" id="id_estado">
+                                        @foreach($usuarioestados as $usuarioestado)
+                                            <option value="{{$usuarioestado->id}}" @selected(old('id_estado', $usuarioestado->id) == $cliente->id_estado) @if($usuarioestado->id==3 or $usuarioestado->id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                        </div>
+                            </div>
                         </div>
                         <div class="row">
 
                             <label class="form-label mt-4">NOTAS</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" id="notas" name="notas" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL CLIENTE"></textarea>
+                                    <textarea class="form-control-plaintext" id="notas" name="notas" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL CLIENTE">{{old('notas',$cliente->notas)}}</textarea>
                                 </div>
                             </div>
                         </div>

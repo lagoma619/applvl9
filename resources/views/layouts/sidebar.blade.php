@@ -102,13 +102,13 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/applications/wizard.html">
+                            <a class="nav-link " href="{{route('sedes.index')}}">
                                 <span class="sidenav-mini-icon"> W </span>
                                 <span class="sidenav-normal"> Sedes </span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/applications/datatables.html">
+                            <a class="nav-link " href="{{route('areas.index')}}">
                                 <span class="sidenav-mini-icon"> D </span>
                                 <span class="sidenav-normal"> Áreas </span>
                             </a>
