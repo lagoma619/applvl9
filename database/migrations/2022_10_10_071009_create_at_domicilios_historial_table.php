@@ -20,7 +20,7 @@ class CreateAtDomiciliosHistorialTable extends Migration
             $table->bigInteger('fecha_ubicacion')->nullable();
             $table->string('cod_domicilio', 30)->nullable()->index('IX_Relationship5');
             $table->string('cod_cliente', 30)->nullable()->index('IX_Relationship6');
-            $table->timestamps( );
+            $table->timestamps();
         });
     }
 

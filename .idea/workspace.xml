@@ -6,11 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="a6a07b6a-8742-4512-abd3-838e45b245e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sede/SedeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sede/SedeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CliArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CliArea.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Area/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Area/AreaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/CliSede.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CliSede.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162752_create_areas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_08_20_162752_create_areas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Domicilio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Domicilio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162752_create_areas_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162753_create_at_cuentas_mensajero_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162754_create_at_domicilios_historial_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162755_create_clientes_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162756_create_cuentas_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162757_create_domicilios_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162758_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162759_create_mensajeros_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162800_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162802_create_personas_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162803_create_recurrentes_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162804_create_sedes_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162805_create_tipos_servicio_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162806_create_tipos_usuario_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162807_create_tipos_vehiculo_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_20_162808_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_21_080356_create_usuario_estados_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_08_22_050217_create_tipo_documentos_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/areas/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/areas/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/areas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/areas/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sedes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sedes/create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,11 +238,11 @@
       <recent name="C:\xampp\htdocs\applvl9\public\assets\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\applvl9\database\migrations" />
       <recent name="C:\xampp\htdocs\applvl9\argon2" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets\css" />
       <recent name="C:\xampp\htdocs\applvl9\resources\views\client" />
       <recent name="C:\xampp\htdocs\applvl9\public\assets" />
-      <recent name="C:\xampp\htdocs\applvl9\public\assets\vendor\bootstrap" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Script.index.php">
@@ -310,7 +331,7 @@
       <workItem from="1664913046647" duration="15898000" />
       <workItem from="1665152397658" duration="21514000" />
       <workItem from="1665252159169" duration="633000" />
-      <workItem from="1665289273756" duration="25120000" />
+      <workItem from="1665289273756" duration="48331000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','SEDES')
+@section('title','ÁREAS')
 @section('scripts')
     <!-- SELECTOR DE FECHA -->
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
@@ -75,9 +75,11 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-sm text-secondary mb-0">@foreach($sedes as $sede)
-                                                        {{$sede->$area[1]->nombre}}
-                                                    @endforeach</p>
+                                                <p class="text-sm text-secondary mb-0">
+                                                    @foreach($sedes as $sede)
+                                                        {{$sede->nombre}}
+                                                    @endforeach
+                                                </p>
                                             </td>
                                             <td>
                                       <span class="badge badge-dot me-4">

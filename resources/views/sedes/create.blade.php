@@ -120,7 +120,7 @@
 
                             <div class="col-md-6">
                                 <label class="form-label mt-4">ESTADO SEDE</label>
-                                <select class="form-control" name="estado" id="estado">
+                                <select class="form-control" name="id_estado" id="id_estado">
                                     <option value="1">ACTIVO</option>
                                     <option value="2">INACTIVO</option>
 

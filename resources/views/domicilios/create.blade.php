@@ -90,19 +90,17 @@
                                 <label class="form-label mt-4">ORIGEN</label>
                                 <div class="input-group">
                                     <select class="form-control" name="origen" id="origen">
-                                        @foreach($clientes as $cliente)
-                                            @foreach($sedes as $sede)
-                                                <option value="{{$sede}}">{{$sede}} </option>
+                                        <option value="">SELECCIONE UN ORIGEN...</option>
+                                            @foreach($areas as $area)
+                                                <option value="{{$area->id}}">{{$area->nombre}} </option>
                                             @endforeach
-
-                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">OTRO ORIGEN</label>
                                 <div class="input-group">
-                                    <input id="numero_documento" name="numero_documento" class="form-control" type="text" required="required" value="{{old('numero_documento')}}" placeholder="1130897654" />
+                                    <input id="otro_origen" name="otro_origen" class="form-control" type="text" value="{{old('numero_documento')}}" placeholder="Escriba un origen en caso de no encontrarlo en la lista." onkeyup="this.value = this.value.toUpperCase();" />
                                 </div>
                             </div>
                         </div>
@@ -111,14 +109,19 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DESTINO</label>
                                 <div class="input-group">
-                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CALLE 3 OESTE #23-45" value="{{old('direccion')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <select class="form-control" name="destino" id="detino">
+                                        <option value="">SELECCIONE UN DESTINO...</option>
+                                        @foreach($areas as $area)
+                                            <option value="{{$area->id}}">{{$area->nombre}} </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="row">
                                     <label class="form-label mt-4">OTRO DESTINO</label>
                                     <div class="input-group">
-                                        <input id="email" name="email" class="form-control" type="email" required="required" placeholder="example@email.com" value="{{old('email')}}" />
+                                        <input id="otro_destino" name="otro_destino" class="form-control" type="text" placeholder="Escriba un destino en caso de no encontrarlo en la lista." value="{{old('otro_destino')}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                     </div>
 
                                 </div>
@@ -130,13 +133,21 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DE SERVICIO</label>
                                 <div class="input-group">
-                                    <input id="cel_personal" name="cel_personal" class="form-control" type="text" required="required" placeholder="3158963569" value="{{old('cel_personal')}}"/>
+                                    <select class="form-control" name="id_tipo_servicio" id="id_tipo_servicio">
+                                    @foreach($tiposervicios as $tiposervicio)
+                                        <option value="{{$tiposervicio->id}}">{{$tiposervicio->nombre}}</option>
+                                    @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DE VEHÍCULO</label>
                                 <div class="input-group">
-                                    <input id="cel_corporativo" name="cel_corporativo" class="form-control" type="text" placeholder="3117895623" value="{{old('cel_corporativo')}}"/>
+                                    <select class="form-control" name="id_tipo_vehiculo" id="id_tipo_vehiculo">
+                                        @foreach($tipovehiculos as $tipovehiculo)
+                                            <option value="{{$tipovehiculo->id}}">{{$tipovehiculo->nombre}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -145,18 +156,15 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">FECHA DE ENTREGA</label>
                                 <div class="input-group">
-                                    <input class="form-control datepicker" id="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off" placeholder="1979-04-16" value="{{old('fecha_nacimiento')}}" />
+                                    <input class="form-control datepicker" id="fecha_entrega_solicita" name="fecha_entrega_solicita" autocomplete="off" placeholder="1979-04-16" value="{{old('fecha_nacimiento')}}" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">HORA DE ENTREGA</label>
-                                <select class="form-control" id="sexo" name="sexo">
-                                    <option value="MASCULINO">MASCULINO</option>
-                                    <option value="FEMENINO">FEMENINO</option>
-                                </select>
+                                <input class="form-control" type="time" id="hora_entrega_solicita" name="hora_entrega_solicita" autocomplete="off" value="{{old('fecha_nacimiento')}}" />
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" hidden>
                             <div class="col-md-6">
                                 <label class="form-label mt-4">TRANSPORTE DE DINERO?</label>
                                 <div class="input-group">
@@ -169,7 +177,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CUÁNTO?</label>
                                 <div class="input-group">
-                                    <input id="location" name="ciudad" class="form-control" type="text" required="required" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="location" name="ciudad" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
@@ -180,12 +188,12 @@
                             <label class="form-label mt-4">DESCRIPCIÓN DEL DOMICILIO:</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" id="notapersona" name="notapersona" type="text" placeholder="DESCRIBA BREVEMENTE EL DETALLE DEL SERVICIO REQUERIDO"></textarea>
+                                    <textarea class="form-control-plaintext" id="descripcion" name="descripcion" type="text" placeholder="DESCRIBA BREVEMENTE EL DETALLE DEL SERVICIO REQUERIDO"></textarea>
                                 </div>
                             </div>
 
                             <div class="d-flex justify-content-center mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg w-50">GUARDAR</button>
+                                <button type="submit" class="btn btn-primary btn-lg w-50">SOLICITAR DOMICILIO</button>
                             </div>
                         </div>
                     </div>

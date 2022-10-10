@@ -71,6 +71,7 @@
             <!-- Card Basic Info -->
             <form action="{{route('areas.update',$area->id)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="card mt-4" id="basic-info">
                     <div class="card-body">
                         <div class="card-header">

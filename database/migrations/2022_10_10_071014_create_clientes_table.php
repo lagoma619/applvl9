@@ -14,10 +14,10 @@ class CreateClientesTable extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->string('id', 30)->primary();
+            $table->integer('id')->primary();
             $table->string('nombre', 30)->nullable();
             $table->string('nombre_comercial', 30)->nullable();
-            $table->string('id_tipo_documento', 30)->nullable();
+            $table->integer('id_tipo_documento')->nullable();
             $table->string('numero_documento', 30)->nullable();
             $table->string('telefono', 12)->nullable();
             $table->date('inicio_contrato')->nullable();
@@ -28,11 +28,13 @@ class CreateClientesTable extends Migration
             $table->string('telefono_contacto', 12)->nullable();
             $table->time('horario_inicio')->nullable();
             $table->time('horario_fin')->nullable();
-            $table->timestamps( );
+            $table->timestamps();
             $table->string('pagina_web', 30)->nullable();
-            $table->string('numero_telefono', 30)->nullable();
-            $table->string('notas', 30)->nullable();
-            $table->string('id_estado', 30)->nullable();
+            $table->string('notas', 500)->nullable();
+            $table->integer('id_estado')->nullable();
+            
+            $table->foreign('id_tipo_documento', 'fk_idtiposdocumento')->references('id')->on('tipos_documento');
+            $table->foreign('id_estado', 'fk_idusuestado')->references('id')->on('usuario_estados');
         });
     }
 

@@ -21,15 +21,13 @@ class AreaController extends Controller
     {
         //
         //$areas = CliArea::all();
-        $areas = CliArea::with('cli_sedes:id,nombre');
-        $sedes = CliArea::orderBy('cli_areas.nombre','asc')->join('cli_sedes','cli_sedes.id','id_sede')->get()->all();
-        $clientes = CliArea::orderBy('cli_areas.nombre','asc')->join('clientes','clientes.id','id_cliente')->get()->all();
-        //$sedes = DB::table('cli_sedes')->select('id','nombre')->get()->toArray();
+        $areas = CliArea::all();
+        //$sedes = CliSede::whereHas('areas', function ($query){$query->where('id_sede',1);  });
+        $sedes = CliSede::all('nombre');
 
-        //$sedes = CliSede::orderBy('cli_sedes.nombre','asc')->get()->all();
-        //$clientes = Cliente::orderBy('clientes.nombre_comercial','asc')->get()->all();
-        //$clientes = DB::table('clientes')->select('id','nombre_comercial')->get()->toArray();
-        //dd($areas);
+        $clientes = CliArea::orderBy('cli_areas.nombre','asc')->join('clientes','clientes.id','id_cliente')->get()->all();
+
+        //dd($sedes);
         return view('areas.index', compact('areas','sedes'));
     }
 
@@ -94,7 +92,8 @@ class AreaController extends Controller
     public function edit($id){
         $area = CliArea::all()->find($id);
         $clientes = Cliente::all();
-        //$sedes = CliSede::where('id_cliente'.'=',0);
+        //$sedes = CliSede::has('areas')->get();
+        //$sedes = CliSede::where('id_cliente'.'=',);
         $sedes = CliSede::all();
         $usuarioestados = UsuarioEstado::all();
         return view('areas.edit',compact('clientes','sedes','usuarioestados','area'));
@@ -105,11 +104,24 @@ class AreaController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, $id)
     {
         //
+        $area = CliArea::find($id);
+
+        $area['nombre']= request('nombre');
+        $area['nombre_contacto']=request('nombre_contacto');
+        $area['telefono_contacto']=request('telefono_contacto');
+        $area['id_cliente']=request('id_cliente');
+        $area['id_sede']=request('id_sede');
+        $area['estado']=request('estado');
+        //dd($sede);
+        $area->save();
+
+        $notification = 'La información del área se ha actualizado correctamente.';
+        return redirect('/areas')->with(compact('notification'));
     }
 
     /**

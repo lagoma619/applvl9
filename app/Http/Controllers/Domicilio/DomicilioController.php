@@ -7,9 +7,11 @@ use App\Models\CliArea;
 use App\Models\Cliente;
 use App\Models\CliSede;
 use App\Models\Domicilio;
+use App\Models\TipoServicio;
 use App\Models\User;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DomicilioController extends Controller
 {
@@ -42,7 +44,9 @@ class DomicilioController extends Controller
         $areas = CliArea::all();
         //dd($origen_destinos);
         $tipovehiculos = Vehiculo::all();
-        return view('domicilios.create')->with(compact('usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas'));
+        $tiposervicios = TipoServicio::all();
+
+        return view('domicilios.create')->with(compact('usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios'));
     }
 
     /**
@@ -54,6 +58,11 @@ class DomicilioController extends Controller
     public function store(Request $request)
     {
         //
+        DB::transaction(function () use ($request){
+            $domicilio = Domicilio::create($request->all());
+        });
+        $notification = 'El domicilio se ha creado correctamente.';
+        return redirect('/clients')->with(compact('notification'));
     }
 
     /**

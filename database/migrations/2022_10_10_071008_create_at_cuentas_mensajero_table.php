@@ -19,7 +19,7 @@ class CreateAtCuentasMensajeroTable extends Migration
             $table->string('cod_mensajero', 30)->nullable()->index('in_cuentas_mensajero_cod_mensajero');
             $table->string('hora_inicio', 30)->nullable();
             $table->string('hora_salida', 30)->nullable();
-            $table->timestamps( );
+            $table->timestamps();
         });
     }
 

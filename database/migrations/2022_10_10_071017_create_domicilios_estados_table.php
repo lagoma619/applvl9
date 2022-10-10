@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateDomiciliosEstadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_documentos', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipodocumento_cod',3);
-            $table->string('tipodocumento_nombre',55);
-            $table->timestamps();
+        Schema::create('domicilios_estados', function (Blueprint $table) {
+            $table->integer('id')->primary()->unique();
+            $table->string('estado_domicilio', 30)->nullable();
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_documentos');
+        Schema::dropIfExists('domicilios_estados');
     }
-};
+}

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAreasTable extends Migration
+class CreateCliAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,15 @@ class CreateAreasTable extends Migration
     public function up()
     {
         Schema::create('cli_areas', function (Blueprint $table) {
-            $table->string('id', 30)->primary();
-            $table->string('nombre', 30)->nullable();
+            $table->integer('id')->primary();
+            $table->string('nombre', 300)->nullable();
             $table->string('id_cliente', 30)->nullable();
             $table->string('telefono_contacto', 30)->nullable();
-            $table->string('nombre_contacto', 30)->nullable();
-            $table->string('origen_destino_recurrente', 30)->nullable();
-            $table->string('estado', 30)->nullable();
+            $table->string('nombre_contacto', 300)->nullable();
+            $table->string('origen_destino_recurrente', 300)->nullable();
+            $table->tinyInteger('estado')->nullable();
             $table->string('id_sede', 30)->nullable()->index('IX_Relationship2');
-            $table->timestamps( );
+            $table->timestamps();
         });
     }
 

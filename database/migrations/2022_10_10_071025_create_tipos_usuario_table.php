@@ -17,7 +17,7 @@ class CreateTiposUsuarioTable extends Migration
             $table->integer('id')->primary();
             $table->string('tipousu_nombre', 30)->nullable();
             $table->string('tipousu_descripcion', 30)->nullable();
-            $table->timestamps( );
+            $table->timestamps();
         });
     }
 

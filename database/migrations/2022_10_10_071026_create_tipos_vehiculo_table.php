@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMensajerosTable extends Migration
+class CreateTiposVehiculoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateMensajerosTable extends Migration
      */
     public function up()
     {
-        Schema::create('mensajeros', function (Blueprint $table) {
-            $table->string('id', 30)->primary();
-            $table->timestamps( );
+        Schema::create('tipos_vehiculo', function (Blueprint $table) {
+            $table->integer('id')->primary();
+            $table->string('nombre', 30)->nullable();
+            $table->string('descripcion', 30)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -26,6 +28,6 @@ class CreateMensajerosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mensajeros');
+        Schema::dropIfExists('tipos_vehiculo');
     }
 }

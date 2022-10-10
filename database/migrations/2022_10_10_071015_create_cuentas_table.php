@@ -20,7 +20,7 @@ class CreateCuentasTable extends Migration
             $table->string('nota', 30)->nullable();
             $table->string('cod_persona', 30)->nullable()->index('in_cuentas_cod_persona');
             $table->string('cod_tipos_cuenta', 30)->nullable()->index('in_cuentas_cod_tipos_cuenta');
-            $table->timestamps( );
+            $table->timestamps();
             $table->string('cod_cliente', 30)->nullable()->index('re_cliente_cuenta_idx');
         });
     }

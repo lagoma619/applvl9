@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CliSede extends Model
 {
@@ -20,11 +22,12 @@ class CliSede extends Model
         'notas',
     ];
 
-    public function cliente(){
+    public function cliente():BelongsTo {
         return $this->belongsTo(Cliente::class);
     }
 
-    public function areas(){
-        return $this->hasMany(CliArea::class,'id_sede','id');
+    public function areas()
+    {
+        return $this->hasMany(CliArea::class);
     }
 }
