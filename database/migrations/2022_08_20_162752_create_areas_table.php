@@ -15,9 +15,9 @@ class CreateAreasTable extends Migration
     {
         Schema::create('cli_areas', function (Blueprint $table) {
             $table->string('id', 30)->primary();
-            $table->string('nombres', 30)->nullable();
-            $table->string('ubicacion', 30)->nullable();
-            $table->string('numero_telefono', 30)->nullable();
+            $table->string('nombre', 30)->nullable();
+            $table->string('id_cliente', 30)->nullable();
+            $table->string('telefono_contacto', 30)->nullable();
             $table->string('nombre_contacto', 30)->nullable();
             $table->string('origen_destino_recurrente', 30)->nullable();
             $table->string('estado', 30)->nullable();

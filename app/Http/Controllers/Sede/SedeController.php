@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
 class SedeController extends Controller
 {
     //
+    public function selsede($id){
+        return CliSede::where('id_cliente', $id)->get();
+    }
 
     public function _construct()
     {
@@ -68,8 +71,6 @@ class SedeController extends Controller
             $notification = 'La sede se ha registrado correctamente.';
             return redirect('/sedes')->with(compact('notification'));
         }
-
-
 //dd($request);
     }
 
@@ -80,22 +81,19 @@ class SedeController extends Controller
 
     }
     public function show($id){
-
     }
+
     public function edit($id){
-//$usuario = User::personas()->findOrFail($id);
+        //$usuario = User::personas()->findOrFail($id);
         $sede = CliSede::all()->find($id);
         $clientes = Cliente::all();
         $usuarioestados = UsuarioEstado::all();
         //dd($sede);
 
         return view('sedes.edit')->with(compact('sede','clientes','usuarioestados'));
-
-
     }
 
     public function update(Request $request, $id){
-
 
         $sede = CliSede::find($id);
 

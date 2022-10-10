@@ -25,6 +25,6 @@ class CliSede extends Model
     }
 
     public function areas(){
-        return $this->hasMany(CliArea::class);
+        return $this->hasMany(CliArea::class,'id_sede','id');
     }
 }

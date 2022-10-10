@@ -30,6 +30,8 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
 });
 
+Route::get('/sedes/{id}/selsede',[\App\Http\Controllers\Sede\SedeController::class, 'selsede']);
+
 Route::get('/domicilios',[\App\Http\Controllers\Domicilio\DomicilioController::class, 'index']);
 Route::post('/login',[\App\Http\Controllers\Api\AuthController::class, 'login']);
 Route::post('/register',[\App\Http\Controllers\Api\AuthController::class, 'register']);

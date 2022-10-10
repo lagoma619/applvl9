@@ -10,9 +10,9 @@ class CliArea extends Model
     //use HasFactory;
     protected $table = 'cli_areas';
     protected $fillable = [
-        'nombres',
-        'ubicacion',
-        'numero_telefono',
+        'nombre',
+        'id_cliente',
+        'telefono_contacto',
         'nombre_contacto',
         'origen_destino_recurrente',
         'estado',
