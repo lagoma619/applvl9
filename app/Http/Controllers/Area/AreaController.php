@@ -23,7 +23,8 @@ class AreaController extends Controller
         //$areas = CliArea::all();
         $areas = CliArea::all();
         //$sedes = CliSede::whereHas('areas', function ($query){$query->where('id_sede',1);  });
-        $sedes = CliSede::all('nombre');
+
+        $sedes = CliSede::all('id','nombre');
 
         $clientes = CliArea::orderBy('cli_areas.nombre','asc')->join('clientes','clientes.id','id_cliente')->get()->all();
 

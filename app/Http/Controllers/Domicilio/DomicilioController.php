@@ -39,14 +39,18 @@ class DomicilioController extends Controller
             ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
             ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
             ->get()->all();
+        $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.nombres','asc')->join('personas','personas.id','=', 'users.id_personas')
+            ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
+            ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
+            ->get()->all();
         $clientes = Cliente::all();
         $sedes = CliSede::all();
         $areas = CliArea::all();
-        //dd($origen_destinos);
+        //dd($mensajeros);
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();
 
-        return view('domicilios.create')->with(compact('usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios'));
+        return view('domicilios.create')->with(compact('usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios','mensajeros'));
     }
 
     /**

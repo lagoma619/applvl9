@@ -106,7 +106,7 @@
                     <div class="row">
                         <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                         <div class="input-group">
-                            <input id="email" name="email" class="form-control" type="email" required="required" placeholder="example@email.com" value="{{old('email')}}" />
+                            <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" value="{{old('email')}}" />
                         </div>
 
                     </div>
@@ -118,13 +118,13 @@
                 <div class="col-6">
                     <label class="form-label mt-4">TELÉFONO PERSONAL</label>
                     <div class="input-group">
-                        <input id="cel_personal" name="cel_personal" class="form-control" type="text" required="required" placeholder="3158963569" value="{{old('cel_personal')}}"/>
+                        <input id="cel_personal" name="cel_personal" class="form-control" type="text" placeholder="3158963569" value="{{old('cel_personal')}}"/>
                     </div>
                 </div>
                 <div class="col-6">
                     <label class="form-label mt-4">TELÉFONO CORPORATIVO</label>
                     <div class="input-group">
-                        <input id="cel_corporativo" name="cel_corporativo" class="form-control" type="text" placeholder="3117895623" value="{{old('cel_corporativo')}}"/>
+                        <input id="cel_corporativo" name="cel_corporativo" class="form-control" type="text" required placeholder="3117895623" value="{{old('cel_corporativo')}}"/>
                     </div>
                 </div>
             </div>

@@ -168,7 +168,7 @@
                             <div class="col-md-6">
                                 <label class="form-label mt-4">TRANSPORTE DE DINERO?</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_tipos_usuario" id="id_tipos_usuario">
+                                    <select class="form-control" name="efectivo_entrega" id="efectivo_entrega">
 
                                     </select>
                                 </div>
@@ -177,7 +177,28 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CUÁNTO?</label>
                                 <div class="input-group">
-                                    <input id="location" name="ciudad" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="efectivo_monto" name="efectivo_monto" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <label class="form-label mt-4">ASIGNADO A:</label>
+                                <div class="input-group">
+                                    <select class="form-control" name="asignado_a" id="asignado_a">
+                                        <option value="">Seleccione un mensajero...</option>
+                                        @foreach($mensajeros as $mensajero)
+                                            <option value="{{$mensajero->userid}}"> {{$mensajero->nombres.' '.$mensajero->apellidos}} </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="col-6" hidden>
+                                <label class="form-label mt-4">CUÁNTO?</label>
+                                <div class="input-group">
+                                    <input id="efectivo_monto" name="efectivo_monto" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 

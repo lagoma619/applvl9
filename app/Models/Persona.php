@@ -30,6 +30,7 @@ class Persona extends Model
         'fecha_nacimiento',
         'ciudad',
         'notapersona',
+        'id_tipo_vehiculo'
     ];
 
     /**

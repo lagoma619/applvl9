@@ -106,7 +106,7 @@
                                 <div class="row">
                                     <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                                     <div class="input-group">
-                                        <input id="email" name="email" class="form-control" type="email" required="required" placeholder="example@email.com" value="{{old('email',$usuario->email)}}" />
+                                        <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" value="{{old('email',$usuario->email)}}" />
                                     </div>
 
                                 </div>

@@ -23,7 +23,6 @@ class UserController extends Controller
 
     $rules = [
         'nombres'=> 'required|min:3',
-        'email'=> 'required|email',
         'direccion'=> 'nullable|min:5',
         'numero_documento'=> 'between:6,10',
         'phone'=> 'min:8'
@@ -44,7 +43,7 @@ class UserController extends Controller
 
     public function index(){
 
-    $usuarios = User::orderBy('users.userid','asc')->join('personas','personas.id','=', 'users.id_personas')
+    $usuarios = User::orderBy('personas.nombres','asc')->join('personas','personas.id','=', 'users.id_personas')
         ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
         ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
         ->get()->all();
