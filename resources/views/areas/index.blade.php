@@ -76,9 +76,7 @@
                                             </td>
                                             <td>
                                                 <p class="text-sm text-secondary mb-0">
-                                                    @foreach($sedes as $sede)
-                                                        {{$sede->nombre}}
-                                                    @endforeach
+                                                    {{$area->sede_nombre}}
                                                 </p>
                                             </td>
                                             <td>

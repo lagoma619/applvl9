@@ -97,7 +97,7 @@
                             <div class="col-6">
                                 <label class="form-label">NOMBRE</label>
                                 <div class="input-group">
-                                    <input id="nombre" name="nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" value="{{old('nombre',$sede->nombre)}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="nombre" name="nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" value="{{old('nombre',$sede->sede_nombre)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -105,7 +105,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_cliente" id="id_cliente">
                                     @foreach($clientes as $cliente)
-                                        <option value="{{$cliente->id}}" @selected(old('id_cliente', $cliente->id) == $sede->id_cliente)>{{$cliente->nombre_comercial}}</option>
+                                        <option value="{{$cliente->id}}" @selected(old('sede_id_cliente', $cliente->id) == $sede->sede_id_cliente)>{{$cliente->sede_nombre_comercial}}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -115,7 +115,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DIRECCIÓN</label>
                                 <div class="input-group">
-                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CARRERA 44 #9C-58" value="{{old('direccion',$sede->direccion)}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CARRERA 44 #9C-58" value="{{old('sede_direccion',$sede->sede_direccion)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
@@ -123,7 +123,7 @@
                                 <label class="form-label mt-4">ESTADO SEDE</label>
                                 <select class="form-control" name="id_estado" id="id_estado">
                                     @foreach($usuarioestados as $usuarioestado)
-                                        <option value="{{$usuarioestado->id}}" @selected(old('id_estado', $usuarioestado->id) == $sede->id_estado) @if($usuarioestado->id==3 or $usuarioestado->id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
+                                        <option value="{{$usuarioestado->id}}" @selected(old('sede_id_estado', $usuarioestado->id) == $sede->sede_id_estado) @if($usuarioestado->id==3 or $usuarioestado->id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
                                     @endforeach
                                 </select>
 
@@ -135,14 +135,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">PERSONA CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="nombre_contacto" name="nombre_contacto" class="form-control" type="text" placeholder="CAMILA CABELLO" value="{{old('nombre_contacto',$sede->nombre_contacto)}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="nombre_contacto" name="nombre_contacto" class="form-control" type="text" placeholder="CAMILA CABELLO" value="{{old('sede_nombre_contacto',$sede->sede_nombre_contacto)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="telefono_contacto" name="telefono_contacto" class="form-control" type="number" placeholder="3117895623" value="{{old('telefono_contacto',$sede->telefono_contacto)}}"/>
+                                    <input id="telefono_contacto" name="telefono_contacto" class="form-control" type="number" placeholder="3117895623" value="{{old('sede_telefono_contacto',$sede->sede_telefono_contacto)}}"/>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                             <label class="form-label mt-4">NOTAS</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" id="notas" name="notas" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS A LA SEDE">{{old('notas',$sede->notas)}}</textarea>
+                                    <textarea class="form-control-plaintext" id="notas" name="notas" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS A LA SEDE">{{old('sede_notas',$sede->sede_notas)}}</textarea>
                                 </div>
                             </div>
                         </div>

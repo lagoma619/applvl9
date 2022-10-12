@@ -15,15 +15,15 @@ class CreateCliSedesTable extends Migration
     {
         Schema::create('cli_sedes', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('nombre', 100)->nullable();
-            $table->string('telefono_contacto', 30)->nullable();
-            $table->string('nombre_contacto', 100)->nullable();
-            $table->string('direccion', 100)->nullable();
-            $table->tinyInteger('id_estado')->nullable();
-            $table->string('id_cliente', 30)->nullable()->index('IX_Relationship1');
+            $table->string('sede_nombre', 100)->nullable();
+            $table->string('sede_telefono_contacto', 30)->nullable();
+            $table->string('sede_nombre_contacto', 100)->nullable();
+            $table->string('sede_direccion', 100)->nullable();
+            $table->tinyInteger('sede_id_estado')->nullable();
+            $table->string('sede_id_cliente', 30)->nullable()->index('IX_Relationship1');
             $table->timestamps();
-            $table->string('origen_destino_recurrente', 300)->nullable();
-            $table->string('notas', 500)->nullable();
+            $table->string('sede_origen_destino_recurrente', 300)->nullable();
+            $table->string('sede_notas', 500)->nullable();
         });
     }
 

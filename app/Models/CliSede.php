@@ -12,14 +12,14 @@ class CliSede extends Model
     //use HasFactory;
     protected $table = 'cli_sedes';
     protected $fillable = [
-        'nombre',
-        'direccion',
-        'telefono_contacto',
-        'nombre_contacto',
-        'origen_destino_recurrente',
-        'id_estado',
-        'id_cliente',
-        'notas',
+        'sede_nombre',
+        'sede_direccion',
+        'sede_telefono_contacto',
+        'sede_nombre_contacto',
+        'sede_origen_destino_recurrente',
+        'sede_id_estado',
+        'sede_id_cliente',
+        'sede_notas',
     ];
 
     public function cliente():BelongsTo {

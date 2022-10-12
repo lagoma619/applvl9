@@ -23,6 +23,7 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{asset('assets/css/argon-dashboard.css')}}?v=2.0.4" rel="stylesheet" />
     @yield('styles')
+    @yield('scripts')
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -146,6 +147,6 @@
     <script async defer src="{{asset('https://buttons.github.io/buttons.js')}}"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{asset('assets/js/argon-dashboard.min.js')}}?v=2.0.4"></script>
-@yield('scripts')
+
 </body>
 </html>

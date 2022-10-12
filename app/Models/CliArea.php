@@ -10,13 +10,13 @@ class CliArea extends Model
     //use HasFactory;
     protected $table = 'cli_areas';
     protected $fillable = [
-        'nombre',
-        'id_cliente',
-        'telefono_contacto',
-        'nombre_contacto',
-        'origen_destino_recurrente',
-        'estado',
-        'id_sede',
+        'area_nombre',
+        'area_id_cliente',
+        'area_telefono_contacto',
+        'area_nombre_contacto',
+        'area_origen_destino_recurrente',
+        'area_estado',
+        'area_id_sede',
     ];
     public function clisedes(){
         return $this->belongsTo(CliSede::class);

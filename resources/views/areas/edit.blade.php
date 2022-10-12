@@ -117,12 +117,12 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <label class="form-label mt-4">UBICACIÓN</label>
+                                <label class="form-label mt-4">SEDE</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_sede" id="id_sede" required="required">
+                                    <select class="form-control" name="id_sede" id="sel_cliente" required="required">
                                         <option value="">Seleccione una sede</option>
                                         @foreach($sedes as $sede)
-                                            <option value="{{$sede->id}}" @selected(old('id_sede', $sede->id) == $area->id_sede)>{{$sede->nombre}}</option>
+                                            <option value="{{$sede->id}}" @selected(old('sede_id_sede', $sede->id) == $area->sede_id_sede)>{{$sede->sede_nombre}}</option>
                                         @endforeach
 
                                     </select>

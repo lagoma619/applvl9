@@ -70,21 +70,21 @@
                                                         <img src="{{asset('assets/img/bruce-mars.jpg')}}" class="avatar avatar-sm me-3" alt="avatar image">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{$sede->nombre}}</h6>
+                                                        <h6 class="mb-0 text-sm">{{$sede->sede_nombre}}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-sm text-secondary mb-0">{{$sede->direccion}}</p>
+                                                <p class="text-sm text-secondary mb-0">{{$sede->sede_direccion}}</p>
                                             </td>
                                             <td>
                                       <span class="badge badge-dot me-4">
                                         <i class="bg-info"></i>
-                                        <span class="text-dark text-xs">{{$sede->nombre_contacto}}</span>
+                                        <span class="text-dark text-xs">{{$sede->sede_nombre_contacto}}</span>
                                       </span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <p class="text-secondary mb-0 text-sm">{{$sede->telefono_contacto}}</p>
+                                                <p class="text-secondary mb-0 text-sm">{{$sede->sede_telefono_contacto}}</p>
                                             </td>
                                             <td>
                                                 <form action="{{url('/sedes/'.$sede->userid)}}" method="post">

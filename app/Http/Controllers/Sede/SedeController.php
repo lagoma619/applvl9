@@ -13,7 +13,7 @@ class SedeController extends Controller
 {
     //
     public function selsede($id){
-        return CliSede::where('id_cliente', $id)->get();
+        return CliSede::where('sede_id_cliente', $id)->get();
     }
 
     public function _construct()
@@ -55,7 +55,7 @@ class SedeController extends Controller
 
         $this->performValidation($request);
 
-        $valida = DB::table('cli_sedes')->where('nombre',$request->nombre)->exists();
+        $valida = DB::table('cli_sedes')->where('sede_nombre',$request->nombre)->exists();
 
         if ($valida){
 

@@ -21,15 +21,18 @@ class AreaController extends Controller
     {
         //
         //$areas = CliArea::all();
-        $areas = CliArea::all();
+        $areas = CliArea::orderBy('cli_areas.area_id_cliente','asc')->join('cli_sedes','cli_sedes.id','=', 'cli_areas.id_sede')
+            ->join('clientes','clientes.id','cli_areas.id_cliente')
+            ->get()->all();
+        //$areas = CliArea::all();
         //$sedes = CliSede::whereHas('areas', function ($query){$query->where('id_sede',1);  });
 
-        $sedes = CliSede::all('id','nombre');
+        //$sedes = CliSede::all('id','nombre');
 
-        $clientes = CliArea::orderBy('cli_areas.nombre','asc')->join('clientes','clientes.id','id_cliente')->get()->all();
+        //$clientes = CliArea::orderBy('cli_areas.nombre','asc')->join('clientes','clientes.id','id_cliente')->get()->all();
 
-        //dd($sedes);
-        return view('areas.index', compact('areas','sedes'));
+        //dd($areas);
+        return view('areas.index', compact('areas',));
     }
 
     /**
@@ -41,7 +44,7 @@ class AreaController extends Controller
     {
         //
         $clientes = Cliente::all();
-        $sedes = CliSede::where('id_cliente'.'=',0);
+        $sedes = CliSede::where('sede_id_cliente' .'=',0);
         return view('areas.create', compact('sedes','clientes'));
     }
 
@@ -54,7 +57,7 @@ class AreaController extends Controller
     public function store(Request $request)
     {
         //
-        $valida = DB::table('cli_areas')->where('nombre',$request->nombre)->exists();
+        $valida = DB::table('cli_areas')->where('area_nombre',$request->nombre)->exists();
 
         if ($valida){
 

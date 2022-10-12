@@ -15,13 +15,13 @@ class CreateCliAreasTable extends Migration
     {
         Schema::create('cli_areas', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('nombre', 300)->nullable();
-            $table->string('id_cliente', 30)->nullable();
-            $table->string('telefono_contacto', 30)->nullable();
-            $table->string('nombre_contacto', 300)->nullable();
-            $table->string('origen_destino_recurrente', 300)->nullable();
-            $table->tinyInteger('estado')->nullable();
-            $table->string('id_sede', 30)->nullable()->index('IX_Relationship2');
+            $table->string('area_nombre', 300)->nullable();
+            $table->string('area_id_cliente', 30)->nullable();
+            $table->string('area_telefono_contacto', 30)->nullable();
+            $table->string('area_nombre_contacto', 300)->nullable();
+            $table->string('area_origen_destino_recurrente', 300)->nullable();
+            $table->tinyInteger('area_estado')->nullable();
+            $table->string('area_id_sede', 30)->nullable()->index('IX_Relationship2');
             $table->timestamps();
         });
     }

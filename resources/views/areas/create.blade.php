@@ -21,26 +21,13 @@
                 "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
     </script>
     <!-- SELECTOR DE FECHA -->
+    <script src="{{asset('..assets/js/selectd.js')}}"></script> //select dinámico
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('assets/vendor/datepicker/css/bootstrap-datepicker3.css')}}">
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
-    <script src="{{asset('assets/js/selectd.js')}}"></script> //select dinámico
 
-    <script>
-        $('.datepicker').datepicker({
-            format: "yyyy-mm-dd",
-            language: "es",
-            autoclose: true
-        });
-            // Below code sets format to the
-            // datetimepicker having id as
-            // datetime
-            $('#datetime').datetime({
-            format: 'hh:mm:ss a'
-        });
-    </script>
 
 
 @endsection
@@ -90,13 +77,13 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">NOMBRE</label>
                                 <div class="input-group">
-                                    <input id="nombre" name="nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="area_nombre" name="area_nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">ESTADO ÁREA</label>
-                                <select class="form-control" name="estado" id="estado">
+                                <select class="form-control" name="area_estado" id="area_estado">
                                     <option value="1">ACTIVO</option>
                                     <option value="2">INACTIVO</option>
                                 </select>
@@ -107,7 +94,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CLIENTE</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_cliente" id="sel_cliente" required="required">
+                                    <select class="form-control" name="area_id_cliente" id="area_id_cliente" required="required">
                                         @foreach($clientes as $cliente)
                                             <option value="{{$cliente->id}}">{{$cliente->nombre_comercial}}</option>
                                         @endforeach
@@ -115,9 +102,9 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <label class="form-label mt-4">UBICACIÓN</label>
+                                <label class="form-label mt-4">SEDE</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_sede" id="id_sede" required="required">
+                                    <select class="form-control" name="area_id_sede" id="area_id_sede" required="required">
                                             <option value="">Seleccione una sede</option>
                                     </select>
                                 </div>
@@ -128,14 +115,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">PERSONA CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="nombre_contacto" name="nombre_contacto" class="form-control" type="text" required="required" placeholder="CAMILA CABELLO" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="area_nombre_contacto" name="area_nombre_contacto" class="form-control" type="text" required="required" placeholder="CAMILA CABELLO" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="telefono_contacto" name="telefono_contacto" class="form-control" required="required" type="number" placeholder="3117895623"/>
+                                    <input id="area_telefono_contacto" name="area_telefono_contacto" class="form-control" required="required" type="number" placeholder="3117895623"/>
                                 </div>
                             </div>
                         </div>
