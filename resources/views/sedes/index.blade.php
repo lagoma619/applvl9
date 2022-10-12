@@ -53,6 +53,7 @@
                                         <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">DIRECCIÓN</th>
                                         <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">CONTACTO</th>
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">TELÉFONO</th>
+                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">CLIENTE</th>
 
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">OPCIONES</th>
                                     </tr>
@@ -85,6 +86,9 @@
                                             </td>
                                             <td class="align-middle text-center text-sm">
                                                 <p class="text-secondary mb-0 text-sm">{{$sede->sede_telefono_contacto}}</p>
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <p class="text-secondary mb-0 text-sm">{{$sede->nombre_comercial}}</p>
                                             </td>
                                             <td>
                                                 <form action="{{url('/sedes/'.$sede->userid)}}" method="post">

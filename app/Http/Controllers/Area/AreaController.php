@@ -44,7 +44,7 @@ class AreaController extends Controller
     {
         //
         $clientes = Cliente::all();
-        $sedes = CliSede::where('sede_id_cliente' .'=',0);
+        $sedes = CliSede::where('sede_id_cliente' .'=','area_id_sede');
         return view('areas.create', compact('sedes','clientes'));
     }
 
