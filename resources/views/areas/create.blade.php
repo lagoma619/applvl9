@@ -21,7 +21,7 @@
                 "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
     </script>
     <!-- SELECTOR DE FECHA -->
-    <script src="{{asset('..assets/js/selectd.js')}}"></script> //select dinámico
+    <script src="{{asset('assets/js/selectd.js')}}"></script> //select dinámico
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('assets/vendor/datepicker/css/bootstrap-datepicker3.css')}}">
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>

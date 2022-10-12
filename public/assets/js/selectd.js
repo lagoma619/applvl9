@@ -1,7 +1,6 @@
 $(function (){
 
-    alert('mensaje');
-    /*function onSelectCliente() {
+    function onSelectCliente() {
         var id_cliente = $(this).val();
 
         $.get('../api/sedes/'+id_cliente+'/selsede', function (data){
@@ -16,6 +15,4 @@ $(function (){
     }
 
     $('#area_id_cliente').on('change', onSelectCliente);
-     */
-
 });

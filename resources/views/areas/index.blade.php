@@ -70,7 +70,7 @@
                                                         <img src="{{asset('assets/img/bruce-mars.jpg')}}" class="avatar avatar-sm me-3" alt="avatar image">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{$area->nombre}}</h6>
+                                                        <h6 class="mb-0 text-sm">{{$area->area_nombre}}</h6>
                                                     </div>
                                                 </div>
                                             </td>
@@ -82,11 +82,11 @@
                                             <td>
                                       <span class="badge badge-dot me-4">
                                         <i class="bg-info"></i>
-                                        <span class="text-dark text-xs">{{$area->nombre_contacto}}</span>
+                                        <span class="text-dark text-xs">{{$area->area_nombre_contacto}}</span>
                                       </span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <p class="text-secondary mb-0 text-sm">{{$area->telefono_contacto}}</p>
+                                                <p class="text-secondary mb-0 text-sm">{{$area->area_telefono_contacto}}</p>
                                             </td>
                                             <td>
                                                 <form action="{{url('/areas/'.$area->id)}}" method="post">
