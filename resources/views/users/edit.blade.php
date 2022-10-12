@@ -184,6 +184,18 @@
                             </div>
                         </div>
                         <div class="row">
+                            <label class="form-label mt-4">
+                                CLIENTE RELACIONADO
+                            </label>
+                            <div class="input-group">
+                                <select class="form-control" name="persona_id_cliente" id="persona_id_cliente">
+                                    @foreach($clientes as $cliente)
+                                        <option value="{{$cliente->id}}" @selected(old('persona_id_cliente', $cliente->id) == $usuario->persona_id_cliente)>{{$cliente->nombre_comercial}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
 
                             <label class="form-label mt-4">NOTAS</label>
                             <div class="input-group">

@@ -45,7 +45,7 @@ class DomicilioController extends Controller
             ->get()->all();
         $clientes = Cliente::all();
         $sedes = CliSede::all();
-        $areas = CliArea::all();
+        $areas = CliArea::where();
         //dd($mensajeros);
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();

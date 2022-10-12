@@ -92,7 +92,7 @@
                                     <select class="form-control" name="origen" id="origen">
                                         <option value="">SELECCIONE UN ORIGEN...</option>
                                             @foreach($areas as $area)
-                                                <option value="{{$area->id}}">{{$area->nombre}} </option>
+                                                <option value="{{$area->id}}">{{$area->area_nombre}} </option>
                                             @endforeach
                                     </select>
                                 </div>
@@ -112,7 +112,7 @@
                                     <select class="form-control" name="destino" id="detino">
                                         <option value="">SELECCIONE UN DESTINO...</option>
                                         @foreach($areas as $area)
-                                            <option value="{{$area->id}}">{{$area->nombre}} </option>
+                                            <option value="{{$area->id}}">{{$area->area_nombre}} </option>
                                         @endforeach
                                     </select>
                                 </div>

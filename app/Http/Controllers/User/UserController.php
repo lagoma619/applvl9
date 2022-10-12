@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cliente;
 use App\Models\Persona;
 use App\Models\TipoDocumento;
 use App\Models\TiposUsuario;
@@ -78,7 +79,8 @@ class UserController extends Controller
     $tiposdocumentos = TipoDocumento::all();
     $usuarioestados = UsuarioEstado::all();
     $tiposusuarios = TiposUsuario::all();
-    return view('users.create',compact('tiposusuarios','usuarioestados','tiposdocumentos'));
+    $clientes = Cliente::all();
+    return view('users.create',compact('tiposusuarios','usuarioestados','tiposdocumentos','clientes'));
 
 }
     public function show($id){
@@ -97,9 +99,10 @@ class UserController extends Controller
     $tiposdocumentos = TipoDocumento::all();
     $usuarioestados = UsuarioEstado::all();
     $tiposusuarios = TiposUsuario::all();
+        $clientes = Cliente::all();
     //return view('doctors.edit')->with(compact('doctor', 'specialties','specialty_ids'));
     //dd($specialty_ids->all());
-    return view('users.edit')->with(compact('usuario','tiposusuarios','usuarioestados','tiposdocumentos'));
+    return view('users.edit')->with(compact('usuario','tiposusuarios','usuarioestados','tiposdocumentos','clientes'));
 
 }
 
@@ -125,6 +128,7 @@ class UserController extends Controller
     $persona['sexo']=request('sexo');
     $persona['fecha_nacimiento']=request('fecha_nacimiento');
     $persona['ciudad']=request('ciudad');
+    $persona['persona_id_cliente']=request('persona_id_cliente');
     $persona['notapersona']=request('notapersona');
     //dd($user,$persona);
     $user->save();

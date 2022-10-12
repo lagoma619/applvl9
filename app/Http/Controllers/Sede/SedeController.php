@@ -53,9 +53,9 @@ class SedeController extends Controller
 
     public function store(Request $request){
 
-        $this->performValidation($request);
+        //$this->performValidation($request);
 
-        $valida = DB::table('cli_sedes')->where('sede_nombre',$request->nombre)->exists();
+        $valida = DB::table('cli_sedes')->where('sede_nombre',$request->sede_nombre)->exists();
 
         if ($valida){
 
@@ -97,13 +97,13 @@ class SedeController extends Controller
 
         $sede = CliSede::find($id);
 
-        $sede['nombre']= request('nombre');
-        $sede['direccion']=request('direccion');
-        $sede['nombre_contacto']=request('nombre_contacto');
-        $sede['telefono_contacto']=request('telefono_contacto');
-        $sede['id_cliente']=request('id_cliente');
-        $sede['notas']=request('notas');
-        $sede['id_estado']=request('id_estado');
+        $sede['sede_nombre']= request('sede_nombre');
+        $sede['sede_direccion']=request('sede_direccion');
+        $sede['sede_nombre_contacto']=request('sede_nombre_contacto');
+        $sede['sede_telefono_contacto']=request('sede_telefono_contacto');
+        $sede['sede_id_cliente']=request('sede_id_cliente');
+        $sede['sede_notas']=request('sede_notas');
+        $sede['sede_id_estado']=request('sede_id_estado');
         //dd($sede);
         $sede->save();
 

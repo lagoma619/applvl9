@@ -183,6 +183,19 @@
             </div>
             </div>
             <div class="row">
+                <label class="form-label mt-4">
+                    CLIENTE RELACIONADO
+                </label>
+                <div class="input-group">
+                    <select class="form-control" name="persona_id_cliente" id="persona_id_cliente">
+                        @foreach($clientes as $cliente)
+                            <option value="{{$cliente->id}}">{{$cliente->nombre_comercial}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
 
                 <label class="form-label mt-4">NOTAS</label>
                 <div class="input-group">
@@ -190,6 +203,7 @@
                         <textarea class="form-control-plaintext" id="notapersona" name="notapersona" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO"></textarea>
                     </div>
                 </div>
+            </div>
 
             <div class="d-flex justify-content-center mt-4">
                 <button type="submit" class="btn btn-primary btn-lg w-50">GUARDAR</button>
