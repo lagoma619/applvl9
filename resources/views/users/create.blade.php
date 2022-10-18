@@ -133,12 +133,12 @@
                 <div class="col-6">
                     <label class="form-label mt-4">FECHA DE NACIMIENTO</label>
                     <div class="input-group">
-                        <input class="form-control datepicker" type="date" id="persona_fecha_nacimiento" name="persona_fecha_nacimiento" placeholder="1979-04-16" value="{{old('persona_fecha_nacimiento')}}" />
+                        <input data-provide="datepicker" type="text" class="form-control"  id="persona_fecha_nacimiento" name="persona_fecha_nacimiento" placeholder="1979-04-16" value="{{old('persona_fecha_nacimiento')}}" />
                     </div>
                 </div>
                 <div class="col-6">
                     <label class="form-label mt-4">SEXO</label>
-                    <select class="form-control" id="sexo" name="sexo">
+                    <select class="form-control" id="persona_sexo" name="persona_sexo">
                         <option value="MASCULINO">MASCULINO</option>
                         <option value="FEMENINO">FEMENINO</option>
                     </select>
@@ -201,7 +201,7 @@
                 <label class="form-label mt-4">NOTAS</label>
                 <div class="input-group">
                     <div class="form-control" id="notes" type="text">
-                        <textarea class="form-control-plaintext" id="persona_nota" name="persona_nota" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO"></textarea>
+                        <textarea class="form-control-plaintext" id="persona_nota" name="persona_nota" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO">{{old('persona_direccion')}}</textarea>
                     </div>
                 </div>
             </div>

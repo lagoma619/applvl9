@@ -21,26 +21,26 @@ class UserController extends Controller
 }
 
     private function performValidation($request){
+        $rules = [
+            'persona_nombres'=> 'min:3',
+            'persona_email'=> 'required|email',
+            'persona_direccion'=> 'min:5',
+            'numero_documento'=> 'between:6,15',
+            'persona_cel_corporativo'=> 'min:8'
+        ];
+        $messages = [
+            'persona_nombres,required'=> 'Por favor escriba un nombre para el usuario',
+            'persona_nombres.min' => 'El nombre debe tener mínimo 4 carácteres',
+            'persona_email.required' => 'Por favor escriba una dirección de correo',
+            'persona_email.email'=> 'Por favor escriba una dirección de correo válida',
+            'persona_direccion'=> 'La dirección debe contar con al menos 5 carácteres',
+            'numero_documento'=> 'El DNI debe tener entre 6 y 10 dígitos',
+            'persona_cel_corporativo'=> 'El teléfono debe tener al menos 8 dígitos'
 
-    $rules = [
-        'nombres'=> 'required|min:3',
-        'direccion'=> 'nullable|min:5',
-        'numero_documento'=> 'between:6,10',
-        'phone'=> 'min:8'
-    ];
-    $messages = [
-        'name,required'=> 'Por favor escriba un nombre para el médico',
-        'name.min' => 'El nombre debe tener mínimo 3 carácteres',
-        'email.required' => 'Por favor escriba una dirección de correo',
-        'email.email'=> 'Por favor escriba una dirección de correo válida',
-        'address'=> 'La dirección debe contar con al menos 5 carácteres',
-        'dni'=> 'El DNI debe tener entre 6 y 10 dígitos',
-        'phone'=> 'El teléfono debe tener al menos 8 dígitos'
+        ];
+        $this->validate($request,$rules,$messages);
+    }
 
-    ];
-    $this->validate($request,$rules,$messages);
-
-}
 
     public function index(){
 

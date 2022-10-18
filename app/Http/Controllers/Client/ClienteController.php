@@ -23,20 +23,20 @@ class ClienteController extends Controller
     private function performValidation($request){
 
         $rules = [
-            'nombre'=> 'min:3',
-            'email'=> 'required|email',
-            'direccion'=> 'min:5',
-            'numero_documento'=> 'between:6,15',
-            'phone'=> 'min:8'
+            'cliente_nombre'=> 'min:3',
+            'cliente_email'=> 'required|email',
+            'cliente_direccion'=> 'min:5',
+            'cliente_numero_documento'=> 'between:6,15',
+            'cliente_telefono_contacto'=> 'min:8'
         ];
         $messages = [
-            'name,required'=> 'Por favor escriba un nombre para el médico',
-            'name.min' => 'El nombre debe tener mínimo 4 carácteres',
-            'email.required' => 'Por favor escriba una dirección de correo',
-            'email.email'=> 'Por favor escriba una dirección de correo válida',
-            'address'=> 'La dirección debe contar con al menos 5 carácteres',
-            'dni'=> 'El DNI debe tener entre 6 y 10 dígitos',
-            'phone'=> 'El teléfono debe tener al menos 8 dígitos'
+            'cliente_nombre,required'=> 'Por favor escriba un nombre para el cliente',
+            'cliente_nombre.min' => 'El nombre debe tener mínimo 4 carácteres',
+            'cliente_email.required' => 'Por favor escriba una dirección de correo',
+            'cliente_email.email'=> 'Por favor escriba una dirección de correo válida',
+            'cliente_direccion'=> 'La dirección debe contar con al menos 5 carácteres',
+            'cliente_numero_documento'=> 'El DNI debe tener entre 6 y 10 dígitos',
+            'cliente_telefono_contacto'=> 'El teléfono debe tener al menos 8 dígitos'
 
         ];
         $this->validate($request,$rules,$messages);
@@ -55,7 +55,7 @@ class ClienteController extends Controller
 
         $this->performValidation($request);
 
-        $valida = DB::table('clientes')->where('cliente_numero_documento',$request->numero_documento)->exists();
+        $valida = DB::table('clientes')->where('cliente_numero_documento',$request->cliente_numero_documento)->exists();
 
         if ($valida){
 
@@ -103,22 +103,22 @@ class ClienteController extends Controller
 
         $cliente = Cliente::find($id);
 
-        $cliente['nombre']= request('nombre');
-        $cliente['nombre_comercial']=request('nombre_comercial');
-        $cliente['id_tipo_documento']=request('id_tipo_documento');
-        $cliente['numero_documento'] = request('numero_documento');
-        $cliente['telefono']= request('telefono');
-        $cliente['inicio_contrato']=request('inicio_contrato');
-        $cliente['email']=request('email');
-        $cliente['direccion']=request('direccion');
-        $cliente['ciudad']=request('ciudad');
-        $cliente['contacto']=request('contacto');
-        $cliente['telefono_contacto']=request('telefono_contacto');
-        $cliente['horario_inicio']=request('horario_inicio');
-        $cliente['horario_fin']=request('horario_fin');
-        $cliente['pagina_web']=request('pagina_web');
-        $cliente['notas']=request('notas');
-        $cliente['id_estado']=request('id_estado');
+        $cliente['cliente_nombre']= request('cliente_nombre');
+        $cliente['cliente_nombre_comercial']=request('cliente_nombre_comercial');
+        $cliente['cliente_id_tipo_documento']=request('cliente_id_tipo_documento');
+        $cliente['cliente_numero_documento'] = request('cliente_numero_documento');
+        $cliente['cliente_telefono']= request('cliente_telefono');
+        $cliente['cliente_inicio_contrato']=request('cliente_inicio_contrato');
+        $cliente['cliente_email']=request('cliente_email');
+        $cliente['cliente_direccion']=request('cliente_direccion');
+        $cliente['cliente_ciudad']=request('cliente_ciudad');
+        $cliente['cliente_contacto']=request('cliente_contacto');
+        $cliente['cliente_telefono_contacto']=request('cliente_telefono_contacto');
+        $cliente['cliente_horario_inicio']=request('cliente_horario_inicio');
+        $cliente['cliente_horario_fin']=request('cliente_horario_fin');
+        $cliente['cliente_pagina_web']=request('cliente_pagina_web');
+        $cliente['cliente_notas']=request('cliente_notas');
+        $cliente['cliente_id_estado']=request('cliente_id_estado');
         //dd($cliente);
         $cliente->save();
 

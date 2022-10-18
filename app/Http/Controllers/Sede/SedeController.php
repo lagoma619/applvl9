@@ -45,7 +45,7 @@ class SedeController extends Controller
 
     public function index(){
 
-        $sedes = CliSede::orderBy('cli_sedes.sede_id','asc')->join('clientes','clientes.id','=', 'cli_sedes.sede_id_cliente')->get()->all();
+        $sedes = CliSede::orderBy('cli_sedes.sede_id','asc')->join('clientes','clientes.cliente_id','=', 'cli_sedes.sede_id_cliente')->get()->all();
         //dd($clientes);
         return view('sedes.index', compact('sedes'));
 

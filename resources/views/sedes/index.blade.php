@@ -63,7 +63,7 @@
                                     @foreach($sedes as $sede)
                                         <tr>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$sede->id}}</span>
+                                                <span class="text-secondary text-sm">{{$sede->sede_id}}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -93,7 +93,7 @@
                                             <td>
                                                 <form action="{{url('/sedes/'.$sede->userid)}}" method="post">
                                                     @csrf
-                                                    <a href="{{url('/sedes/'.$sede->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a href="{{url('/sedes/'.$sede->sede_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
                                                 </form>
                                             </td>
                                         </tr>
