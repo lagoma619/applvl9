@@ -45,7 +45,7 @@ class ClienteController extends Controller
 
     public function index(){
 
-        $clientes = Cliente::orderBy('clientes.id','asc')->get()->all();
+        $clientes = Cliente::orderBy('clientes.cliente_id','asc')->get()->all();
         //dd($clientes);
         return view('clients.index', compact('clientes'));
 
@@ -55,7 +55,7 @@ class ClienteController extends Controller
 
         $this->performValidation($request);
 
-        $valida = DB::table('clientes')->where('numero_documento',$request->numero_documento)->exists();
+        $valida = DB::table('clientes')->where('cliente_numero_documento',$request->numero_documento)->exists();
 
         if ($valida){
 

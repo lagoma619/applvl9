@@ -38,11 +38,10 @@
                 </div>
             @endif
             <div class="col" hidden>
-                <a href="{{url('/users/')}}" class="btn btn-sm btn-success">CANCELAR</a>
+                <a href="{{url('/domicilios/')}}" class="btn btn-sm btn-success">CANCELAR</a>
             </div>
             <!-- Card Basic Info -->
-            <form action="{{url('users')}}" method="POST">
-
+            <form action="{{url('domicilios')}}" method="POST">
                 @csrf
                 <div class="card mt-4" id="basic-info">
 
@@ -74,12 +73,12 @@
                                     <!-- <input id="ususolicita" name="ususolicita" disabled class="form-control" type="text" required="required" value="{{old('',$usuario->nombres.' '.$usuario->apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/> -->
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-6" hidden>
                                 <label class="form-label">TIPO VEHÍCULO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_tipovehiculo" id="id_tipovehiculo">
+                                    <select class="form-control" name="" id="">
                                         @foreach($tipovehiculos as $tipovehiculo)
-                                            <option value="{{$tipovehiculo->id}}">{{$tipovehiculo->nombre}}</option>
+                                            <option value="{{$tipovehiculo->id}}">{{$tipovehiculo->tipovehiculo_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -92,7 +91,7 @@
                                     <select class="form-control" name="origen" id="origen">
                                         <option value="">SELECCIONE UN ORIGEN...</option>
                                             @foreach($areas as $area)
-                                                <option value="{{$area->id}}">{{$area->area_nombre}} </option>
+                                                <option value="{{$area->area_nombre}}">{{$area->area_nombre}} </option>
                                             @endforeach
                                     </select>
                                 </div>
@@ -100,7 +99,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">OTRO ORIGEN</label>
                                 <div class="input-group">
-                                    <input id="otro_origen" name="otro_origen" class="form-control" type="text" value="{{old('numero_documento')}}" placeholder="Escriba un origen en caso de no encontrarlo en la lista." onkeyup="this.value = this.value.toUpperCase();" />
+                                    <input id="origen" name="origen" class="form-control" type="text" value="{{old('origen')}}" placeholder="Escriba un origen en caso de no encontrarlo en la lista." onkeyup="this.value = this.value.toUpperCase();" />
                                 </div>
                             </div>
                         </div>
@@ -112,7 +111,7 @@
                                     <select class="form-control" name="destino" id="detino">
                                         <option value="">SELECCIONE UN DESTINO...</option>
                                         @foreach($areas as $area)
-                                            <option value="{{$area->id}}">{{$area->area_nombre}} </option>
+                                            <option value="{{$area->area_nombre}}">{{$area->area_nombre}} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -121,12 +120,11 @@
                                 <div class="row">
                                     <label class="form-label mt-4">OTRO DESTINO</label>
                                     <div class="input-group">
-                                        <input id="otro_destino" name="otro_destino" class="form-control" type="text" placeholder="Escriba un destino en caso de no encontrarlo en la lista." value="{{old('otro_destino')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                        <input id="destino" name="destino" class="form-control" type="text" placeholder="Escriba un destino en caso de no encontrarlo en la lista." value="{{old('destino')}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                     </div>
 
                                 </div>
                             </div>
-
 
                         </div>
                         <div class="row">
@@ -135,7 +133,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_tipo_servicio" id="id_tipo_servicio">
                                     @foreach($tiposervicios as $tiposervicio)
-                                        <option value="{{$tiposervicio->id}}">{{$tiposervicio->nombre}}</option>
+                                        <option value="{{$tiposervicio->id}}">{{$tiposervicio->tiposervicio_nombre}}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -145,7 +143,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_tipo_vehiculo" id="id_tipo_vehiculo">
                                         @foreach($tipovehiculos as $tipovehiculo)
-                                            <option value="{{$tipovehiculo->id}}">{{$tipovehiculo->nombre}}</option>
+                                            <option value="{{$tipovehiculo->id}}">{{$tipovehiculo->tipovehiculo_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -156,12 +154,12 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">FECHA DE ENTREGA</label>
                                 <div class="input-group">
-                                    <input class="form-control datepicker" id="fecha_entrega_solicita" name="fecha_entrega_solicita" autocomplete="off" placeholder="1979-04-16" value="{{old('fecha_nacimiento')}}" />
+                                    <input class="form-control" id="fecha_entrega_solicita" type="date" name="fecha_entrega_solicita" placeholder="{{today()}}" value="{{old('fecha_entrega_solicita')}}" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">HORA DE ENTREGA</label>
-                                <input class="form-control" type="time" id="hora_entrega_solicita" name="hora_entrega_solicita" autocomplete="off" value="{{old('fecha_nacimiento')}}" />
+                                <input class="form-control" type="time" id="hora_entrega_solicita" name="hora_entrega_solicita" autocomplete="off" value="{{old('hora_entrega_solicita')}}" />
                             </div>
                         </div>
                         <div class="row" hidden>
@@ -198,7 +196,7 @@
                             <div class="col-6" hidden>
                                 <label class="form-label mt-4">CUÁNTO?</label>
                                 <div class="input-group">
-                                    <input id="efectivo_monto" name="efectivo_monto" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="" name="" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
@@ -209,7 +207,7 @@
                             <label class="form-label mt-4">DESCRIPCIÓN DEL DOMICILIO:</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" id="descripcion" name="descripcion" type="text" placeholder="DESCRIBA BREVEMENTE EL DETALLE DEL SERVICIO REQUERIDO"></textarea>
+                                    <textarea class="form-control-plaintext" required id="descripcion" name="descripcion" type="text" placeholder="DESCRIBA BREVEMENTE EL DETALLE DEL SERVICIO REQUERIDO">{{old('descripcion')}}</textarea>
                                 </div>
                             </div>
 

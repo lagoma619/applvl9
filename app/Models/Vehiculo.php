@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Vehiculo extends Model
 {
     protected $table = 'tipos_vehiculo';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'tipovehiculo_id';
     protected $fillable = [
-        'nombre',
+        'tipovehiculo_nombre',
+        'tipovehiculo_descripcion'
     ];
 }

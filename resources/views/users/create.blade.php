@@ -66,13 +66,13 @@
                 <div class="col-6">
                     <label class="form-label">NOMBRES</label>
                     <div class="input-group">
-                        <input id="nombres" name="nombres" class="form-control" type="text" placeholder="CARLOS ANTONIO" required="required" value="{{old('nombres')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                        <input id="persona_nombres" name="persona_nombres" class="form-control" type="text" placeholder="PEPITO" required="required" value="{{old('persona_nombres')}}" onkeyup="this.value = this.value.toUpperCase();"/>
                     </div>
                 </div>
                 <div class="col-6">
                     <label class="form-label">APELLIDOS</label>
                     <div class="input-group">
-                        <input id="apellidos" name="apellidos" class="form-control" type="text" placeholder="GALLEGO FERMÍN" required="required" value="{{old('apellidos')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                        <input id="persona_apellidos" name="persona_apellidos" class="form-control" type="text" placeholder="PEREZ" required="required" value="{{old('persona_apellidos')}}" onkeyup="this.value = this.value.toUpperCase();"/>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 <div class="col-6">
                     <label class="form-label mt-4">TIPO DOCUMENTO</label>
                     <div class="input-group">
-                        <select class="form-control" name="id_tipo_documento" id="id_tipo_documento">
+                        <select class="form-control" name="persona_id_tipo_documento" id="persona_id_tipo_documento">
                         @foreach($tiposdocumentos as $tipodocumento)
                             <option value="{{$tipodocumento->id}}">{{$tipodocumento->tipodocumento_nombre}}</option>
                         @endforeach
@@ -90,7 +90,7 @@
                 <div class="col-6">
                     <label class="form-label mt-4">NÚMERO DOCUMENTO</label>
                     <div class="input-group">
-                        <input id="numero_documento" name="numero_documento" class="form-control" type="text" required="required" value="{{old('numero_documento')}}" placeholder="1130897654" />
+                        <input id="numero_documento" name="numero_documento" class="form-control" type="text" required="required" value="{{old('numero_documento')}}" placeholder="1130999999" />
                     </div>
                 </div>
             </div>
@@ -99,14 +99,14 @@
                 <div class="col-6">
                     <label class="form-label mt-4">DIRECCIÓN</label>
                     <div class="input-group">
-                        <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CALLE 3 OESTE #23-45" value="{{old('direccion')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                        <input id="direccion" name="persona_direccion" class="form-control" type="text" placeholder="CALLE 3 OESTE #23-45" value="{{old('persona_direccion')}}" onkeyup="this.value = this.value.toUpperCase();"/>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="row">
                         <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                         <div class="input-group">
-                            <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" value="{{old('email')}}" />
+                            <input id="persona_email" name="persona_email" class="form-control" type="email" placeholder="ejemplo@email.com" value="{{old('persona_email')}}" />
                         </div>
 
                     </div>
@@ -118,13 +118,13 @@
                 <div class="col-6">
                     <label class="form-label mt-4">TELÉFONO PERSONAL</label>
                     <div class="input-group">
-                        <input id="cel_personal" name="cel_personal" class="form-control" type="text" placeholder="3158963569" value="{{old('cel_personal')}}"/>
+                        <input id="persona_cel_personal" name="persona_cel_personal" class="form-control" type="text" placeholder="3019999999" value="{{old('persona_cel_personal')}}"/>
                     </div>
                 </div>
                 <div class="col-6">
                     <label class="form-label mt-4">TELÉFONO CORPORATIVO</label>
                     <div class="input-group">
-                        <input id="cel_corporativo" name="cel_corporativo" class="form-control" type="text" required placeholder="3117895623" value="{{old('cel_corporativo')}}"/>
+                        <input id="persona_cel_corporativo" name="persona_cel_corporativo" class="form-control" type="text" required placeholder="3029999999" value="{{old('persona_cel_corporativo')}}"/>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                 <div class="col-6">
                     <label class="form-label mt-4">FECHA DE NACIMIENTO</label>
                     <div class="input-group">
-                        <input class="form-control datepicker" id="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off" placeholder="1979-04-16" value="{{old('fecha_nacimiento')}}" />
+                        <input class="form-control datepicker" type="date" id="persona_fecha_nacimiento" name="persona_fecha_nacimiento" placeholder="1979-04-16" value="{{old('persona_fecha_nacimiento')}}" />
                     </div>
                 </div>
                 <div class="col-6">
@@ -159,7 +159,7 @@
                 <div class="col-6">
                     <label class="form-label mt-4">CIUDAD</label>
                     <div class="input-group">
-                        <input id="location" name="ciudad" class="form-control" type="text" required="required" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();"/>
+                        <input id="persona_ciudad" name="persona_ciudad" class="form-control" type="text" required="required" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();" value="{{old('persona_ciudad')}}"/>
                     </div>
                 </div>
 
@@ -188,8 +188,9 @@
                 </label>
                 <div class="input-group">
                     <select class="form-control" name="persona_id_cliente" id="persona_id_cliente">
+                        <option value="">Seleccione el cliente relacionado al usuario...</option>
                         @foreach($clientes as $cliente)
-                            <option value="{{$cliente->id}}">{{$cliente->nombre_comercial}}</option>
+                            <option value="{{$cliente->cliente_id}}">{{$cliente->cliente_nombre_comercial}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -200,7 +201,7 @@
                 <label class="form-label mt-4">NOTAS</label>
                 <div class="input-group">
                     <div class="form-control" id="notes" type="text">
-                        <textarea class="form-control-plaintext" id="notapersona" name="notapersona" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO"></textarea>
+                        <textarea class="form-control-plaintext" id="persona_nota" name="persona_nota" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO"></textarea>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,7 @@ class CliSede extends Model
 {
     //use HasFactory;
     protected $table = 'cli_sedes';
+    protected $primaryKey = 'sede_id';
     protected $fillable = [
         'sede_nombre',
         'sede_direccion',

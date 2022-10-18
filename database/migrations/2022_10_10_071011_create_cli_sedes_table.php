@@ -14,7 +14,7 @@ class CreateCliSedesTable extends Migration
     public function up()
     {
         Schema::create('cli_sedes', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('sede_id')->primary();
             $table->string('sede_nombre', 100)->nullable();
             $table->string('sede_telefono_contacto', 30)->nullable();
             $table->string('sede_nombre_contacto', 100)->nullable();

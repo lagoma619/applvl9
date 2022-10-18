@@ -14,7 +14,7 @@ class CreateUsuarioEstadosTable extends Migration
     public function up()
     {
         Schema::create('usuario_estados', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('usuestado_id')->primary();
             $table->string('usuestado_nombre', 30)->nullable();
             $table->string('usuestado_descripcion', 30)->nullable();
             $table->timestamps();

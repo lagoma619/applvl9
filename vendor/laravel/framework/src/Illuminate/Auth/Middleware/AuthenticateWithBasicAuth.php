@@ -38,7 +38,7 @@ class AuthenticateWithBasicAuth
      */
     public function handle($request, Closure $next, $guard = null, $field = null)
     {
-        $this->auth->guard($guard)->basic($field ?: 'email');
+        $this->auth->guard($guard)->basic($field ?: 'numero_documento');
 
         return $next($request);
     }

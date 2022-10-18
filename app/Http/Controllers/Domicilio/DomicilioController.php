@@ -18,14 +18,14 @@ class DomicilioController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $domicilios = Domicilio::orderBy('domicilios.id','asc')->get()->all();
-        return $domicilios;
-        //dd($domicilios);
-        //return view('domicilios.index', compact('domicilios'));
+        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')->join('clientes','clientes.id','domicilios.id_cliente')->join('tipos_servicio', 'tipos_servicio.id','domicilios.id_tipo_servicio')->join('tipos_vehiculo','tipos_vehiculo.id','domicilios.id_tipo_vehiculo')->get()->all();
+        //return $domicilios;
+        dd($domicilios);
+        return view('domicilios.index', compact('domicilios'));
     }
 
     /**
@@ -35,17 +35,17 @@ class DomicilioController extends Controller
      */
     public function create()
     {
-        $usuarios = User::orderBy('personas.nombres','asc')->join('personas','personas.id','=', 'users.id_personas')
-            ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
-            ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
+        $usuarios = User::orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_personas')
+            ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
+            ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
-        $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.nombres','asc')->join('personas','personas.id','=', 'users.id_personas')
-            ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
-            ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
+        $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_personas')
+            ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
+            ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
         $clientes = Cliente::all();
         $sedes = CliSede::all();
-        $areas = CliArea::where();
+        $areas = CliArea::all();
         //dd($mensajeros);
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();
@@ -66,7 +66,7 @@ class DomicilioController extends Controller
             $domicilio = Domicilio::create($request->all());
         });
         $notification = 'El domicilio se ha creado correctamente.';
-        return redirect('/clients')->with(compact('notification'));
+        return redirect('/domicilios')->with(compact('notification'));
     }
 
     /**

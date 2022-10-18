@@ -30,7 +30,7 @@ class UserController extends Controller
     ];
     $messages = [
         'name,required'=> 'Por favor escriba un nombre para el médico',
-        'name.min' => 'El nombre debe tener mínimo 4 carácteres',
+        'name.min' => 'El nombre debe tener mínimo 3 carácteres',
         'email.required' => 'Por favor escriba una dirección de correo',
         'email.email'=> 'Por favor escriba una dirección de correo válida',
         'address'=> 'La dirección debe contar con al menos 5 carácteres',
@@ -44,9 +44,9 @@ class UserController extends Controller
 
     public function index(){
 
-    $usuarios = User::orderBy('personas.nombres','asc')->join('personas','personas.id','=', 'users.id_personas')
-        ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
-        ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
+    $usuarios = User::orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_personas')
+        ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
+        ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
         ->get()->all();
     //dd($usuarios);
     return view('users.index', compact('usuarios'));
@@ -67,7 +67,7 @@ class UserController extends Controller
     }else{
         DB::transaction(function () use ($request){
             $persona = Persona::create($request->all());
-            $user = User::create($request->only('numero_documento','id_tipos_usuario','id_usuestado','nota')+['id_personas'=> $persona->id]+['password' => bcrypt($request->input('password'))]);
+            $user = User::create($request->only('numero_documento','id_tipos_usuario','id_usuestado')+['id_personas'=> $persona->id]+['password' => bcrypt($request->input('password'))]);
         });
         $notification = 'El usuario se ha registrado correctamente.';
         return redirect('/users')->with(compact('notification'));
@@ -79,7 +79,7 @@ class UserController extends Controller
     $tiposdocumentos = TipoDocumento::all();
     $usuarioestados = UsuarioEstado::all();
     $tiposusuarios = TiposUsuario::all();
-    $clientes = Cliente::all();
+    $clientes = Cliente::orderBy('cliente_nombre_comercial','asc')->get()->all();
     return view('users.create',compact('tiposusuarios','usuarioestados','tiposdocumentos','clientes'));
 
 }
@@ -89,9 +89,9 @@ class UserController extends Controller
     public function edit($id){
 
     //$usuario = User::personas()->findOrFail($id);
-    $usuario = User::join('personas','personas.id','=', 'users.id_personas')
-        ->join('tipos_usuario','tipos_usuario.id','users.id_tipos_usuario')
-        ->join('usuario_estados','usuario_estados.id','=','users.id_usuestado')
+    $usuario = User::join('personas', 'personas.persona_id','=', 'users.id_personas')
+        ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
+        ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
         ->get()->find($id);
     //$usuario = User::join('personas','personas.id','=', 'users.id_personas')->where('users.userid','=', $id)->get()->all();
     //dd($usuario);
@@ -99,7 +99,7 @@ class UserController extends Controller
     $tiposdocumentos = TipoDocumento::all();
     $usuarioestados = UsuarioEstado::all();
     $tiposusuarios = TiposUsuario::all();
-        $clientes = Cliente::all();
+    $clientes = Cliente::all();
     //return view('doctors.edit')->with(compact('doctor', 'specialties','specialty_ids'));
     //dd($specialty_ids->all());
     return view('users.edit')->with(compact('usuario','tiposusuarios','usuarioestados','tiposdocumentos','clientes'));
@@ -118,25 +118,25 @@ class UserController extends Controller
     $user['numero_documento']= request('numero_documento');
     $user['id_tipos_usuario']=request('id_tipos_usuario');
     $user['id_usuestado']=request('id_usuestado');
-    $persona['id_tipo_documento']=request('id_tipo_documento');
-    $persona['nombres'] = request('nombres');
-    $persona['apellidos']= request('apellidos');
-    $persona['email']=request('email');
-    $persona['cel_personal']=request('cel_personal');
-    $persona['cel_corporativo']=request('cel_corporativo');
-    $persona['direccion']=request('direccion');
-    $persona['sexo']=request('sexo');
-    $persona['fecha_nacimiento']=request('fecha_nacimiento');
-    $persona['ciudad']=request('ciudad');
+    $persona['persona_id_tipo_documento']=request('persona_id_tipo_documento');
+    $persona['persona_nombres'] = request('persona_nombres');
+    $persona['persona_apellidos']= request('persona_apellidos');
+    $persona['persona_email']=request('persona_email');
+    $persona['persona_cel_personal']=request('persona_cel_personal');
+    $persona['persona_cel_corporativo']=request('persona_cel_corporativo');
+    $persona['persona_direccion']=request('persona_direccion');
+    $persona['persona_sexo']=request('persona_sexo');
+    $persona['persona_fecha_nacimiento']=request('persona_fecha_nacimiento');
+    $persona['persona_ciudad']=request('persona_ciudad');
     $persona['persona_id_cliente']=request('persona_id_cliente');
-    $persona['notapersona']=request('notapersona');
+    $persona['persona_nota']=request('persona_nota');
     //dd($user,$persona);
     $user->save();
     $persona->save();
 
 
     $notification = 'La información del usuario se ha actualizado correctamente.';
-    return redirect('/users')->with(compact('notification'));
+    return redirect('/users/'.$user->userid.'/edit')->with(compact('notification'));
 
 }
 }

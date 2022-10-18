@@ -9,6 +9,7 @@ class CliArea extends Model
 {
     //use HasFactory;
     protected $table = 'cli_areas';
+    protected $primaryKey = 'area_id';
     protected $fillable = [
         'area_nombre',
         'area_id_cliente',

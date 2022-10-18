@@ -14,7 +14,7 @@ class CreateTiposDocumentoTable extends Migration
     public function up()
     {
         Schema::create('tipos_documento', function (Blueprint $table) {
-            $table->integer('id')->primary()->unique();
+            $table->integer('tipodocumento_id')->primary()->unique();
             $table->string('tipodocumento_cod', 3)->nullable()->unique('tipos_documento_tipodocumento_cod_uindex');
             $table->string('tipodocumento_nombre', 55);
         });

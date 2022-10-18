@@ -14,7 +14,7 @@ class CreateCliAreasTable extends Migration
     public function up()
     {
         Schema::create('cli_areas', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('area_id')->primary();
             $table->string('area_nombre', 300)->nullable();
             $table->string('area_id_cliente', 30)->nullable();
             $table->string('area_telefono_contacto', 30)->nullable();

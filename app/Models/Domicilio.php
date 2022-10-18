@@ -9,24 +9,25 @@ class Domicilio extends Model
 {
     //use HasFactory;
     protected $table = 'domicilios';
+    protected $primaryKey = 'domicilio_id';
     protected $fillable =  [
-                'id_estado_domicilio',
-                'asignado_a',
-                'origen',
-                'destino',
-                'descripcion',
-                'fecha_inicio',
-                'fecha_fin',
-                'notas',
-                'efectivo_entrega',
-                'efectivo_monto',
-                'id_cliente',
-                'id_tipo_vehiculo',
-                'id_tipo_servicio',
-                'id_userid',
-                'fecha_solicitud',
-                'fecha_entrega_solicita',
-                'hora_entrega_solicita',
-                'hora_entrega_real',
+                'domicilio_id_estado_domicilio',
+                'domicilio_asignado_a',
+                'domicilio_origen',
+                'domicilio_destino',
+                'domicilio_descripcion',
+                'domicilio_fecha_inicio',
+                'domicilio_fecha_fin',
+                'domicilio_notas',
+                'domicilio_efectivo_entrega',
+                'domicilio_efectivo_monto',
+                'domicilio_id_cliente',
+                'domicilio_id_tipo_vehiculo',
+                'domicilio_id_tipo_servicio',
+                'domicilio_id_userid',
+                'domicilio_fecha_solicitud',
+                'domicilio_fecha_entrega_solicita',
+                'domicilio_hora_entrega_solicita',
+                'domicilio_hora_entrega_real',
     ];
 }

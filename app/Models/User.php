@@ -72,7 +72,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function scopePersonas($query){
 
-       return $query = User::join('personas','personas.id','=', 'users.id_personas')->get();
+       return $query = User::join('personas', 'personas.persona_id','=', 'users.id_personas')->get();
     }
 
 }

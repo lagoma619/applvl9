@@ -32,7 +32,7 @@
             @endif
             @if(session('notification'))
                 <div class="card-body">
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-success" role="alert">
                         <strong>{{session('notification')}}</strong>
                     </div>
                 </div>
@@ -55,6 +55,9 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
+                                    <div class="d-flex justify-content-end">
+                                        <h5>ID: {{$usuario->userid}}</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -66,13 +69,13 @@
                             <div class="col-6">
                                 <label class="form-label">NOMBRES</label>
                                 <div class="input-group">
-                                    <input id="nombres" name="nombres" class="form-control" type="text" placeholder="CARLOS ANTONIO" required="required" value="{{old('nombres',$usuario->nombres)}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="persona_nombres" name="persona_nombres" class="form-control" type="text" placeholder="PEPITO" required="required" value="{{old('nombres',$usuario->persona_nombres)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label">APELLIDOS</label>
                                 <div class="input-group">
-                                    <input id="apellidos" name="apellidos" class="form-control" type="text" placeholder="GALLEGO FERMÍN" required="required" value="{{old('apellidos',$usuario->apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="persona_apellidos" name="persona_apellidos" class="form-control" type="text" placeholder="PEREZ" required="required" value="{{old('persona_apellidos',$usuario->persona_apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -80,9 +83,9 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DOCUMENTO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_tipo_documento" id="id_tipo_documento">
+                                    <select class="form-control" name="persona_id_tipo_documento" id="persona_id_tipo_documento">
                                         @foreach($tiposdocumentos as $tipodocumento)
-                                            <option value="{{$tipodocumento->id}}" @selected(old('id_tipo_documento', $tipodocumento->id) == $usuario->id_tipo_documento) >{{$tipodocumento->tipodocumento_nombre}}</option>
+                                            <option value="{{$tipodocumento->tipodocumento_id}}" @selected(old('persona_id_tipo_documento', $tipodocumento->tipodocumento_id) == $usuario->persona_id_tipo_documento) >{{$tipodocumento->tipodocumento_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -99,14 +102,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DIRECCIÓN</label>
                                 <div class="input-group">
-                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CALLE 3 OESTE #23-45" value="{{old('direccion',$usuario->direccion)}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="persona_direccion" name="persona_direccion" class="form-control" type="text" placeholder="CALLE 3 OESTE #23-45" value="{{old('persona_direccion',$usuario->persona_direccion)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="row">
                                     <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                                     <div class="input-group">
-                                        <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" value="{{old('email',$usuario->email)}}" />
+                                        <input id="persona_email" name="persona_email" class="form-control" type="email" placeholder="example@email.com" value="{{old('persona_email',$usuario->persona_email)}}" />
                                     </div>
 
                                 </div>
@@ -118,13 +121,13 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO PERSONAL</label>
                                 <div class="input-group">
-                                    <input id="cel_personal" name="cel_personal" class="form-control" type="text" placeholder="3158963569" value="{{old('cel_personal',$usuario->cel_personal)}}"/>
+                                    <input id="persona_cel_personal" name="persona_cel_personal" class="form-control" type="text" placeholder="3158963569" value="{{old('persona_cel_personal',$usuario->persona_cel_personal)}}"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO CORPORATIVO</label>
                                 <div class="input-group">
-                                    <input id="cel_corporativo" name="cel_corporativo" class="form-control" type="text" placeholder="3117895623" value="{{old('cel_corporativo',$usuario->cel_corporativo)}}"/>
+                                    <input id="persona_cel_corporativo" name="persona_cel_corporativo" class="form-control" type="text" placeholder="3117895623" value="{{old('persona_cel_corporativo',$usuario->persona_cel_corporativo)}}"/>
                                 </div>
                             </div>
                         </div>
@@ -133,14 +136,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">FECHA DE NACIMIENTO</label>
                                 <div class="input-group">
-                                    <input class="form-control datepicker" id="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off" placeholder="1979-04-16" value="{{old('fecha_nacimiento',$usuario->fecha_nacimiento)}}" />
+                                    <input class="form-control" type="date" id="persona_fecha_nacimiento" name="persona_fecha_nacimiento" placeholder="1979-04-16" value="{{old('persona_fecha_nacimiento',$usuario->persona_fecha_nacimiento)}}" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">SEXO</label>
                                 <select class="form-control" id="sexo" name="sexo">
-                                    <option value="MASCULINO"@if($usuario->sexo == 'MASCULINO')selected @endif>MASCULINO</option>
-                                    <option value="FEMENINO"@if($usuario->sexo == 'FEMENINO')selected @endif>FEMENINO</option>
+                                    <option value="MASCULINO"@if($usuario->persona_sexo == 'MASCULINO')selected @endif>MASCULINO</option>
+                                    <option value="FEMENINO"@if($usuario->persona_sexo == 'FEMENINO')selected @endif>FEMENINO</option>
                                 </select>
                             </div>
                         </div>
@@ -150,7 +153,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_tipos_usuario" id="id_tipos_usuario">
                                         @foreach($tiposusuarios as $tipousuario)
-                                            <option value="{{$tipousuario->id}}" @selected(old('id_tipos_usuario', $tipousuario->id) == $usuario->id_tipos_usuario)>{{$tipousuario->tipousu_nombre}}</option>
+                                            <option value="{{$tipousuario->tipousu_id}}" @selected(old('id_tipos_usuario', $tipousuario->tipousu_id) == $usuario->id_tipos_usuario)>{{$tipousuario->tipousu_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -159,7 +162,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CIUDAD</label>
                                 <div class="input-group">
-                                    <input id="location" name="ciudad" class="form-control" type="text" required="required" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();" value="{{old('ciudad',$usuario->ciudad)}}" />
+                                    <input id="persona_location" name="persona_ciudad" class="form-control" type="text" required="required" placeholder="TULUÁ" onkeyup="this.value = this.value.toUpperCase();" value="{{old('persona_ciudad',$usuario->persona_ciudad)}}" />
                                 </div>
                             </div>
 
@@ -176,7 +179,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_usuestado" id="id_usuestado">
                                         @foreach($usuarioestados as $usuarioestado)
-                                            <option value="{{$usuarioestado->id}}" @selected(old('id_usuestado', $usuarioestado->id) == $usuario->id_usuestado)>{{$usuarioestado->usuestado_nombre}}</option>
+                                            <option value="{{$usuarioestado->usuestado_id}}" @selected(old('id_usuestado', $usuarioestado->usuestado_id) == $usuario->id_usuestado)>{{$usuarioestado->usuestado_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -189,8 +192,9 @@
                             </label>
                             <div class="input-group">
                                 <select class="form-control" name="persona_id_cliente" id="persona_id_cliente">
+                                    <option value="">Seleccione el cliente relacionado al usuario...</option>
                                     @foreach($clientes as $cliente)
-                                        <option value="{{$cliente->id}}" @selected(old('persona_id_cliente', $cliente->id) == $usuario->persona_id_cliente)>{{$cliente->nombre_comercial}}</option>
+                                        <option value="{{$cliente->cliente_id}}" @selected(old('persona_id_cliente', $cliente->cliente_id) == $usuario->persona_id_cliente)>{{$cliente->cliente_nombre_comercial}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -200,7 +204,7 @@
                             <label class="form-label mt-4">NOTAS</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" id="notapersona" name="notapersona" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO">{{old('notapersona',$usuario->notapersona)}}</textarea>
+                                    <textarea class="form-control-plaintext" id="persona_nota" name="persona_nota" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL USUARIO">{{old('persona_nota',$usuario->persona_nota)}}</textarea>
                                 </div>
                             </div>
 

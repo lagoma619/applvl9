@@ -14,9 +14,9 @@ class CreateTiposServicioTable extends Migration
     public function up()
     {
         Schema::create('tipos_servicio', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('nombre', 30)->nullable();
-            $table->string('descripcion', 30)->nullable();
+            $table->integer('tiposervicio_id')->primary();
+            $table->string('tiposervicio_nombre', 30)->nullable();
+            $table->string('tiposervicio_descripcion', 30)->nullable();
             $table->timestamps();
         });
     }

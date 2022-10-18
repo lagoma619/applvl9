@@ -201,7 +201,7 @@
                             <div class="col-md-6">
                                 <label class="form-label mt-4">INICIO DE CONTRATO</label>
                                 <div class="input-group">
-                                    <input class="form-control datepicker" type="text"  name="inicio_contrato" placeholder="2018-04-16" />
+                                    <input class="form-control datepicker" type="date"  name="inicio_contrato" placeholder="2018-04-16" />
                                 </div>
                             </div>
                         </div>

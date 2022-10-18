@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoDocumento extends Model
 {
     protected $table = 'tipos_documento';
+    protected $primaryKey = 'tipodocumento_id';
     public function persona(){
         return $this->belongsTo(Persona::class);
     }

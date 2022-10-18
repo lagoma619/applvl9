@@ -17,21 +17,21 @@ class Persona extends Model
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'persona_id';
     protected $fillable = [
-        'id',
-        'id_tipo_documento',
-        'nombres',
-        'apellidos',
-        'cel_personal',
-        'cel_corporativo',
-        'direccion',
-        'email',
-        'sexo',
-        'fecha_nacimiento',
-        'ciudad',
-        'notapersona',
-        'id_tipo_vehiculo',
-        'persona_id_cliente'
+        'persona_id_tipo_documento',
+        'persona_nombres',
+        'persona_apellidos',
+        'persona_cel_personal',
+        'persona_cel_corporativo',
+        'persona_direccion',
+        'persona_email',
+        'persona_sexo',
+        'persona_fecha_nacimiento',
+        'persona_ciudad',
+        'persona_notapersona',
+        'persona_id_tipo_vehiculo',
+        'persona_persona_id_cliente'
     ];
 
     /**
