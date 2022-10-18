@@ -47,12 +47,12 @@ class AuthController extends Controller
         if (!$token) {
             return response()->json([
                 'success' => 'false',
-                'message' => 'Credenciales inválidas',
+                'message' => 'CREDENCIALES INVÁLIDAS',
             ], 401);
         }
 
         //$user = Auth::user();
-        $user = Auth::guard('api')->user();
+        $user = Auth::guard('api')->user()->where('users.id_tipos_usuario','=',1);
         return response()->json([
             'success' => 'true',
             'user' => $user,
