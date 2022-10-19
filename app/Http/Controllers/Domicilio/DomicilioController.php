@@ -7,6 +7,7 @@ use App\Models\CliArea;
 use App\Models\Cliente;
 use App\Models\CliSede;
 use App\Models\Domicilio;
+use App\Models\Persona;
 use App\Models\TipoServicio;
 use App\Models\User;
 use App\Models\Vehiculo;
@@ -34,7 +35,7 @@ class DomicilioController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -48,8 +49,12 @@ class DomicilioController extends Controller
             ->get()->all();
         $clientes = Cliente::all();
         $sedes = CliSede::all();
+        $personaactual = User::join('personas','persona_id','=','id_personas')->where('userid',auth()->id())->get()->toArray();
+        //$personaactual = auth()->user()->join('personas','personas.persona_id','=','users.id_personas')->where('userid','=',auth()->id())->get('persona_id_cliente')->all();
+        //$clienteasignado = Cliente::select('cliente_id')->where('cliente_id','=',auth()->get(''))->get()->all();
+        //$areas = CliArea::where('area_id_cliente',$clientepersona);
         $areas = CliArea::all();
-        //dd($mensajeros);
+        dd($personaactual);
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();
 

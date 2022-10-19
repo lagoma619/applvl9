@@ -31,7 +31,7 @@ class Persona extends Model
         'persona_ciudad',
         'persona_notapersona',
         'persona_id_tipo_vehiculo',
-        'persona_persona_id_cliente'
+        'persona_id_cliente'
     ];
 
     /**
