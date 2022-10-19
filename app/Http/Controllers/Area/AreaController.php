@@ -21,7 +21,7 @@ class AreaController extends Controller
     {
         //
         //$areas = CliArea::all();
-        $areas = CliArea::orderBy('cli_areas.area_id_cliente','asc')->join('cli_sedes','cli_sedes.sede_id','=', 'cli_areas.area_id_sede')
+        $areas = CliArea::orderBy('cliente_nombre','asc')->join('cli_sedes','cli_sedes.sede_id','=', 'cli_areas.area_id_sede')
             ->join('clientes','clientes.cliente_id','cli_areas.area_id_cliente')
             ->get()->all();
         //$areas = CliArea::all();

@@ -67,7 +67,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="id_userid" id="id_userid">
                                         @foreach($usuarios as $usuario)
-                                            <option value="{{$usuario->userid}}" @selected(old('', $usuario->userid) == auth()->id())> {{$usuario->nombres.' '.$usuario->apellidos}} </option>
+                                            <option value="{{$usuario->userid}}" @selected(old('', $usuario->userid) == auth()->id())> {{$usuario->persona_nombres.' '.$usuario->persona_apellidos}} </option>
                                         @endforeach
                                     </select>
                                     <!-- <input id="ususolicita" name="ususolicita" disabled class="form-control" type="text" required="required" value="{{old('',$usuario->nombres.' '.$usuario->apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/> -->
