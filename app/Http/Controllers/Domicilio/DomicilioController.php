@@ -46,10 +46,15 @@ class DomicilioController extends Controller
             ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
             ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
+
+        //CONSULTA AREAS ASIGNADAS AL USUARIO QUE SOLICITA
+        $personaactual = User::join('personas','persona_id','=','id_personas')->where('userid',auth()->id())->get('persona_id_cliente');
+        $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
+
         $clientes = Cliente::all();
         $sedes = CliSede::all();
-        $areas = CliArea::all();
-        //dd($mensajeros);
+        //$areas = CliArea::all();
+        //dd($areas);
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();
 
@@ -65,6 +70,41 @@ class DomicilioController extends Controller
     public function store(Request $request)
     {
         //
+        $origen1 = $request->input('domicilio_origen1');
+        $origen2 = $request->input('domicilio_origen2');
+        $destino1 = $request->input('domicilio_destino1');
+        $destino2 = $request->input('domicilio_destino2');
+
+        //ESTABLECE ORIGEN
+        if (!empty($origen1) || !empty($origen2)){
+            if ($origen2){
+                $request['domicilio_origen'] = $origen2;
+            } elseif ($origen1){
+                $request['domicilio_origen'] = $origen1;
+            }
+        }
+
+        //ESTABLECE DESTINO
+        if (!empty($destino1) || !empty($destino2)){
+            if ($destino2){
+                $request['domicilio_destino'] = $destino2;
+                ;
+            } elseif ($destino1){
+                $request['domicilio_destino'] = $destino1;
+            }
+        }
+        //ESTADO DOMICILIO: SIN ASIGNAR
+        $request['domicilio_id_estado_domicilio'] = 1;
+
+        //ESTABLECE CLIENTE QUE SOLICITA DOMICILIO
+        $personaactual = User::join('personas','persona_id','=','id_personas')->where('userid',auth()->id())->get('persona_id_cliente');
+        $clientesolicita = Cliente::all()->where('cliente_id','=',$personaactual[0]->persona_id_cliente);
+        $request['domicilio_id_cliente'] = $clientesolicita[1]->cliente_id;
+
+        //dd($request['domicilio_id_cliente']);
+
+
+        //dd($request);
         DB::transaction(function () use ($request){
             $domicilio = Domicilio::create($request->all());
         });

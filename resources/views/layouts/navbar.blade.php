@@ -13,6 +13,11 @@
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <div class="input-group">
+                    <h2 class="text-center text-white">{{auth()->id()}}</h2>
+                </div>
+            </div>
+            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                <div class="input-group">
                     <h2 class="text-center text-white">@yield('title')</h2>
                 </div>
             </div>

@@ -53,7 +53,7 @@ class Persona extends Model
         'email_verified_at' => 'datetime',
     ];
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'userid','persona_id');
     }
 
     public function tiposdocumento(){
