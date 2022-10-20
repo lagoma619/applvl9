@@ -50,7 +50,6 @@
                                     <tr>
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">ID</th>
                                         <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">NOMBRE</th>
-                                        <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">CLIENTE</th>
                                         <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">SEDE</th>
                                         <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">CONTACTO</th>
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">TELÉFONO</th>
@@ -77,19 +76,14 @@
                                             </td>
                                             <td>
                                                 <p class="text-sm text-secondary mb-0">
-                                                    {{$area->cliente_nombre}}
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p class="text-sm text-secondary mb-0">
                                                     {{$area->sede_nombre}}
                                                 </p>
                                             </td>
                                             <td>
-                                              <span class="badge badge-dot me-4">
-                                                <i class="bg-info"></i>
-                                                <span class="text-dark text-xs">{{$area->area_nombre_contacto}}</span>
-                                              </span>
+                                      <span class="badge badge-dot me-4">
+                                        <i class="bg-info"></i>
+                                        <span class="text-dark text-xs">{{$area->area_nombre_contacto}}</span>
+                                      </span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
                                                 <p class="text-secondary mb-0 text-sm">{{$area->area_telefono_contacto}}</p>
