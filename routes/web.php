@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::resource('domicilios','App\Http\Controllers\Domicilio\DomicilioController');
-    Route::resource('users','App\Http\Controllers\User\UserController');
+    Route::resource('users', 'App\Http\Controllers\User\UsuarioController');
     Route::resource('clients','App\Http\Controllers\Client\ClienteController');
     Route::resource('sedes','App\Http\Controllers\Sede\SedeController');
     Route::resource('areas','App\Http\Controllers\Area\AreaController');

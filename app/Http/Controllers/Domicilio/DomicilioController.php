@@ -49,12 +49,12 @@ class DomicilioController extends Controller
             ->get()->all();
         $clientes = Cliente::all();
         $sedes = CliSede::all();
-        $personaactual = User::join('personas','persona_id','=','id_personas')->where('userid',auth()->id())->get()->toArray();
-        //$personaactual = auth()->user()->join('personas','personas.persona_id','=','users.id_personas')->where('userid','=',auth()->id())->get('persona_id_cliente')->all();
-        //$clienteasignado = Cliente::select('cliente_id')->where('cliente_id','=',auth()->get(''))->get()->all();
-        //$areas = CliArea::where('area_id_cliente',$clientepersona);
-        $areas = CliArea::all();
-        dd($personaactual);
+        //consulta relación usuario-cliente con sesión iniciada
+        $personaactual = User::join('personas','persona_id','=','id_personas')->where('userid',auth()->id())->get('persona_id_cliente');
+
+        //consulta áreas de cliente relacionado al usuario
+        $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
+        //dd($areas);
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();
 

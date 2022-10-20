@@ -13,7 +13,7 @@ use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class UsuarioController extends Controller
 {
     public function _construct()
 {
