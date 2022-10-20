@@ -21,8 +21,13 @@ class AreaController extends Controller
     {
         //
         //$areas = CliArea::all();
+<<<<<<< HEAD
         $areas = CliArea::orderBy('cli_areas.area_id_cliente','asc')->join('cli_sedes','cli_sedes.id','=', 'cli_areas.area_id_sede')
             ->join('clientes','clientes.id','cli_areas.area_id_cliente')
+=======
+        $areas = CliArea::orderBy('cli_areas.area_id_cliente','asc')->join('cli_sedes','cli_sedes.sede_id','=', 'cli_areas.area_id_sede')
+            ->join('clientes','clientes.cliente_id','cli_areas.area_id_cliente')
+>>>>>>> parent of d81cb21d (AREA_OK)
             ->get()->all();
         //$areas = CliArea::all();
         //$sedes = CliSede::whereHas('areas', function ($query){$query->where('id_sede',1);  });

@@ -7,6 +7,25 @@
     <list default="true" id="a6a07b6a-8742-4512-abd3-838e45b245e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Area/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Area/AreaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/ClienteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Sede/SedeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sede/SedeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/selectd.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/selectd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/areas/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/areas/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/areas/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/areas/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/areas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/areas/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clients/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clients/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clients/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sedes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sedes/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sedes/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sedes/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sedes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sedes/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
+>>>>>>> parent of d81cb21d (AREA_OK)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +329,11 @@
       <workItem from="1665564511965" duration="9394000" />
       <workItem from="1665597101411" duration="8356000" />
       <workItem from="1665988019109" duration="595000" />
+<<<<<<< HEAD
       <workItem from="1666032822106" duration="22752000" />
+=======
+      <workItem from="1666032822106" duration="41068000" />
+>>>>>>> parent of d81cb21d (AREA_OK)
     </task>
     <servers />
   </component>
