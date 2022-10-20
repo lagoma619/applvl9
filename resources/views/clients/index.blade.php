@@ -63,7 +63,7 @@
                                     @foreach($clientes as $cliente)
                                         <tr>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$cliente->id}}</span>
+                                                <span class="text-secondary text-sm">{{$cliente->cliente_id}}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -71,29 +71,29 @@
                                                         <img src="{{asset('assets/img/bruce-mars.jpg')}}" class="avatar avatar-sm me-3" alt="avatar image">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{$cliente->nombre_comercial}}</h6>
+                                                        <h6 class="mb-0 text-sm">{{$cliente->cliente_nombre_comercial}}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-sm text-secondary mb-0">{{$cliente->direccion}}</p>
+                                                <p class="text-sm text-secondary mb-0">{{$cliente->cliente_direccion}}</p>
                                             </td>
                                             <td>
                                       <span class="badge badge-dot me-4">
                                         <i class="bg-info"></i>
-                                        <span class="text-dark text-xs">{{$cliente->numero_documento}}</span>
+                                        <span class="text-dark text-xs">{{$cliente->cliente_numero_documento}}</span>
                                       </span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <p class="text-secondary mb-0 text-sm">{{$cliente->contacto}}</p>
+                                                <p class="text-secondary mb-0 text-sm">{{$cliente->cliente_contacto}}</p>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$cliente->telefono_contacto}}</span>
+                                                <span class="text-secondary text-sm">{{$cliente->cliente_telefono_contacto}}</span>
                                             </td>
                                             <td>
-                                                <form action="{{url('/clients/'.$cliente->userid)}}" method="post">
+                                                <form action="{{url('/clients/'.$cliente->cliente_id)}}" method="post">
                                                     @csrf
-                                                    <a href="{{url('/clients/'.$cliente->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a href="{{url('/clients/'.$cliente->cliente_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
                                                 </form>
                                             </td>
                                         </tr>

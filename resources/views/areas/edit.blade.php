@@ -26,21 +26,7 @@
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
-    <script src="{{asset('assets/js/selectd.js')}}"></script> //select dinámico
 
-    <script>
-        $('.datepicker').datepicker({
-            format: "yyyy-mm-dd",
-            language: "es",
-            autoclose: true
-        });
-        // Below code sets format to the
-        // datetimepicker having id as
-        // datetime
-        $('#datetime').datetime({
-            format: 'hh:mm:ss a'
-        });
-    </script>
 
 
 @endsection
@@ -69,7 +55,7 @@
                 <a href="{{route('areas.index')}}" class="btn btn-sm btn-success">CANCELAR</a>
             </div>
             <!-- Card Basic Info -->
-            <form action="{{route('areas.update',$area->id)}}" method="POST">
+            <form action="{{route('areas.update',$area->area_id)}}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card mt-4" id="basic-info">
@@ -91,15 +77,15 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">NOMBRE</label>
                                 <div class="input-group">
-                                    <input id="nombre" name="nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" value="{{old('nombre',$area->nombre)}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="area_nombre" name="area_nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" value="{{old('area_nombre',$area->area_nombre)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">ESTADO ÁREA</label>
-                                <select class="form-control" name="estado" id="estado" required="required">
+                                <select class="form-control" name="area_estado" id="area_estado" required="required">
                                     @foreach($usuarioestados as $usuarioestado)
-                                        <option value="{{$usuarioestado->id}}" @selected(old('id_estado', $usuarioestado->id) == $area->id_estado) @if($usuarioestado->id==3 or $usuarioestado->id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
+                                        <option value="{{$usuarioestado->usuestado_id}}" @selected(old('area_id_estado', $usuarioestado->usuestado_id) == $area->area_id_estado) @if($usuarioestado->usuestado_id==3 or $usuarioestado->usuestado_id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
                                     @endforeach
                                 </select>
 
@@ -109,9 +95,10 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CLIENTE</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_cliente" id="sel_cliente" required="required">
+                                    <select class="form-control" name="area_id_cliente" id="area_id_cliente" required="required">
+                                        <option value="">Seleccione un cliente...</option>
                                         @foreach($clientes as $cliente)
-                                            <option value="{{$cliente->id}}" @selected(old('id_cliente', $cliente->id) == $area->id_cliente)>{{$cliente->nombre_comercial}}</option>
+                                            <option value="{{$cliente->cliente_id}}" @selected(old('area_id_cliente', $cliente->cliente_id) == $area->area_id_cliente)>{{$cliente->cliente_nombre_comercial}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -119,12 +106,10 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">SEDE</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="id_sede" id="sel_cliente" required="required">
-                                        <option value="">Seleccione una sede</option>
+                                    <select class="form-control" name="area_id_sede" id="area_id_sede" required="required">
                                         @foreach($sedes as $sede)
-                                            <option value="{{$sede->id}}" @selected(old('sede_id_sede', $sede->id) == $area->sede_id_sede)>{{$sede->sede_nombre}}</option>
+                                            <option value="{{$sede->sede_id}}" @selected(old('area_id_sede', $sede->sede_id) == $area->area_id_sede)>{{$sede->sede_nombre}}</option>
                                         @endforeach
-
                                     </select>
                                 </div>
                             </div>
@@ -134,14 +119,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">PERSONA CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="nombre_contacto" name="nombre_contacto" class="form-control" type="text" required="required" placeholder="CAMILA CABELLO" value="{{old('nombre_contacto',$area->nombre_contacto)}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="area_nombre_contacto" name="area_nombre_contacto" class="form-control" type="text" required="required" placeholder="CAMILA CABELLO" value="{{old('area_nombre_contacto',$area->area_nombre_contacto)}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="telefono_contacto" name="telefono_contacto" class="form-control" type="number" required="required" placeholder="3117895623" value="{{old('telefono_contacto',$area->telefono_contacto)}}"/>
+                                    <input id="area_telefono_contacto" name="area_telefono_contacto" class="form-control" type="number" required="required" placeholder="3117895623" value="{{old('area_telefono_contacto',$area->area_telefono_contacto)}}"/>
                                 </div>
                             </div>
                         </div>
@@ -156,5 +141,6 @@
                     </div>
                 </div>
             </form>
+                <script src="{{asset('assets/js/selectd.js')}}"></script>
 @endsection
 

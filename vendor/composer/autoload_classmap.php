@@ -21,7 +21,7 @@ return array(
     'App\\Http\\Controllers\\Domicilio\\DomicilioController' => $baseDir . '/app/Http/Controllers/Domicilio/DomicilioController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\Sede\\SedeController' => $baseDir . '/app/Http/Controllers/Sede/SedeController.php',
-    'App\\Http\\Controllers\\User\\UsuarioController' => $baseDir . '/app/Http/Controllers/User/UserController.php',
+    'App\\Http\\Controllers\\User\\UserController' => $baseDir . '/app/Http/Controllers/User/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

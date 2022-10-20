@@ -96,13 +96,13 @@
                             <div class="col-6">
                                 <label class="form-label">NOMBRE</label>
                                 <div class="input-group">
-                                    <input id="nombre" name="nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="cliente_nombre" name="cliente_nombre" class="form-control" type="text" placeholder="CLIENTE SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label">NOMBRE COMERCIAL</label>
                                 <div class="input-group">
-                                    <input id="nombre_comercial" name="nombre_comercial" class="form-control" type="text" placeholder="CLINICA ESENSA" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="cliente_nombre_comercial" name="cliente_nombre_comercial" class="form-control" type="text" placeholder="CLIENTE DEL VALLE SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DOCUMENTO</label>
                                 <div class="input-group">
-                                    <select class="form-control" id="id_tipo_documento" name="id_tipo_documento">
+                                    <select class="form-control" id="cliente_id_tipo_documento" name="cliente_id_tipo_documento">
                                         @foreach($tiposdocumentos as $tipodocumento)
                                             <option value="{{$tipodocumento->id}}">{{$tipodocumento->tipodocumento_nombre}}</option>
                                         @endforeach
@@ -121,7 +121,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">NÚMERO DOCUMENTO</label>
                                 <div class="input-group">
-                                    <input id="numero_documento" name="numero_documento" class="form-control" type="text" placeholder="901402789-9"/>
+                                    <input id="cliente_numero_documento" name="cliente_numero_documento" class="form-control" type="text" placeholder="901402789-9"/>
                                 </div>
                             </div>
                         </div>
@@ -129,14 +129,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DIRECCIÓN</label>
                                 <div class="input-group">
-                                    <input id="direccion" name="direccion" class="form-control" type="text" placeholder="CARRERA 44 #9C-58" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="cliente_direccion" name="cliente_direccion" class="form-control" type="text" placeholder="CARRERA 1 CALLE 2" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">CIUDAD</label>
                                 <div class="input-group">
-                                    <input id="ciudad" name="ciudad" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="cliente_ciudad" name="cliente_ciudad" class="form-control" type="text" placeholder="CALI" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
@@ -145,13 +145,13 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO</label>
                                 <div class="input-group">
-                                    <input id="telefono" name="telefono" class="form-control" type="text" placeholder="6023808010"/>
+                                    <input id="cliente_telefono" name="cliente_telefono" class="form-control" type="text" placeholder="6023808010"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">CORREO ELECTRÓNICO</label>
                                 <div class="input-group">
-                                    <input id="email" name="email" class="form-control" type="email" placeholder="example@email.com" />
+                                    <input id="cliente_email" name="cliente_email" class="form-control" type="email" placeholder="example@email.com" />
                                 </div>
                             </div>
 
@@ -161,14 +161,14 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">PERSONA CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="contacto" name="contacto" class="form-control" type="text" placeholder="CAMILA CABELLO" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="cliente_contacto" name="cliente_contacto" class="form-control" type="text" placeholder="CAMILA CABELLO" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
                             <div class="col-6">
                                 <label class="form-label mt-4">TELÉFONO CONTACTO</label>
                                 <div class="input-group">
-                                    <input id="telefono_contacto" name="telefono_contacto" class="form-control" type="number" placeholder="3117895623"/>
+                                    <input id="cliente_telefono_contacto" name="cliente_telefono_contacto" class="form-control" type="number" placeholder="3117895623"/>
                                 </div>
                             </div>
                         </div>
@@ -187,13 +187,13 @@
                                     <div class="col">
                                     <label class="form-label mt-4">HORA INICIO</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="time" name="horario_inicio" id="horario_inicio" value="" />
+                                        <input class="form-control" type="time" name="cliente_horario_inicio" id="cliente_horario_inicio" value="" />
                                     </div>
                                     </div>
                                     <div class="col">
                                         <label class="form-label mt-4">HORA FINAL</label>
                                         <div class="input-group">
-                                            <input class="form-control" type="time" name="horario_fin" id="horario_fin" value="" />
+                                            <input class="form-control" type="time" name="cliente_horario_fin" id="cliente_horario_fin" value="" />
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@
                             <div class="col-md-6">
                                 <label class="form-label mt-4">INICIO DE CONTRATO</label>
                                 <div class="input-group">
-                                    <input class="form-control datepicker" type="date"  name="inicio_contrato" placeholder="2018-04-16" />
+                                    <input class="form-control datepicker" type="date"  name="cliente_inicio_contrato" placeholder="2018-04-16" />
                                 </div>
                             </div>
                         </div>
@@ -209,13 +209,13 @@
 
                             <div class="col-md-6">
                                 <label class="form-label mt-4">SITIO WEB</label>
-                                <input id="pagina_web" name="pagina_web" class="form-control" type="text" placeholder="www.clinicaesensa.com" onkeyup="this.value = this.value.toUpperCase();">
+                                <input id="cliente_pagina_web" name="cliente_pagina_web" class="form-control" type="text" placeholder="www.clinicaesensa.com" onkeyup="this.value = this.value.toUpperCase();">
                             </div>
 
                         <div class="col-md-6">
                             <label class="form-label mt-4">ESTADO CLIENTE</label>
                             <div class="input-group">
-                                <select class="form-control" name="id_estado" id="id_estado">
+                                <select class="form-control" name="cliente_id_estado" id="cliente_id_estado">
                                     @foreach($usuarioestados as $usuarioestado)
                                         <option value="{{$usuarioestado->id}}" @if($usuarioestado->id==3 or $usuarioestado->id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
                                     @endforeach
@@ -229,7 +229,7 @@
                             <label class="form-label mt-4">NOTAS</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" id="notas" name="notas" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL CLIENTE"></textarea>
+                                    <textarea class="form-control-plaintext" id="cliente_notas" name="cliente_notas" type="text" placeholder="ESCRIBA AQUÍ LAS NOTAS RELACIONADAS AL CLIENTE"></textarea>
                                 </div>
                             </div>
                         </div>

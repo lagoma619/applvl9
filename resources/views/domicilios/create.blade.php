@@ -65,9 +65,9 @@
                             <div class="col-6">
                                 <label class="form-label">QUIÉN SOLICITA?</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_userid" id="domicilio_id_userid">
+                                    <select class="form-control" name="id_userid" id="id_userid">
                                         @foreach($usuarios as $usuario)
-                                            <option value="{{$usuario->userid}}" @selected(old('', $usuario->userid) == auth()->id())> {{$usuario->nombres.' '.$usuario->apellidos}} </option>
+                                            <option value="{{$usuario->userid}}" @selected(old('', $usuario->userid) == auth()->id())> {{$usuario->persona_nombres.' '.$usuario->persona_apellidos}} </option>
                                         @endforeach
                                     </select>
                                     <!-- <input id="ususolicita" name="ususolicita" disabled class="form-control" type="text" required="required" value="{{old('',$usuario->nombres.' '.$usuario->apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/> -->
@@ -76,9 +76,9 @@
                             <div class="col-6" hidden>
                                 <label class="form-label">TIPO VEHÍCULO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_tipo_vehiculo" id="domicilio_id_tipo_vehiculo">
+                                    <select class="form-control" name="" id="">
                                         @foreach($tipovehiculos as $tipovehiculo)
-                                            <option value="{{$tipovehiculo->tipovehiculo_id}}">{{$tipovehiculo->tipovehiculo_nombre}}</option>
+                                            <option value="{{$tipovehiculo->id}}">{{$tipovehiculo->tipovehiculo_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -88,7 +88,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">ORIGEN</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_origen1" id="domicilio_origen1">
+                                    <select class="form-control" name="origen" id="origen">
                                         <option value="">SELECCIONE UN ORIGEN...</option>
                                             @foreach($areas as $area)
                                                 <option value="{{$area->area_nombre}}">{{$area->area_nombre}} </option>
@@ -99,7 +99,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">OTRO ORIGEN</label>
                                 <div class="input-group">
-                                    <input id="domicilio_origen2" name="domicilio_origen2" class="form-control" type="text" value="{{old('origen')}}" placeholder="Escriba un origen en caso de no encontrarlo en la lista." onkeyup="this.value = this.value.toUpperCase();" />
+                                    <input id="origen" name="origen" class="form-control" type="text" value="{{old('origen')}}" placeholder="Escriba un origen en caso de no encontrarlo en la lista." onkeyup="this.value = this.value.toUpperCase();" />
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DESTINO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_destino1" id="domicilio_destino1">
+                                    <select class="form-control" name="destino" id="detino">
                                         <option value="">SELECCIONE UN DESTINO...</option>
                                         @foreach($areas as $area)
                                             <option value="{{$area->area_nombre}}">{{$area->area_nombre}} </option>
@@ -120,7 +120,7 @@
                                 <div class="row">
                                     <label class="form-label mt-4">OTRO DESTINO</label>
                                     <div class="input-group">
-                                        <input id="domicilio_destino2" name="domicilio_destino2" class="form-control" type="text" placeholder="Escriba un destino en caso de no encontrarlo en la lista." value="{{old('destino')}}" onkeyup="this.value = this.value.toUpperCase();"/>
+                                        <input id="destino" name="destino" class="form-control" type="text" placeholder="Escriba un destino en caso de no encontrarlo en la lista." value="{{old('destino')}}" onkeyup="this.value = this.value.toUpperCase();"/>
                                     </div>
 
                                 </div>
@@ -131,7 +131,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DE SERVICIO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_tipo_servicio" id="domicilio_id_tipo_servicio">
+                                    <select class="form-control" name="id_tipo_servicio" id="id_tipo_servicio">
                                     @foreach($tiposervicios as $tiposervicio)
                                         <option value="{{$tiposervicio->id}}">{{$tiposervicio->tiposervicio_nombre}}</option>
                                     @endforeach
@@ -141,7 +141,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DE VEHÍCULO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_tipo_vehiculo" id="domicilio_id_tipo_vehiculo">
+                                    <select class="form-control" name="id_tipo_vehiculo" id="id_tipo_vehiculo">
                                         @foreach($tipovehiculos as $tipovehiculo)
                                             <option value="{{$tipovehiculo->id}}">{{$tipovehiculo->tipovehiculo_nombre}}</option>
                                         @endforeach
@@ -154,19 +154,19 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">FECHA DE ENTREGA</label>
                                 <div class="input-group">
-                                    <input class="form-control" id="domicilio_fecha_entrega_solicita" type="date" name="domicilio_fecha_entrega_solicita" placeholder="{{today()}}" value="{{old('fecha_entrega_solicita')}}" />
+                                    <input class="form-control" id="fecha_entrega_solicita" type="date" name="fecha_entrega_solicita" placeholder="{{today()}}" value="{{old('fecha_entrega_solicita')}}" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">HORA DE ENTREGA</label>
-                                <input class="form-control" type="time" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" autocomplete="off" value="{{old('hora_entrega_solicita')}}" />
+                                <input class="form-control" type="time" id="hora_entrega_solicita" name="hora_entrega_solicita" autocomplete="off" value="{{old('hora_entrega_solicita')}}" />
                             </div>
                         </div>
                         <div class="row" hidden>
                             <div class="col-md-6">
                                 <label class="form-label mt-4">TRANSPORTE DE DINERO?</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_efectivo_entrega" id="domicilio_efectivo_entrega">
+                                    <select class="form-control" name="efectivo_entrega" id="efectivo_entrega">
 
                                     </select>
                                 </div>
@@ -175,7 +175,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">CUÁNTO?</label>
                                 <div class="input-group">
-                                    <input id="domicilio_efectivo_monto" name="domicilio_efectivo_monto" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="efectivo_monto" name="efectivo_monto" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                             <div class="col-md-6">
                                 <label class="form-label mt-4">ASIGNADO A:</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_asignado_a" id="domicilio_asignado_a">
+                                    <select class="form-control" name="asignado_a" id="asignado_a">
                                         <option value="">Seleccione un mensajero...</option>
                                         @foreach($mensajeros as $mensajero)
                                             <option value="{{$mensajero->userid}}"> {{$mensajero->nombres.' '.$mensajero->apellidos}} </option>
@@ -207,7 +207,7 @@
                             <label class="form-label mt-4">DESCRIPCIÓN DEL DOMICILIO:</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" required id="domicilio_descripcion" name="domicilio_descripcion" type="text" placeholder="DESCRIBA BREVEMENTE EL DETALLE DEL SERVICIO REQUERIDO">{{old('descripcion')}}</textarea>
+                                    <textarea class="form-control-plaintext" required id="descripcion" name="descripcion" type="text" placeholder="DESCRIBA BREVEMENTE EL DETALLE DEL SERVICIO REQUERIDO">{{old('descripcion')}}</textarea>
                                 </div>
                             </div>
 

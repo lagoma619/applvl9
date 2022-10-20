@@ -7,7 +7,6 @@ use App\Models\CliArea;
 use App\Models\Cliente;
 use App\Models\CliSede;
 use App\Models\Domicilio;
-use App\Models\Persona;
 use App\Models\TipoServicio;
 use App\Models\User;
 use App\Models\Vehiculo;
@@ -23,16 +22,19 @@ class DomicilioController extends Controller
      */
     public function index()
     {
-        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')->join('clientes','clientes.id','domicilios.id_cliente')->join('tipos_servicio', 'tipos_servicio.id','domicilios.id_tipo_servicio')->join('tipos_vehiculo','tipos_vehiculo.id','domicilios.id_tipo_vehiculo')->get()->all();
+        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')
+            ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
+            ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
+            ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo')->get()->all();
         //return $domicilios;
-        dd($domicilios);
+        //dd($domicilios);
         return view('domicilios.index', compact('domicilios'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -46,12 +48,8 @@ class DomicilioController extends Controller
             ->get()->all();
         $clientes = Cliente::all();
         $sedes = CliSede::all();
-        //consulta relación usuario-cliente con sesión iniciada
-        $personaactual = User::join('personas','persona_id','=','id_personas')->where('userid',auth()->id())->get('persona_id_cliente');
-
-        //consulta áreas de cliente relacionado al usuario
-        $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
-        //dd($areas);
+        $areas = CliArea::all();
+        //dd($mensajeros);
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();
 

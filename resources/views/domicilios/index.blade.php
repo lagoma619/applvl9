@@ -7,13 +7,6 @@
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
-    <script>
-        $('.datepicker').datepicker({
-            format: "yyyy-mm-dd",
-            language: "es",
-            autoclose: true
-        });
-    </script>
 
 @endsection
 
@@ -65,7 +58,7 @@
                                     @foreach($domicilios as $domicilio)
                                         <tr>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$domicilio->id}}</span>
+                                                <span class="text-secondary text-sm">{{$domicilio->domicilio_id}}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -73,17 +66,17 @@
                                                         <img src="{{asset('assets/img/bruce-mars.jpg')}}" class="avatar avatar-sm me-3" alt="avatar image">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{$domicilio->nombre_comercial}}</h6>
+                                                        <h6 class="mb-0 text-sm">{{$domicilio->cliente_nombre_comercial}}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-sm text-secondary mb-0">{{$domicilio->origen}}</p>
+                                                <p class="text-sm text-secondary mb-0">{{$domicilio->domicilio_origen}}</p>
                                             </td>
                                             <td>
                                             <span class="badge badge-dot me-4">
                                             <i class="bg-info"></i>
-                                            <span class="text-dark text-xs">{{$domicilio->destino}}</span>
+                                            <span class="text-dark text-xs">{{$domicilio->domicilio_destino}}</span>
                                             </span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
@@ -93,15 +86,15 @@
                                                 <p class="text-secondary mb-0 text-sm">{{$domicilio->tipovehiculo_nombre}}</p>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$domicilio->fecha_entrega_solicita}}</span>
+                                                <span class="text-secondary text-sm">{{$domicilio->domicilio_fecha_entrega_solicita}}</span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$domicilio->hora_entrega_solicita}}</span>
+                                                <span class="text-secondary text-sm">{{$domicilio->domicilio_hora_entrega_solicita}}</span>
                                             </td>
                                             <td>
-                                                <form action="{{url('/domicilios/'.$domicilio->userid)}}" method="post">
+                                                <form action="{{url('/domicilios/'.$domicilio->domicilio_id)}}" method="post">
                                                     @csrf
-                                                    <a href="{{url('/domicilios/'.$domicilio->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a href="{{url('/domicilios/'.$domicilio->domicilio_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
                                                 </form>
                                             </td>
                                         </tr>

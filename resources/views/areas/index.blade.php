@@ -50,6 +50,7 @@
                                     <tr>
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">ID</th>
                                         <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">NOMBRE</th>
+                                        <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">CLIENTE</th>
                                         <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">SEDE</th>
                                         <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">CONTACTO</th>
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">TELÉFONO</th>
@@ -62,7 +63,7 @@
                                     @foreach($areas as $area)
                                         <tr>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$area->id}}</span>
+                                                <span class="text-secondary text-sm">{{$area->area_id}}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -76,22 +77,27 @@
                                             </td>
                                             <td>
                                                 <p class="text-sm text-secondary mb-0">
+                                                    {{$area->cliente_nombre}}
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm text-secondary mb-0">
                                                     {{$area->sede_nombre}}
                                                 </p>
                                             </td>
                                             <td>
-                                      <span class="badge badge-dot me-4">
-                                        <i class="bg-info"></i>
-                                        <span class="text-dark text-xs">{{$area->area_nombre_contacto}}</span>
-                                      </span>
+                                              <span class="badge badge-dot me-4">
+                                                <i class="bg-info"></i>
+                                                <span class="text-dark text-xs">{{$area->area_nombre_contacto}}</span>
+                                              </span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
                                                 <p class="text-secondary mb-0 text-sm">{{$area->area_telefono_contacto}}</p>
                                             </td>
                                             <td>
-                                                <form action="{{url('/areas/'.$area->id)}}" method="post">
+                                                <form action="{{url('/areas/'.$area->area_id)}}" method="post">
                                                     @csrf
-                                                    <a href="{{url('/areas/'.$area->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a href="{{url('/areas/'.$area->area_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
                                                 </form>
                                             </td>
                                         </tr>
