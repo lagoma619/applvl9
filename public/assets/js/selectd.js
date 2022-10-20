@@ -3,7 +3,7 @@ $(function (){
     function onSelectCliente() {
         var area_id_sede = $(this).val();
 
-        $.get('https://localhost/applvl9/public/api/sedes/'+area_id_sede+'/selsede', function (data){
+        $.get('https://app.aquitoymensajeria.com/api/sedes/'+area_id_sede+'/selsede', function (data){
 
             var html_select = '<option value="">Seleccione una sede...</option>'
             for (var  i=0; i<data.length; ++i)
