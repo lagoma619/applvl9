@@ -21,12 +21,13 @@
                 "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
     </script>
     <!-- SELECTOR DE FECHA -->
-    <script src="{{asset('assets/js/selectd.js')}}"></script>
+    <script src="{{asset('assets/js/selectd.js')}}"></script> //select dinámico
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('assets/vendor/datepicker/css/bootstrap-datepicker3.css')}}">
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
+
 
 
 @endsection
@@ -76,7 +77,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">NOMBRE</label>
                                 <div class="input-group">
-                                    <input id="area_nombre" name="area_nombre" class="form-control" type="text" placeholder="AREA CLIENTE" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="area_nombre" name="area_nombre" class="form-control" type="text" placeholder="PROVIDA FARMACEUTICA SAS" required="required" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 
@@ -94,9 +95,8 @@
                                 <label class="form-label mt-4">CLIENTE</label>
                                 <div class="input-group">
                                     <select class="form-control" name="area_id_cliente" id="area_id_cliente" required="required">
-                                        <option value="">Seleccione un cliente...</option>
                                         @foreach($clientes as $cliente)
-                                            <option value="{{$cliente->cliente_id}}">{{$cliente->cliente_nombre_comercial}}</option>
+                                            <option value="{{$cliente->id}}">{{$cliente->nombre_comercial}}</option>
                                         @endforeach
                                     </select>
                                 </div>

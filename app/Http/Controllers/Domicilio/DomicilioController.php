@@ -23,12 +23,9 @@ class DomicilioController extends Controller
      */
     public function index()
     {
-        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')
-            ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
-            ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
-            ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo')->get()->all();
+        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')->join('clientes','clientes.id','domicilios.id_cliente')->join('tipos_servicio', 'tipos_servicio.id','domicilios.id_tipo_servicio')->join('tipos_vehiculo','tipos_vehiculo.id','domicilios.id_tipo_vehiculo')->get()->all();
         //return $domicilios;
-        //dd($domicilios);
+        dd($domicilios);
         return view('domicilios.index', compact('domicilios'));
     }
 

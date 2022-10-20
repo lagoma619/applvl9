@@ -104,7 +104,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="sede_id_cliente" id="sede_id_cliente">
                                     @foreach($clientes as $cliente)
-                                        <option value="{{$cliente->cliente_id}}">{{$cliente->cliente_nombre_comercial}}</option>
+                                        <option value="{{$cliente->id}}">{{$cliente->nombre_comercial}}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -114,7 +114,7 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">DIRECCIÓN</label>
                                 <div class="input-group">
-                                    <input id="sede_direccion" name="sede_direccion" class="form-control" type="text" placeholder="CALLE 1 CARRERA 2" onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input id="sede_direccion" name="sede_direccion" class="form-control" type="text" placeholder="CARRERA 44 #9C-58" onkeyup="this.value = this.value.toUpperCase();"/>
                                 </div>
                             </div>
 

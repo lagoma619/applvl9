@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','EDITAR SEDE')
+@section('title','CREAR SEDE')
 @section('scripts')
 
     <script src=
@@ -75,7 +75,7 @@
                 <a href="{{route('sedes.index')}}" class="btn btn-sm btn-success">CANCELAR</a>
             </div>
             <!-- Card Basic Info -->
-            <form action="{{route('sedes.update',$sede->sede_id)}}" method="POST">
+            <form action="{{route('sedes.update',$sede->id)}}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card mt-4" id="basic-info">
@@ -105,7 +105,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="sede_id_cliente" id="sede_id_cliente">
                                     @foreach($clientes as $cliente)
-                                        <option value="{{$cliente->cliente_id}}" @selected(old('sede_id_cliente', $cliente->cliente_id) == $sede->sede_id_cliente)>{{$cliente->cliente_nombre_comercial}}</option>
+                                        <option value="{{$cliente->id}}" @selected(old('sede_id_cliente', $cliente->id) == $sede->sede_id_cliente)>{{$cliente->nombre_comercial}}</option>
                                     @endforeach
                                     </select>
                                 </div>
@@ -123,7 +123,7 @@
                                 <label class="form-label mt-4">ESTADO SEDE</label>
                                 <select class="form-control" name="id_estado" id="id_estado">
                                     @foreach($usuarioestados as $usuarioestado)
-                                        <option value="{{$usuarioestado->id}}" @selected(old('sede_id_estado', $usuarioestado->usuestado_id) == $sede->sede_id_estado) @if($usuarioestado->usuestado_id==3 or $usuarioestado->usuestado_id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
+                                        <option value="{{$usuarioestado->id}}" @selected(old('sede_id_estado', $usuarioestado->id) == $sede->sede_id_estado) @if($usuarioestado->id==3 or $usuarioestado->id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
                                     @endforeach
                                 </select>
 

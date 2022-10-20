@@ -21,8 +21,8 @@ class AreaController extends Controller
     {
         //
         //$areas = CliArea::all();
-        $areas = CliArea::orderBy('cli_areas.area_id_cliente','asc')->join('cli_sedes','cli_sedes.sede_id','=', 'cli_areas.area_id_sede')
-            ->join('clientes','clientes.cliente_id','cli_areas.area_id_cliente')
+        $areas = CliArea::orderBy('cli_areas.area_id_cliente','asc')->join('cli_sedes','cli_sedes.id','=', 'cli_areas.area_id_sede')
+            ->join('clientes','clientes.id','cli_areas.area_id_cliente')
             ->get()->all();
         //$areas = CliArea::all();
         //$sedes = CliSede::whereHas('areas', function ($query){$query->where('id_sede',1);  });
@@ -42,10 +42,10 @@ class AreaController extends Controller
      */
     public function create()
     {
-
+        //
         $clientes = Cliente::all();
         //$sedes = CliSede::where('sede_id_cliente' .'=','area_id_sede');
-        return view('areas.create', compact('clientes',));
+        return view('areas.create', compact('clientes'));
     }
 
     /**
@@ -115,12 +115,12 @@ class AreaController extends Controller
         //
         $area = CliArea::find($id);
 
-        $area['area_nombre']= request('area_nombre');
-        $area['area_nombre_contacto']=request('area_nombre_contacto');
-        $area['area_telefono_contacto']=request('area_telefono_contacto');
-        $area['area_id_cliente']=request('area_id_cliente');
-        $area['area_id_sede']=request('area_id_sede');
-        $area['area_estado']=request('area_estado');
+        $area['nombre']= request('nombre');
+        $area['nombre_contacto']=request('nombre_contacto');
+        $area['telefono_contacto']=request('telefono_contacto');
+        $area['id_cliente']=request('id_cliente');
+        $area['id_sede']=request('id_sede');
+        $area['estado']=request('estado');
         //dd($sede);
         $area->save();
 

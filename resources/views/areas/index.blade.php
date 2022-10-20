@@ -62,7 +62,7 @@
                                     @foreach($areas as $area)
                                         <tr>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$area->area_id}}</span>
+                                                <span class="text-secondary text-sm">{{$area->id}}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -89,9 +89,9 @@
                                                 <p class="text-secondary mb-0 text-sm">{{$area->area_telefono_contacto}}</p>
                                             </td>
                                             <td>
-                                                <form action="{{url('/areas/'.$area->area_id)}}" method="post">
+                                                <form action="{{url('/areas/'.$area->id)}}" method="post">
                                                     @csrf
-                                                    <a href="{{url('/areas/'.$area->area_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a href="{{url('/areas/'.$area->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
                                                 </form>
                                             </td>
                                         </tr>
