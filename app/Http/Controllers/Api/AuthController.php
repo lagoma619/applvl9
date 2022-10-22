@@ -40,8 +40,6 @@ class AuthController extends Controller
         }
 */
 
-
-
         $token = Auth::guard('api')->attempt($credentials);
 
         if (!$token) {

@@ -14,8 +14,8 @@ class CreateDomiciliosEstadosTable extends Migration
     public function up()
     {
         Schema::create('domicilios_estados', function (Blueprint $table) {
-            $table->integer('id')->primary()->unique();
-            $table->string('estado_domicilio', 30)->nullable();
+            $table->integer('domiestado_id')->primary()->unique();
+            $table->string('domiestado_nombre', 30)->nullable();
         });
     }
 

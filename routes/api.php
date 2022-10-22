@@ -30,8 +30,9 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
 });
 
-Route::get('/sedes/{id}/selsede',[\App\Http\Controllers\Sede\SedeController::class, 'selsede']);
+Route::get('/sedes/{id}/selsede',[\App\Http\Controllers\Sede\SedeController::class, 'selsede']); //Ruta para ejecutar select dependiente al seleccionar cliente y sede
 
-Route::get('/domicilios',[\App\Http\Controllers\Domicilio\DomicilioController::class, 'index']);
+Route::get('/domicilios',[\App\Http\Controllers\Api\DomiciliosController::class, 'index']);
+Route::get('/misdomicilios',[\App\Http\Controllers\Api\DomiciliosController::class, 'misDomicilios']);
 Route::post('/login',[\App\Http\Controllers\Api\AuthController::class, 'login']);
 Route::post('/register',[\App\Http\Controllers\Api\AuthController::class, 'register']);

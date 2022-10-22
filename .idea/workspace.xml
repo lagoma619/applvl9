@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eac24fc1-2bf1-4273-b8a1-a06f797d6291" name="Changes" comment="" />
+    <list default="true" id="eac24fc1-2bf1-4273-b8a1-a06f797d6291" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Domicilio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Domicilio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_10_10_071017_create_domicilios_estados_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_10_10_071017_create_domicilios_estados_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -243,7 +249,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a6a07b6a-8742-4512-abd3-838e45b245e8" name="Changes" comment="" />
+      <changelist id="eac24fc1-2bf1-4273-b8a1-a06f797d6291" name="Changes" comment="" />
       <created>1656632693551</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -309,6 +315,9 @@
       <workItem from="1665988019109" duration="595000" />
       <workItem from="1666032822106" duration="41756000" />
       <workItem from="1666157842029" duration="7558000" />
+      <workItem from="1666282145813" duration="695000" />
+      <workItem from="1666381368585" duration="1198000" />
+      <workItem from="1666409305565" duration="11488000" />
     </task>
     <servers />
   </component>
