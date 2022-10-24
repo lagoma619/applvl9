@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','CLIENTES')
+@section('title','DOMICILIOS SIN ASIGNAR')
 @section('scripts')
     <!-- SELECTOR DE FECHA -->
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>

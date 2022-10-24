@@ -119,7 +119,7 @@
                     <p class="mb-0 text-secondary">
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> By lagoma619
+                        </script> Aqui Toy Mensajería integral SAS
                     </p>
                 </div>
             </div>

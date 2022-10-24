@@ -23,12 +23,14 @@ class CreatePersonasTable extends Migration
             $table->string('persona_cel_corporativo', 30)->nullable();
             $table->string('persona_direccion', 30)->nullable();
             $table->string('persona_sexo', 30)->nullable();
-            $table->timestamps(, 6);
+            $table->timestamps( 6);
             $table->string('persona_fecha_nacimiento', 30)->nullable();
             $table->string('persona_ciudad', 20)->nullable();
             $table->string('persona_nota', 500)->nullable();
+            $table->integer('persona_id_tipo_vehiculo')->nullable();
+            $table->integer('persona_id_cliente')->nullable();
 
-            $table->foreign('persona_id_tipo_documento', 'fk_idtipodocumento')->references('id')->on('tipos_documento');
+            $table->foreign('persona_id_tipo_documento', 'fk_idtipodocumento')->references('tipodocumento_id')->on('tipos_documento');
         });
     }
 

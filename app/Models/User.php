@@ -19,6 +19,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
 
+    protected $table = 'users';
     protected $primaryKey = 'userid';
     protected $fillable = [
         'numero_documento',
@@ -27,7 +28,7 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'password',
         'nota',
-        'id_personas',
+        'persona_id',
     ];
 
     /**
@@ -64,15 +65,19 @@ class User extends Authenticatable implements JWTSubject
 
 
     public function persona(){
-        return $this->hasOne(Persona::class,'userid','id_personas');
+       //return $this->belongsTo(Persona::class);
+        //,'persona_id','id_personas'
+        //{{auth()->id().'. '.auth()->user()->persona()->find(auth()->id())->persona_nombres.' '.auth()->user()->persona()->find(auth()->id())->persona_apellidos.' '}}
+        return User::join('personas', 'personas.persona_id','=', 'users.id_persona')->get()->find(auth()->id());
     }
+    /*
     public function tiposusuario(){
         return $this->hasOne(TiposUsuario::class,'id','id_tipos_usuario');
     }
-
+*/
     public function scopePersonas($query){
 
-       return $query = User::join('personas', 'personas.persona_id','=', 'users.id_personas')->get();
+       return $query = User::join('personas', 'personas.persona_id','=', 'users.id_persona')->get();
     }
 
 }

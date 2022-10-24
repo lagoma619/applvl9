@@ -7,11 +7,13 @@ use App\Models\CliArea;
 use App\Models\Cliente;
 use App\Models\CliSede;
 use App\Models\Domicilio;
+use App\Models\Persona;
 use App\Models\TipoServicio;
 use App\Models\User;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Exception\TimeSourceException;
 
 class DomicilioController extends Controller
 {
@@ -20,35 +22,39 @@ class DomicilioController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
+
+
     public function index()
     {
         $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')
             ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
             ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
             ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo')->get()->all();
-        //return $domicilios;
-        //dd($domicilios);
+
+
+       //dd(User::find(auth()->id())->persona()->persona_nombres.' '.User::find(auth()->id())->persona()->persona_apellidos);
+
         return view('domicilios.index', compact('domicilios'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        $usuarios = User::orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_personas')
+        $usuarios = User::orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
             ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
             ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
-        $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_personas')
+        $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
             ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
             ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
 
         //CONSULTA AREAS ASIGNADAS AL USUARIO QUE SOLICITA
-        $personaactual = User::join('personas','persona_id','=','id_personas')->where('userid',auth()->id())->get('persona_id_cliente');
+        $personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get('persona_id_cliente');
         $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
 
         $clientes = Cliente::all();
@@ -65,7 +71,7 @@ class DomicilioController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -97,7 +103,7 @@ class DomicilioController extends Controller
         $request['domicilio_id_estado_domicilio'] = 1;
 
         //ESTABLECE CLIENTE QUE SOLICITA DOMICILIO
-        $personaactual = User::join('personas','persona_id','=','id_personas')->where('userid',auth()->id())->get('persona_id_cliente');
+        $personaactual = User::join('personas', 'persona_id','=', 'id_persona')->where('persona_id',auth()->id())->get('persona_id_cliente');
         $clientesolicita = Cliente::all()->where('cliente_id','=',$personaactual[0]->persona_id_cliente);
         $request['domicilio_id_cliente'] = $clientesolicita[1]->cliente_id;
 
@@ -109,7 +115,8 @@ class DomicilioController extends Controller
             $domicilio = Domicilio::create($request->all());
         });
         $notification = 'El domicilio se ha creado correctamente.';
-        return redirect('/domicilios')->with(compact('notification'));
+
+        return redirect(route('domicilios.index'))->with(compact('notification'));
     }
 
     /**
@@ -127,11 +134,32 @@ class DomicilioController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit($id)
     {
-        //
+        $domicilio = Domicilio::all()->find($id);
+        $usuarios = User::orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
+            ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
+            ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
+            ->get()->all();
+        $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
+            ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
+            ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
+            ->get()->all();
+
+        //CONSULTA AREAS ASIGNADAS AL USUARIO QUE SOLICITA
+        $personaactual = User::join('personas', 'id_persona','=', 'id_persona')->where('id_persona',auth()->id())->get('persona_id_cliente');
+        $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
+
+        $clientes = Cliente::all();
+        $sedes = CliSede::all();
+        $tipovehiculos = Vehiculo::all();
+        $tiposervicios = TipoServicio::all();
+
+        //dd($domicilio->domicilio_id_tipo_vehiculo);
+
+        return view('domicilios.edit')->with(compact('domicilio','usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios','mensajeros'));
     }
 
     /**

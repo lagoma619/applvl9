@@ -44,11 +44,10 @@ class UserController extends Controller
 
     public function index(){
 
-    $usuarios = User::orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_personas')
+    $usuarios = User::orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
         ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
         ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
         ->get()->all();
-    //dd($usuarios);
     return view('users.index', compact('usuarios'));
 
 }
@@ -67,12 +66,11 @@ class UserController extends Controller
     }else{
         DB::transaction(function () use ($request){
             $persona = Persona::create($request->all());
-            $user = User::create($request->only('numero_documento','id_tipos_usuario','id_usuestado')+['id_personas'=> $persona->id]+['password' => bcrypt($request->input('password'))]);
+            $user = User::create($request->only('numero_documento','id_tipos_usuario','id_usuestado')+['id_persona' => $persona->id]+['password' => bcrypt($request->input('password'))]);
         });
         $notification = 'El usuario se ha registrado correctamente.';
         return redirect('/users')->with(compact('notification'));
     }
-//dd($request);
 }
 
     public function create(){
@@ -89,7 +87,7 @@ class UserController extends Controller
     public function edit($id){
 
     //$usuario = User::personas()->findOrFail($id);
-    $usuario = User::join('personas', 'personas.persona_id','=', 'users.id_personas')
+    $usuario = User::join('personas', 'personas.persona_id','=', 'users.id_persona')
         ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
         ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
         ->get()->find($id);

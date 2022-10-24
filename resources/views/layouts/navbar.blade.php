@@ -1,6 +1,5 @@
 <nav class="navbar navbar-main navbar-expand-lg  px-0 mx-4 shadow-none border-radius-xl z-index-sticky " id="navbarBlur" data-scroll="false">
     <div class="container-fluid py-1 px-3">
-
         <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
             <a href="javascript:;" class="nav-link p-0">
                 <div class="sidenav-toggler-inner">
@@ -13,7 +12,7 @@
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <div class="input-group">
-                    <h2 class="text-center text-white">{{auth()->id()}}</h2>
+                    <h2 class="text-center text-white">{{\App\Models\User::find(auth()->id())->persona()->persona_nombres.' '.\App\Models\User::find(auth()->id())->persona()->persona_apellidos}}</h2>
                 </div>
             </div>
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">

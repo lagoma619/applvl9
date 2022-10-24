@@ -32,9 +32,9 @@ class CreateClientesTable extends Migration
             $table->string('cliente_pagina_web', 30)->nullable();
             $table->string('cliente_notas', 500)->nullable();
             $table->integer('cliente_id_estado')->nullable();
-
-            $table->foreign('cliente_id_tipo_documento', 'fk_idtiposdocumento')->references('id')->on('tipos_documento');
-            $table->foreign('cliente_id_estado', 'fk_idusuestado')->references('id')->on('usuario_estados');
+            
+            $table->foreign('cliente_id_tipo_documento', 'fk_idtiposdocumento')->references('tipodocumento_id')->on('tipos_documento');
+            $table->foreign('cliente_id_estado', 'fk_idusuestado')->references('usuestado_id')->on('usuario_estados');
         });
     }
 

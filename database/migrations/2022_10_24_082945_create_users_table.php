@@ -23,11 +23,11 @@ class CreateUsersTable extends Migration
             $table->integer('id_usuestado')->nullable();
             $table->string('nota', 200)->nullable();
             $table->integer('id_tipos_usuario')->nullable();
-            $table->integer('id_personas')->nullable();
-            
-            $table->foreign('id_personas', 'fk_idpersonas')->references('id')->on('personas');
-            $table->foreign('id_tipos_usuario', 'fk_idtiposusuario')->references('id')->on('tipos_usuario');
-            $table->foreign('id_usuestado', 'fk_idusuarioestados')->references('id')->on('usuario_estados');
+            $table->integer('id_persona')->nullable();
+
+            $table->foreign('id_persona', 'fk_idpersonas')->references('persona_id')->on('personas');
+            $table->foreign('id_tipos_usuario', 'fk_idtiposusuario')->references('tipousu_id')->on('tipos_usuario');
+            $table->foreign('id_usuestado', 'fk_idusuarioestados')->references('usuestado_id')->on('usuario_estados');
         });
     }
 

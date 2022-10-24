@@ -17,6 +17,7 @@ class Persona extends Model
      *
      * @var array<int, string>
      */
+    protected $table = 'personas';
     protected $primaryKey = 'persona_id';
     protected $fillable = [
         'persona_id_tipo_documento',
@@ -29,7 +30,7 @@ class Persona extends Model
         'persona_sexo',
         'persona_fecha_nacimiento',
         'persona_ciudad',
-        'persona_notapersona',
+        'persona_nota',
         'persona_id_tipo_vehiculo',
         'persona_id_cliente'
     ];
@@ -53,12 +54,14 @@ class Persona extends Model
         'email_verified_at' => 'datetime',
     ];
     public function user(){
-        return $this->belongsTo(User::class,'userid','persona_id');
+        return $this->hasOne(User::class);
+        //,'id_personas','persona_id'
     }
 
+/*
     public function tiposdocumento(){
         return $this->hasOne(TipoDocumento::class,'id','id_tipo_documento');
     }
-
+*/
 
 }
