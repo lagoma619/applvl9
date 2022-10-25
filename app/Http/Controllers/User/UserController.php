@@ -108,15 +108,14 @@ class UserController extends Controller
 
     //$user = User::personas()->find($id);
     $user = User::find($id);
-    $persona = Persona::find($user['id_personas']);
-
+    $persona = Persona::find($user['id_persona']);
     $password = $request->input('password');
     if($password) $user['password'] = bcrypt($password);
 
     $user['numero_documento']= request('numero_documento');
     $user['id_tipos_usuario']=request('id_tipos_usuario');
     $user['id_usuestado']=request('id_usuestado');
-    $persona['persona_id_tipo_documento']=request('persona_id_tipo_documento');
+    $persona['persona_id_tipo_documento'] = request('persona_id_tipo_documento');
     $persona['persona_nombres'] = request('persona_nombres');
     $persona['persona_apellidos']= request('persona_apellidos');
     $persona['persona_email']=request('persona_email');
@@ -128,9 +127,9 @@ class UserController extends Controller
     $persona['persona_ciudad']=request('persona_ciudad');
     $persona['persona_id_cliente']=request('persona_id_cliente');
     $persona['persona_nota']=request('persona_nota');
-    //dd($user,$persona);
-    $user->save();
+    //dd($persona);
     $persona->save();
+    $user->save();
 
 
     $notification = 'La información del usuario se ha actualizado correctamente.';

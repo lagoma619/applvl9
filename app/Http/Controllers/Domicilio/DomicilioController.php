@@ -155,6 +155,7 @@ class DomicilioController extends Controller
         $clientes = Cliente::all();
         $sedes = CliSede::all();
         $tipovehiculos = Vehiculo::all();
+        //dd($tipovehiculos);
         $tiposervicios = TipoServicio::all();
 
         //dd($domicilio->domicilio_id_tipo_vehiculo);
@@ -172,6 +173,52 @@ class DomicilioController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $domicilio = Domicilio::find($id);
+
+        //ESTABLECE ORIGEN
+        if (!empty($origen1) || !empty($origen2)){
+            if ($origen2){
+                $request['domicilio_origen'] = $origen2;
+            } elseif ($origen1){
+                $request['domicilio_origen'] = $origen1;
+            }
+        }
+
+        //ESTABLECE DESTINO
+        if (!empty($destino1) || !empty($destino2)){
+            if ($destino2){
+                $request['domicilio_destino'] = $destino2;
+                ;
+            } elseif ($destino1){
+                $request['domicilio_destino'] = $destino1;
+            }
+        }
+
+        //$domicilio['domicilio_id_estado_domicilio'] =request('domicilio_id_estado_domicilio');
+        $domicilio['domicilio_asignado_a']=request('domicilio_asignado_a');
+        //$domicilio['domicilio_origen'] =request('domicilio_origen' );
+        //$domicilio['domicilio_destino'] =request('domicilio_destino' );
+        $domicilio['domicilio_descripcion'] =request('domicilio_descripcion' );
+        $domicilio['domicilio_fecha_inicio'] =request('domicilio_fecha_inicio' );
+        $domicilio['domicilio_hora_inicio'] =request('domicilio_hora_inicio' );
+        $domicilio['domicilio_fecha_fin'] =request('domicilio_fecha_fin' );
+        $domicilio['domicilio_hora_entrega_real'] =request('domicilio_hora_entrega_real');
+        $domicilio['domicilio_efectivo_entrega'] =request('domicilio_efectivo_entrega' );
+        $domicilio['domicilio_efectivo_monto'] =request('domicilio_efectivo_monto' );
+        $domicilio['domicilio_id_tipo_vehiculo'] =request('domicilio_id_tipo_vehiculo' );
+        $domicilio['domicilio_id_tipo_servicio'] =request('domicilio_id_tipo_servicio' );
+        $domicilio['domicilio_fecha_solicitud'] =request('domicilio_fecha_solicitud' );
+        $domicilio['domicilio_hora_solicitud'] =request('domicilio_hora_solicitud' );
+        $domicilio['domicilio_fecha_entrega_solicita'] =request('domicilio_fecha_entrega_solicita' );
+        $domicilio['domicilio_hora_entrega_solicita'] =request('domicilio_hora_entrega_solicita' );
+        $domicilio['domicilio_id_cliente'] =request('domicilio_id_cliente' );
+        $domicilio['domicilio_id_userid'] =request('domicilio_id_userid' );
+        $domicilio['domicilio_notas'] =request('domicilio_notas' );
+
+        $domicilio->save();
+        $notification = 'La información del domicilio se ha actualizado correctamente.';
+        return redirect('/domicilios')->with(compact('notification'));
+
     }
 
     /**
