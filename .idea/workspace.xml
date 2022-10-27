@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eac24fc1-2bf1-4273-b8a1-a06f797d6291" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_ES/Text.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_ES/Text.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +316,7 @@
       <workItem from="1666409305565" duration="12261000" />
       <workItem from="1666586744839" duration="23068000" />
       <workItem from="1666682060632" duration="12610000" />
-      <workItem from="1666761226762" duration="32101000" />
+      <workItem from="1666761226762" duration="32727000" />
     </task>
     <servers />
   </component>
@@ -353,7 +343,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php</url>
-          <line>98</line>
+          <line>104</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

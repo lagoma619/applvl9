@@ -26,6 +26,7 @@
                 <!-- MENÚ DOMICILIOS -->
                 <div class="collapse" id="dashboardsExamples">
                     <ul class="nav ms-4">
+                        @if(auth()->user()->id_tipos_usuario == 4)
                         <li class="nav-item ">
                             <a class="nav-link " href="{{url('domicilios/1')}}">
                                 <span class="sidenav-mini-icon"> L </span>
@@ -44,6 +45,7 @@
                                 <span class="sidenav-normal"> Terminados </span>
                             </a>
                         </li>
+                        @endif
                         <li class="nav-item ">
                             <a class="nav-link " href="{{route('domicilios.create')}}">
                                 <span class="sidenav-mini-icon"> S </span>
@@ -54,6 +56,10 @@
                 </div>
             </li>
             <!-- FIN DOMICILIOS -->
+
+            @if(auth()->user()->id_tipos_usuario == 4)
+
+
 
             <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#pagesExamples" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
@@ -146,6 +152,9 @@
                     </ul>
                 </div>
             </li>
+
+            @endif
+
         </ul>
     </div>
     <div class="sidenav-footer mx-3 my-3">
