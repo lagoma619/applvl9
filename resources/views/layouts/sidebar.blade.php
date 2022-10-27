@@ -27,19 +27,19 @@
                 <div class="collapse" id="dashboardsExamples">
                     <ul class="nav ms-4">
                         <li class="nav-item ">
-                            <a class="nav-link " href="{{route('domicilios.index')}}">
+                            <a class="nav-link " href="{{url('domicilios/1')}}">
                                 <span class="sidenav-mini-icon"> L </span>
                                 <span class="sidenav-normal"> Sin asignar </span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../pages/dashboards/default.html">
+                            <a class="nav-link" href="{{url('domicilios/2')}}">
                                 <span class="sidenav-mini-icon"> D </span>
                                 <span class="sidenav-normal"> Asignados </span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/dashboards/automotive.html">
+                            <a class="nav-link " href="{{url('domicilios/3')}}">
                                 <span class="sidenav-mini-icon"> A </span>
                                 <span class="sidenav-normal"> Terminados </span>
                             </a>
@@ -65,19 +65,19 @@
                 <div class="collapse " id="pagesExamples">
                     <ul class="nav ms-4">
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/pages/pricing-page.html">
+                            <a class="nav-link " href="{{url('mensajeros/3')}}">
                                 <span class="sidenav-mini-icon"> P </span>
                                 <span class="sidenav-normal"> Sin servicios </span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/pages/rtl-page.html">
+                            <a class="nav-link " href="{{url('mensajeros/4')}}">
                                 <span class="sidenav-mini-icon"> R </span>
                                 <span class="sidenav-normal"> Con servicios </span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="../../pages/pages/widgets.html">
+                            <a class="nav-link " href="{{url('mensajeros/2')}}">
                                 <span class="sidenav-mini-icon"> W </span>
                                 <span class="sidenav-normal"> Ináctivos </span>
                             </a>

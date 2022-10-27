@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('clients','App\Http\Controllers\Client\ClienteController');
     Route::resource('sedes','App\Http\Controllers\Sede\SedeController');
     Route::resource('areas','App\Http\Controllers\Area\AreaController');
+    Route::resource('mensajeros','App\Http\Controllers\Mensajero\mensajeroController');
 
 /*
     Route::get('/users',[\App\Http\Controllers\User\UserController::class, 'index'])->name('users.index');

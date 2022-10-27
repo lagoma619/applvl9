@@ -184,7 +184,7 @@
                                 <label class="form-label mt-4">ASIGNADO A:</label>
                                 <div class="input-group">
                                     <select class="form-control" name="domicilio_asignado_a" id="domicilio_asignado_a">
-                                        <option value="">Seleccione un mensajero...</option>
+                                        <option value="">Seleccione un mensajero...(SIN ASIGNAR)</option>
                                         @foreach($mensajeros as $mensajero)
                                             <option value="{{$mensajero->userid}}" @selected(old('domicilio_asignado_a', $domicilio->domicilio_asignado_a) == $mensajero->userid)> {{$mensajero->persona_nombres.' '.$mensajero->persona_apellidos}} </option>
                                         @endforeach

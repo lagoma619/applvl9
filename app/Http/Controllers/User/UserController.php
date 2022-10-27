@@ -65,9 +65,16 @@ class UserController extends Controller
         return redirect('/users/create')->with(compact('notification',$request));
     }else{
         DB::transaction(function () use ($request){
+
             $persona = Persona::create($request->all());
-            $user = User::create($request->only('numero_documento','id_tipos_usuario','id_usuestado')+['id_persona' => $persona->id]+['password' => bcrypt($request->input('password'))]);
+            $user = User::create($request->only('numero_documento','id_tipos_usuario','id_usuestado')
+                +['password' => bcrypt($request->input('password'))]
+                +['id_persona' => $persona->persona_id]
+            );
+            //dd($persona, $user);
         });
+
+
         $notification = 'El usuario se ha registrado correctamente.';
         return redirect('/users')->with(compact('notification'));
     }

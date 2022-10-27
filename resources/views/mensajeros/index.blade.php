@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','DOMICILIOS')
+@section('title','MENSAJEROS')
 @section('scripts')
     <!-- SELECTOR DE FECHA -->
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
@@ -7,6 +7,13 @@
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
+    <script>
+        $('.datepicker').datepicker({
+            format: "yyyy-mm-dd",
+            language: "es",
+            autoclose: true
+        });
+    </script>
 
 @endsection
 
@@ -31,7 +38,7 @@
                     </div>
                 @endif
                 <div class="col" >
-                    <a href="{{route('domicilios.create')}}" class="btn btn-sm btn-success">NUEVO DOMICILIO</a>
+                    <a href="{{url('/users/create')}}" class="btn btn-sm btn-success">NUEVO USUARIO</a>
                 </div>
             <!-- Card Basic Info -->
                 <div class="row my-4">
@@ -42,24 +49,20 @@
                                     <thead>
                                     <tr>
                                         <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">ID</th>
-                                        <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">CLIENTE</th>
-                                        <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">ASIGNADO A</th>
-                                        <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">ORIGEN</th>
-                                        <th class="text-uppercase text-secondary text-s font-weight-bolder opacity-7">DESTINO</th>
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">TIPO DE SERVICIO</th>
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">TIPO VEHÍCULO</th>
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">FECHA SOLICITADA</th>
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">HORA SOLICITADA</th>
-
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">OPCIONES</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">NOMBRE</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">TIPO DE USUARIO</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">DOCUMENTO</th>
+                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">ESTADO</th>
+                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">CELULAR</th>
+                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7" hidden>OPCIONES</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <!--dd($usuarios)-->
-                                    @foreach($domicilios as $domicilio)
+                                    @foreach($mensajeros as $mensajero)
                                         <tr>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$domicilio->domicilio_id}}</span>
+                                                <span class="text-secondary text-sm">{{$mensajero->userid}}</span>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
@@ -67,37 +70,31 @@
                                                         <img src="{{asset('assets/img/bruce-mars.jpg')}}" class="avatar avatar-sm me-3" alt="avatar image">
                                                     </div>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{$domicilio->cliente_nombre_comercial}}</h6>
+                                                        <h6 class="mb-0 text-sm">{{$mensajero->persona_nombres}} {{$mensajero->persona_apellidos}}</h6>
                                                     </div>
                                                 </div>
-                                            <td class="align-middle text-center">
-                                                    <span class="text-secondary text-sm">{{\App\Models\Persona::find($domicilio->domicilio_asignado_a)->persona_nombres ?? 'SIN '}} {{\App\Models\Persona::find($domicilio->domicilio_asignado_a)->persona_apellidos ?? 'ASIGNAR'}}</span>
-                                            </td>
                                             </td>
                                             <td>
-                                                <p class="text-sm text-secondary mb-0">{{$domicilio->domicilio_origen}}</p>
+                                                <p class="text-sm text-secondary mb-0">{{$mensajero->tipousu_nombre}}</p>
                                             </td>
                                             <td>
-                                            <span class="badge badge-dot me-4">
-                                            <span class="text-secondary mb-0 text-sm">{{$domicilio->domicilio_destino}}</span>
-                                            </span>
+                                      <span class="badge badge-dot me-4">
+                                        <i class="bg-info"></i>
+                                        <span class="text-dark text-xs">{{$mensajero->numero_documento}}</span>
+                                      </span>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <p class="text-secondary mb-0 text-sm">{{$domicilio->tiposervicio_nombre}}</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <p class="text-secondary mb-0 text-sm">{{$domicilio->tipovehiculo_nombre}}</p>
+                                                <p class="text-secondary mb-0 text-sm">{{$mensajero->usuestado_nombre}}</p>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$domicilio->domicilio_fecha_entrega_solicita}}</span>
+                                                <span class="text-secondary text-sm">{{$mensajero->persona_cel_corporativo}}</span>
                                             </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$domicilio->domicilio_hora_entrega_solicita}}</span>
-                                            </td>
-                                            <td>
-                                                <form action="{{url('/domicilios/'.$domicilio->domicilio_id)}}" method="post">
+
+                                            <td hidden>
+
+                                                <form action="{{url('/users/'.$mensajero->userid)}}" method="post">
                                                     @csrf
-                                                    <a href="{{url('/domicilios/'.$domicilio->domicilio_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a href="{{url('/users/'.$mensajero->userid.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
                                                 </form>
                                             </td>
                                         </tr>

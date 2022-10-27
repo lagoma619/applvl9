@@ -14,6 +14,7 @@ use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Exception\TimeSourceException;
+use function PHPUnit\Framework\isEmpty;
 
 class DomicilioController extends Controller
 {
@@ -28,11 +29,11 @@ class DomicilioController extends Controller
     {
         $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')
             ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
+            ->join('domicilios_estados', 'domicilios_estados.domiestado_id', 'domicilios.domicilio_id_estado_domicilio')
             ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
             ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo')->get()->all();
 
 
-       //dd(User::find(auth()->id())->persona()->persona_nombres.' '.User::find(auth()->id())->persona()->persona_apellidos);
 
         return view('domicilios.index', compact('domicilios'));
     }
@@ -100,7 +101,14 @@ class DomicilioController extends Controller
             }
         }
         //ESTADO DOMICILIO: SIN ASIGNAR
-        $request['domicilio_id_estado_domicilio'] = 1;
+
+
+        if ($request['domicilio_asignado_a']){
+            $request['domicilio_id_estado_domicilio'] = 2;
+        } else {
+            $request['domicilio_id_estado_domicilio'] = 1;
+        }
+
 
         //ESTABLECE CLIENTE QUE SOLICITA DOMICILIO
         $personaactual = User::join('personas', 'persona_id','=', 'id_persona')->where('persona_id',auth()->id())->get('persona_id_cliente');
@@ -123,11 +131,19 @@ class DomicilioController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show($id)
+    public function show($domicilioestado)
     {
-        //
+        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')
+            ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
+            ->join('domicilios_estados', 'domicilios_estados.domiestado_id', 'domicilios.domicilio_id_estado_domicilio')
+            ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
+            ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo')
+            ->where('domicilio_id_estado_domicilio','=', $domicilioestado)->get()->all();
+
+        return view('domicilios.index', compact('domicilios'));
+
     }
 
     /**
@@ -175,6 +191,11 @@ class DomicilioController extends Controller
         //
         $domicilio = Domicilio::find($id);
 
+        $origen1 = $request->input('domicilio_origen1');
+        $origen2 = $request->input('domicilio_origen2');
+        $destino1 = $request->input('domicilio_destino1');
+        $destino2 = $request->input('domicilio_destino2');
+
         //ESTABLECE ORIGEN
         if (!empty($origen1) || !empty($origen2)){
             if ($origen2){
@@ -193,11 +214,18 @@ class DomicilioController extends Controller
                 $request['domicilio_destino'] = $destino1;
             }
         }
+        //ESTABLECE ESTADO DEL DOMICILIO
+        $asignado = $request->input('domicilio_asignado_a');
+        if (!empty($asignado)){
+            $domicilio['domicilio_id_estado_domicilio'] = 2; //EN CURSO
+        } else {
+            $domicilio['domicilio_id_estado_domicilio'] = 1; //SIN ASIGNAR
+        }
 
         //$domicilio['domicilio_id_estado_domicilio'] =request('domicilio_id_estado_domicilio');
         $domicilio['domicilio_asignado_a']=request('domicilio_asignado_a');
-        //$domicilio['domicilio_origen'] =request('domicilio_origen' );
-        //$domicilio['domicilio_destino'] =request('domicilio_destino' );
+        $domicilio['domicilio_origen'] =request('domicilio_origen' );
+        $domicilio['domicilio_destino'] =request('domicilio_destino' );
         $domicilio['domicilio_descripcion'] =request('domicilio_descripcion' );
         $domicilio['domicilio_fecha_inicio'] =request('domicilio_fecha_inicio' );
         $domicilio['domicilio_hora_inicio'] =request('domicilio_hora_inicio' );
@@ -211,7 +239,7 @@ class DomicilioController extends Controller
         $domicilio['domicilio_hora_solicitud'] =request('domicilio_hora_solicitud' );
         $domicilio['domicilio_fecha_entrega_solicita'] =request('domicilio_fecha_entrega_solicita' );
         $domicilio['domicilio_hora_entrega_solicita'] =request('domicilio_hora_entrega_solicita' );
-        $domicilio['domicilio_id_cliente'] =request('domicilio_id_cliente' );
+        //$domicilio['domicilio_id_cliente'] =request('domicilio_id_cliente' );
         $domicilio['domicilio_id_userid'] =request('domicilio_id_userid' );
         $domicilio['domicilio_notas'] =request('domicilio_notas' );
 

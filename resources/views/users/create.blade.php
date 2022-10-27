@@ -82,7 +82,7 @@
                     <div class="input-group">
                         <select class="form-control" name="persona_id_tipo_documento" id="persona_id_tipo_documento">
                         @foreach($tiposdocumentos as $tipodocumento)
-                            <option value="{{$tipodocumento->id}}">{{$tipodocumento->tipodocumento_nombre}}</option>
+                            <option value="{{$tipodocumento->tipodocumento_id}}">{{$tipodocumento->tipodocumento_nombre}}</option>
                         @endforeach
                         </select>
                     </div>
@@ -150,7 +150,7 @@
                     <div class="input-group">
                         <select class="form-control" name="id_tipos_usuario" id="id_tipos_usuario">
                             @foreach($tiposusuarios as $tipousuario)
-                                <option value="{{$tipousuario->id}}">{{$tipousuario->tipousu_nombre}}</option>
+                                <option value="{{$tipousuario->tipousu_id}}">{{$tipousuario->tipousu_nombre}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -175,7 +175,7 @@
                 <div class="input-group">
                     <select class="form-control" name="id_usuestado" id="id_usuestado">
                         @foreach($usuarioestados as $usuarioestado)
-                            <option value="{{$usuarioestado->id}}">{{$usuarioestado->usuestado_nombre}}</option>
+                            <option value="{{$usuarioestado->usuestado_id}}">{{$usuarioestado->usuestado_nombre}}</option>
                         @endforeach
                     </select>
                 </div>
