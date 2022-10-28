@@ -259,4 +259,19 @@ class DomicilioController extends Controller
     {
         //
     }
+
+    public function listarmisdomicilios($userid, $domicilioestado){
+
+        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')
+            ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
+            ->join('domicilios_estados', 'domicilios_estados.domiestado_id', 'domicilios.domicilio_id_estado_domicilio')
+            ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
+            ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo')
+            ->where('domicilio_id_estado_domicilio','=', $domicilioestado)
+            ->where('domicilio_id_userid','=',$userid)->get()->all();
+        //dd($domicilios);
+
+        return view('domicilios.misdomicilios', compact('domicilios'));
+
+    }
 }

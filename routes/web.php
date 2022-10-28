@@ -29,6 +29,12 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::resource('domicilios','App\Http\Controllers\Domicilio\DomicilioController');
+    Route::get('/domicilios/misdomicilios/{userid}/{domicilioestado}', [App\Http\Controllers\Domicilio\DomicilioController::class, 'listarmisdomicilios'])
+        ->name('domicilios.misdomicilios');
+
+
+
+
     Route::resource('users','App\Http\Controllers\User\UserController');
     Route::resource('clients','App\Http\Controllers\Client\ClienteController');
     Route::resource('sedes','App\Http\Controllers\Sede\SedeController');

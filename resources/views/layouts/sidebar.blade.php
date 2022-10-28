@@ -52,6 +52,13 @@
                                 <span class="sidenav-normal"> Crear domicilio </span>
                             </a>
                         </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="{{url('domicilios/misdomicilios/')}}{{'/'.auth()->id().'/1'}}">
+                                <span class="sidenav-mini-icon"> S </span>
+                                <span class="sidenav-normal"> Mis domicilios </span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </li>

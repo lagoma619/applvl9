@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','DOMICILIOS')
+@section('title','MIS DOMICILIOS')
 @section('scripts')
     <!-- SELECTOR DE FECHA -->
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
@@ -97,7 +97,7 @@
                                             <td>
                                                 <form action="{{url('/domicilios/'.$domicilio->domicilio_id)}}" method="post">
                                                     @csrf
-                                                    <a href="{{url('/domicilios/'.$domicilio->domicilio_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                                    <a href="{{url('/domicilios/'.$domicilio->domicilio_id.'/edit')}}" class="btn btn-sm btn-primary" @if(auth()->user()->id_tipos_usuario == 2) hidden @endif>Editar</a>
                                                 </form>
                                             </td>
                                         </tr>

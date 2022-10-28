@@ -177,9 +177,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" @if(auth()->user()->id_tipos_usuario == 2) hidden @endif>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" >
                                 <label class="form-label mt-4">ASIGNADO A:</label>
                                 <div class="input-group">
                                     <select class="form-control" name="domicilio_asignado_a" id="domicilio_asignado_a">

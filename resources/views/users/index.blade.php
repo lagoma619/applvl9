@@ -45,16 +45,16 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="table-responsive">
-                                <table class="table align-items-center mb-0">
+                                <table class="table align-items-center mb-0 table-striped">
                                     <thead>
                                     <tr>
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">ID</th>
-                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">NOMBRE</th>
-                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">TIPO DE USUARIO</th>
-                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">DOCUMENTO</th>
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">ESTADO</th>
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">CELULAR</th>
-                                        <th class="text-center text-uppercase text-secondary text-s font-weight-bolder opacity-7">OPCIONES</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">ID</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">NOMBRE</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75 ps-2">TIPO DE USUARIO</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75 ps-2">DOCUMENTO</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">ESTADO</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">CELULAR</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">OPCIONES</th>
                                     </tr>
                                     </thead>
                                     <tbody>
