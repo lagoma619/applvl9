@@ -103,10 +103,11 @@ class DomicilioController extends Controller
         //ESTADO DOMICILIO: SIN ASIGNAR
 
 
-        if ($request['domicilio_asignado_a']){
-            $request['domicilio_id_estado_domicilio'] = 2;
+        $asignado = $request->input('domicilio_asignado_a');
+        if (!empty($asignado)){
+            $domicilio['domicilio_id_estado_domicilio'] = 2; //EN CURSO
         } else {
-            $request['domicilio_id_estado_domicilio'] = 1;
+            $domicilio['domicilio_id_estado_domicilio'] = 1; //SIN ASIGNAR
         }
 
 
@@ -215,6 +216,7 @@ class DomicilioController extends Controller
             }
         }
         //ESTABLECE ESTADO DEL DOMICILIO
+
         $asignado = $request->input('domicilio_asignado_a');
         if (!empty($asignado)){
             $domicilio['domicilio_id_estado_domicilio'] = 2; //EN CURSO

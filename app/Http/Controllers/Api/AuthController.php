@@ -19,18 +19,11 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-       // return $request->only('numero_documento', 'password');
-
-
-
        /* $request->validate([
             'numero_documento' => 'required|numeric',
             'password' => 'required|string',
        ]);  */
-
         $credentials = $request->only('numero_documento', 'password');
-
-
 /*
         if (Auth::guard('api')->attempt($credentials)){
 
@@ -39,7 +32,6 @@ class AuthController extends Controller
 
         }
 */
-
         $token = Auth::guard('api')->attempt($credentials);
 
         if (!$token) {
