@@ -37,5 +37,5 @@ Route::get('/sedes/{id}/selsede',[\App\Http\Controllers\Sede\SedeController::cla
 Route::get('/domicilios',[\App\Http\Controllers\Api\DomiciliosController::class, 'index']);
 Route::get('/misdomicilios',[\App\Http\Controllers\Api\DomiciliosController::class, 'misDomicilios']);
 Route::get('/clientes',[\App\Http\Controllers\Api\ClientesController::class, 'index' ]);
-
+Route::get('/areas',[\App\Http\Controllers\Api\ClientesController::class, 'areasCliente']);
 
