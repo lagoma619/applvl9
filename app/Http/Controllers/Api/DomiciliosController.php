@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Domicilio;
+use App\Models\TipoServicio;
+use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
 class DomiciliosController extends Controller
@@ -42,4 +44,14 @@ class DomiciliosController extends Controller
 
         return $domicilios;
     }
+
+    public function tiposServicios()
+    {
+        return TipoServicio::all();
+    }
+    public function tiposVehiculos()
+    {
+        return Vehiculo::all();
+    }
+
 }

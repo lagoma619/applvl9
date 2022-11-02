@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="card-body pt-0">
-                        <div class="row">
+                        <div class="row" @if(auth()->user()->id_tipos_usuario == 2) hidden @endif>
                             <div class="col-6">
                                 <label class="form-label">QUIÉN SOLICITA?</label>
                                 <div class="input-group">

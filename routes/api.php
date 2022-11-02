@@ -36,6 +36,8 @@ Route::post('/register',[\App\Http\Controllers\Api\AuthController::class, 'regis
 Route::get('/sedes/{id}/selsede',[\App\Http\Controllers\Sede\SedeController::class, 'selsede']); //Ruta para ejecutar select dependiente al seleccionar cliente y sede
 Route::get('/domicilios',[\App\Http\Controllers\Api\DomiciliosController::class, 'index']);
 Route::get('/misdomicilios',[\App\Http\Controllers\Api\DomiciliosController::class, 'misDomicilios']);
+Route::get('/tiposservicios',[\App\Http\Controllers\Api\DomiciliosController::class, 'tiposServicios']);
+Route::get('/tiposvehiculos',[\App\Http\Controllers\Api\DomiciliosController::class, 'tiposVehiculos']);
 Route::get('/clientes',[\App\Http\Controllers\Api\ClientesController::class, 'index' ]);
 Route::get('/areas',[\App\Http\Controllers\Api\ClientesController::class, 'areasCliente']);
 
