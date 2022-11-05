@@ -38,7 +38,7 @@ Route::get('/domicilios',[\App\Http\Controllers\Api\DomiciliosController::class,
 Route::get('/misdomicilios',[\App\Http\Controllers\Api\DomiciliosController::class, 'misDomicilios']);
 Route::get('/tiposservicios',[\App\Http\Controllers\Api\DomiciliosController::class, 'tiposServicios']);
 Route::get('/tiposvehiculos',[\App\Http\Controllers\Api\DomiciliosController::class, 'tiposVehiculos']);
-Route::get('/nuevodomicilio',[\App\Http\Controllers\Api\DomiciliosController::class, 'nuevoDomicilio']);
+Route::post('/nuevodomicilio',[\App\Http\Controllers\Api\DomiciliosController::class, 'nuevoDomicilio']);
 Route::get('/clientes',[\App\Http\Controllers\Api\ClientesController::class, 'index' ]);
 Route::get('/areas',[\App\Http\Controllers\Api\ClientesController::class, 'areasCliente']);
 

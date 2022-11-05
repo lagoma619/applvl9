@@ -84,34 +84,37 @@ class DomiciliosController extends Controller
         }
         //ESTADO DOMICILIO: SIN ASIGNAR
 
-
+        /*
         $asignado = $request->input('domicilio_asignado_a');
         if (!empty($asignado)){
             $domicilio['domicilio_id_estado_domicilio'] = 2; //EN CURSO
         } else {
             $domicilio['domicilio_id_estado_domicilio'] = 1; //SIN ASIGNAR
         }
+        */
 
 
         //ESTABLECE CLIENTE QUE SOLICITA DOMICILIO
+        /*
         $personaactual = User::join('personas', 'persona_id','=', 'id_persona')->where('persona_id',auth()->id())->get('persona_id_cliente');
         $clientesolicita = Cliente::all()->where('cliente_id','=',$personaactual[0]->persona_id_cliente);
         $request['domicilio_id_cliente'] = $clientesolicita[1]->cliente_id;
+        */
 
         //dd($request['domicilio_id_cliente']);
 
 
         //dd($request);
-        DB::transaction(function () use ($request){
+        $domicilio = DB::transaction(function () use ($request){
             $domicilio = Domicilio::create($request->all());
+           return $domicilio;
         });
-        $notification = 'El domicilio se ha creado correctamente.';
+        $domicilio_id = $domicilio->domicilio_id;
 
-        return redirect(route('domicilios.index'))->with(compact('notification'));
+        return response()->json([
+            'domicilio_id' => $domicilio_id
+        ]);
 
-
-
-        dd($request);
     }
 
 }
