@@ -54,7 +54,7 @@
                                     <small>Escriba número de documento y contraseña</small>
                                 </div>
                                 <div class="mb-3">
-                                    <input id="numero_documento" type="number" class="form-control @error('numero_documento') is-invalid @enderror" placeholder="# Documento" name="numero_documento" value="{{ old('numero_documento') }}" required autocomplete="numero_documento" autofocus>
+                                    <input id="numero_documento" type="text" class="form-control @error('numero_documento') is-invalid @enderror" placeholder="# Documento" name="numero_documento" value="{{ old('numero_documento') }}" required autocomplete="numero_documento" autofocus>
                                     <!-- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="# Documento" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus> -->
                                 </div>
                                 <div class="mb-3">
