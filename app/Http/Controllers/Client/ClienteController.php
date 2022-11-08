@@ -53,7 +53,7 @@ class ClienteController extends Controller
 
     public function store(Request $request){
 
-        $this->performValidation($request);
+        //$this->performValidation($request);
 
         $valida = DB::table('clientes')->where('cliente_numero_documento',$request->cliente_numero_documento)->exists();
 

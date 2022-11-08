@@ -218,7 +218,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="cliente_id_estado" id="cliente_id_estado">
                                         @foreach($usuarioestados as $usuarioestado)
-                                            <option value="{{$usuarioestado->id}}" @selected(old('cliente_id_estado', $usuarioestado->usuestado_id) == $cliente->cliente_id_estado) @if($usuarioestado->usuestado_id==3 or $usuarioestado->usuestado_id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
+                                            <option value="{{$usuarioestado->usuestado_id}}" @selected(old('cliente_id_estado', $usuarioestado->usuestado_id) == $cliente->cliente_id_estado) @if($usuarioestado->usuestado_id==3 or $usuarioestado->usuestado_id==4)hidden @endif>{{$usuarioestado->usuestado_nombre}}</option>
                                         @endforeach
                                     </select>
                                 </div>
