@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eac24fc1-2bf1-4273-b8a1-a06f797d6291" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/ClienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/ClienteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clients/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clients/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clients/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +186,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/erplaravel&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/mensajeria&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -324,6 +321,12 @@
       <workItem from="1667589308558" duration="6300000" />
       <workItem from="1667891494159" duration="1808000" />
       <workItem from="1667938474351" duration="1973000" />
+      <workItem from="1668066070918" duration="5712000" />
+      <workItem from="1668192280544" duration="2376000" />
+      <workItem from="1668260739102" duration="6274000" />
+      <workItem from="1668355845495" duration="48000" />
+      <workItem from="1668493365100" duration="2878000" />
+      <workItem from="1668521042227" duration="2720000" />
     </task>
     <servers />
   </component>
