@@ -7,6 +7,7 @@
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
+    <script src="{{asset('assets/js/areaxcliente.js')}}"></script>
     <script>
         $('.datepicker').datepicker({
             format: "yyyy-mm-dd",
@@ -73,12 +74,12 @@
                                     <!-- <input id="ususolicita" name="ususolicita" disabled class="form-control" type="text" required="required" value="{{old('',$usuario->nombres.' '.$usuario->apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/> -->
                                 </div>
                             </div>
-                            <div class="col-6" hidden>
-                                <label class="form-label">TIPO VEHÍCULO</label>
+                            <div class="col-6" @if(auth()->user()->id_tipos_usuario != 4) hidden @endif>
+                                <label class="form-label">CLIENTE</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_tipo_vehiculo" id="domicilio_id_tipo_vehiculo">
-                                        @foreach($tipovehiculos as $tipovehiculo)
-                                            <option value="{{$tipovehiculo->tipovehiculo_id}}">{{$tipovehiculo->tipovehiculo_nombre}}</option>
+                                    <select class="form-control" name="domicilio_id_cliente" id="domicilio_id_cliente">
+                                        @foreach($clientes as $cliente)
+                                            <option value="{{$cliente->cliente_id}}">{{$cliente->cliente_nombre_comercial}}</option>
                                         @endforeach
                                     </select>
                                 </div>

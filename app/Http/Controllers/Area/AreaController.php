@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\DB;
 
 class AreaController extends Controller
 {
+
+    public function selcliente($id){
+        return CliArea::where('area_id_cliente', $id)->get();
+    }
+
     /**
      * Display a listing of the resource.
      *

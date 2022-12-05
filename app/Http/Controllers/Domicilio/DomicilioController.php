@@ -56,9 +56,10 @@ class DomicilioController extends Controller
 
         //CONSULTA AREAS ASIGNADAS AL USUARIO QUE SOLICITA
         $personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get('persona_id_cliente');
+        //dd($personaactual);
         $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
 
-        $clientes = Cliente::all();
+        $clientes = Cliente::all()->where('cliente_id_estado','=',1);
         $sedes = CliSede::all();
         //$areas = CliArea::all();
         //dd($areas);
@@ -110,14 +111,17 @@ class DomicilioController extends Controller
             $domicilio['domicilio_id_estado_domicilio'] = 1; //SIN ASIGNAR
         }
 
-
         //ESTABLECE CLIENTE QUE SOLICITA DOMICILIO
-        $personaactual = User::join('personas', 'persona_id','=', 'id_persona')->where('persona_id',auth()->id())->get('persona_id_cliente');
-        $clientesolicita = Cliente::all()->where('cliente_id','=',$personaactual[0]->persona_id_cliente);
-        $request['domicilio_id_cliente'] = $clientesolicita[1]->cliente_id;
+        $clientesolicita = $request->input('domicilio_id_cliente');
+        $request['domicilio_id_cliente'] = $clientesolicita;
+        if ($clientesolicita = isEmpty()){
 
+            $personaactual = User::join('personas', 'persona_id','=', 'id_persona')->where('persona_id',auth()->id())->get('persona_id_cliente');
+            $clientesolicita = Cliente::all()->where('cliente_id','=',$personaactual[0]->persona_id_cliente);
+            $request['domicilio_id_cliente'] = $clientesolicita[1]->cliente_id;
+
+        }
         //dd($request['domicilio_id_cliente']);
-
 
         //dd($request);
         DB::transaction(function () use ($request){
@@ -275,5 +279,10 @@ class DomicilioController extends Controller
 
         return view('domicilios.misdomicilios', compact('domicilios'));
 
+    }
+
+    public function createadmin(){
+        //dd("Funcionando");
+        return view('domicilios.create');
     }
 }

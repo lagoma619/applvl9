@@ -40,13 +40,13 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('sedes','App\Http\Controllers\Sede\SedeController');
     Route::resource('areas','App\Http\Controllers\Area\AreaController');
     Route::resource('mensajeros','App\Http\Controllers\Mensajero\mensajeroController');
+    //Route::get('/domicilios/createadmin', [\App\Http\Controllers\Domicilio\DomicilioController::class, 'createadmin']);
 
 /*
     Route::get('/users',[\App\Http\Controllers\User\UserController::class, 'index'])->name('users.index');
     Route::get('/users/new',[\App\Http\Controllers\User\UserController::class, 'index'])->name('users.new');
-*/
 
-  /*  Route::get('/users/new', function () {
+ Route::get('/users/new', function () {
         return view('users.new');
     })->name('usernew');
     Route::get('/clients/new', function () {
@@ -55,13 +55,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/clients/sedenew', function () {
         return view('clients.sedenew');
-    })->name('sedenew'); */
+    })->name('sedenew');
 
 
 //Usuarios
     //Route::resource('usuarios', 'App\Http\Controllers\User\UserController');
-
-
+*/
 
 
 });

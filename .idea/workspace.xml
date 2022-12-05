@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="eac24fc1-2bf1-4273-b8a1-a06f797d6291" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Area/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Area/AreaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/areas/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/areas/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +192,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/mensajeria&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/applvl9/public/assets/js&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -204,11 +210,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\applvl9\public\assets\js" />
       <recent name="C:\xampp\htdocs\applvl9\app\Http\Controllers\Api" />
       <recent name="C:\xampp\htdocs\applvl9\resources\views\domicilios" />
       <recent name="C:\xampp\htdocs\applvl9\resources\views" />
       <recent name="C:\xampp\htdocs\applvl9\resources\views\sedes" />
-      <recent name="C:\xampp\htdocs\applvl9\resources\views\clients" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\applvl9\database\migrations" />
@@ -327,6 +333,13 @@
       <workItem from="1668355845495" duration="48000" />
       <workItem from="1668493365100" duration="2878000" />
       <workItem from="1668521042227" duration="2720000" />
+      <workItem from="1669314649389" duration="848000" />
+      <workItem from="1669395232727" duration="593000" />
+      <workItem from="1669647956492" duration="8392000" />
+      <workItem from="1670059228722" duration="1842000" />
+      <workItem from="1670134781093" duration="610000" />
+      <workItem from="1670224914885" duration="641000" />
+      <workItem from="1670237624940" duration="2495000" />
     </task>
     <servers />
   </component>
