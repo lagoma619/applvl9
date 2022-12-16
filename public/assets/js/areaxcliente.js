@@ -6,9 +6,9 @@ $(function (){
         //$.get('http://192.168.1.105/applvl9/public/api/areas/'+domicilio_id_cliente+'/selcliente', function (data){
         $.get('https://app.aquitoymensajeria.com/api/areas/'+domicilio_id_cliente+'/selcliente', function (data){
 
-            var html_select = '<option value="">Seleccione una opción...</option>'
+            var html_select = '<option value="">Seleccione una opciónn...</option>'
             for (var  i=0; i<data.length; ++i)
-                html_select += '<option value="'+data[i].area_id+'">'+data[i].area_nombre+'</option>';
+                html_select += '<option value="'+data[i].area_nombre+'">'+data[i].area_nombre+'</option>';
 
             $('#domicilio_origen1').html(html_select);
             $('#domicilio_destino1').html(html_select);

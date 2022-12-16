@@ -7,13 +7,11 @@ use App\Models\CliArea;
 use App\Models\Cliente;
 use App\Models\CliSede;
 use App\Models\Domicilio;
-use App\Models\Persona;
 use App\Models\TipoServicio;
 use App\Models\User;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Ramsey\Uuid\Exception\TimeSourceException;
 use function PHPUnit\Framework\isEmpty;
 
 class DomicilioController extends Controller
@@ -54,11 +52,12 @@ class DomicilioController extends Controller
             ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
 
-        //CONSULTA AREAS ASIGNADAS AL USUARIO QUE SOLICITA
-        $personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get('persona_id_cliente');
+            //CONSULTA AREAS ASIGNADAS AL USUARIO QUE SOLICITA
+        //$personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get('persona_id_cliente');
+        $personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get()->all();
         //dd($personaactual);
+        $clienteasignado = $personaactual[0]->persona_id_cliente;
         $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
-
         $clientes = Cliente::all()->where('cliente_id_estado','=',1);
         $sedes = CliSede::all();
         //$areas = CliArea::all();
@@ -66,7 +65,7 @@ class DomicilioController extends Controller
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();
 
-        return view('domicilios.create')->with(compact('usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios','mensajeros'));
+        return view('domicilios.create')->with(compact('usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios','mensajeros','clienteasignado'));
     }
 
     /**
@@ -77,7 +76,7 @@ class DomicilioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
         $origen1 = $request->input('domicilio_origen1');
         $origen2 = $request->input('domicilio_origen2');
         $destino1 = $request->input('domicilio_destino1');
@@ -91,7 +90,6 @@ class DomicilioController extends Controller
                 $request['domicilio_origen'] = $origen1;
             }
         }
-
         //ESTABLECE DESTINO
         if (!empty($destino1) || !empty($destino2)){
             if ($destino2){
@@ -102,8 +100,6 @@ class DomicilioController extends Controller
             }
         }
         //ESTADO DOMICILIO: SIN ASIGNAR
-
-
         $asignado = $request->input('domicilio_asignado_a');
         if (!empty($asignado)){
             $domicilio['domicilio_id_estado_domicilio'] = 2; //EN CURSO
@@ -113,23 +109,34 @@ class DomicilioController extends Controller
 
         //ESTABLECE CLIENTE QUE SOLICITA DOMICILIO
         $clientesolicita = $request->input('domicilio_id_cliente');
+        //dd($clientesolicita);
         $request['domicilio_id_cliente'] = $clientesolicita;
+
         if ($clientesolicita = isEmpty()){
 
-            $personaactual = User::join('personas', 'persona_id','=', 'id_persona')->where('persona_id',auth()->id())->get('persona_id_cliente');
-            $clientesolicita = Cliente::all()->where('cliente_id','=',$personaactual[0]->persona_id_cliente);
-            $request['domicilio_id_cliente'] = $clientesolicita[1]->cliente_id;
+            //$personaactual = User::join('personas', 'persona_id','=', 'id_persona')->where('persona_id',auth()->id())->get('persona_id_cliente');
+            $personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get()->all();
+
+            $clientesolicita = Cliente::where('cliente_id','=',$personaactual[0]->persona_id_cliente)->get('cliente_id');
+
+            $clientesolicita = $clientesolicita[0]->cliente_id;
+            $request['domicilio_id_cliente'] = $clientesolicita;
 
         }
+
         //dd($request['domicilio_id_cliente']);
 
         //dd($request);
         DB::transaction(function () use ($request){
             $domicilio = Domicilio::create($request->all());
+            return $domicilio;
         });
+        //dd($domicilio);
         $notification = 'El domicilio se ha creado correctamente.';
 
         return redirect(route('domicilios.index'))->with(compact('notification'));
+        //return view('domicilios.index', compact('notification'));
+
     }
 
     /**

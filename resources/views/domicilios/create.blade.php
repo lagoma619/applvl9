@@ -79,7 +79,7 @@
                                 <div class="input-group">
                                     <select class="form-control" name="domicilio_id_cliente" id="domicilio_id_cliente">
                                         @foreach($clientes as $cliente)
-                                            <option value="{{$cliente->cliente_id}}">{{$cliente->cliente_nombre_comercial}}</option>
+                                            <option value="{{$cliente->cliente_id}}"@selected(old('',$cliente->cliente_id) == $clienteasignado)>{{$cliente->cliente_nombre_comercial}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -90,7 +90,7 @@
                                 <label class="form-label mt-4">ORIGEN</label>
                                 <div class="input-group">
                                     <select class="form-control" name="domicilio_origen1" id="domicilio_origen1">
-                                        <option value="">SELECCIONE UN ORIGEN...</option>
+                                        <option value="">Seleccione una opción...</option>
                                             @foreach($areas as $area)
                                                 <option value="{{$area->area_nombre}}">{{$area->area_nombre}} </option>
                                             @endforeach
@@ -109,7 +109,7 @@
                                 <label class="form-label mt-4">DESTINO</label>
                                 <div class="input-group">
                                     <select class="form-control" name="domicilio_destino1" id="domicilio_destino1">
-                                        <option value="">SELECCIONE UN DESTINO...</option>
+                                        <option value="">Seleccione una opción...</option>
                                         @foreach($areas as $area)
                                             <option value="{{$area->area_nombre}}">{{$area->area_nombre}} </option>
                                         @endforeach
@@ -158,7 +158,7 @@
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">HORA DE ENTREGA</label>
-                                <input class="form-control" type="time" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" autocomplete="off" value="{{old('hora_entrega_solicita')}}" />
+                                <input class="form-control" type="time" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" autocomplete="off" value="{{old('domicilio_hora_entrega_solicita')}}" />
                             </div>
                         </div>
                         <div class="row" hidden>

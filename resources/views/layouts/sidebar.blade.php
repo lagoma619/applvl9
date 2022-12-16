@@ -168,7 +168,7 @@
         <div class="card card-plain shadow-none" id="sidenavCard">
         </div>
         <form id="logout-form" action="{{ url('logout') }}" method="POST">
-            {{ csrf_field() }}
+            @csrf
             <button type="submit" class="btn btn-dark btn-sm w-100 mb-3">Cerrar sesión</button>
         </form>
     </div>
