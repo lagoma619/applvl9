@@ -10,32 +10,37 @@ use App\Models\Domicilio;
 use App\Models\TipoServicio;
 use App\Models\User;
 use App\Models\Vehiculo;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use function PHPUnit\Framework\isEmpty;
 
 class DomicilioController extends Controller
 {
+    public function hoy(){
+        return Carbon::now()->format('Y-m-d');
+    }
+
+    public function ahora(){
+        return Carbon::now()->format('h:i');
+        //return Carbon::now()->toTimeString();
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
 
-
     public function index()
     {
-        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')
+        $domicilios = Domicilio::orderBy('domicilios.domicilio_fecha_entrega_solicita','asc')->orderBy('domicilios.domicilio_hora_entrega_solicita','asc')
             ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
             ->join('domicilios_estados', 'domicilios_estados.domiestado_id', 'domicilios.domicilio_id_estado_domicilio')
             ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
             ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo')->get()->all();
 
-
-
         return view('domicilios.index', compact('domicilios'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -51,7 +56,6 @@ class DomicilioController extends Controller
             ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
             ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
-
             //CONSULTA AREAS ASIGNADAS AL USUARIO QUE SOLICITA
         //$personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get('persona_id_cliente');
         $personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get()->all();
@@ -65,7 +69,14 @@ class DomicilioController extends Controller
         $tipovehiculos = Vehiculo::all();
         $tiposervicios = TipoServicio::all();
 
-        return view('domicilios.create')->with(compact('usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios','mensajeros','clienteasignado'));
+        return view('domicilios.create')->with(compact('usuarios',
+            'tipovehiculos',
+            'clientes',
+            'sedes',
+            'areas',
+            'tiposervicios',
+            'mensajeros',
+            'clienteasignado'));
     }
 
     /**
@@ -76,7 +87,7 @@ class DomicilioController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        //dd($request);
         $origen1 = $request->input('domicilio_origen1');
         $origen2 = $request->input('domicilio_origen2');
         $destino1 = $request->input('domicilio_destino1');
@@ -102,36 +113,36 @@ class DomicilioController extends Controller
         //ESTADO DOMICILIO: SIN ASIGNAR
         $asignado = $request->input('domicilio_asignado_a');
         if (!empty($asignado)){
-            $domicilio['domicilio_id_estado_domicilio'] = 2; //EN CURSO
+            $request['domicilio_id_estado_domicilio'] = 2; //EN CURSO
         } else {
-            $domicilio['domicilio_id_estado_domicilio'] = 1; //SIN ASIGNAR
+            $request['domicilio_id_estado_domicilio'] = 1; //SIN ASIGNAR
         }
+        //dd($request['domicilio_id_estado_domicilio']);
 
         //ESTABLECE CLIENTE QUE SOLICITA DOMICILIO
         $clientesolicita = $request->input('domicilio_id_cliente');
-        //dd($clientesolicita);
-        $request['domicilio_id_cliente'] = $clientesolicita;
+
+        //FECHA Y HORA CREACIÓN DOMICILIO
+        //$request['domicilio_fecha_solicitud'] = $this->hoy();
+        //$request['domicilio_hora_solicitud'] = $this->ahora();
+        $request['domicilio_hora_solicitud'] = $this->ahora();
+        //dd($request);
 
         if ($clientesolicita = isEmpty()){
 
             //$personaactual = User::join('personas', 'persona_id','=', 'id_persona')->where('persona_id',auth()->id())->get('persona_id_cliente');
             $personaactual = User::join('personas', 'id_persona','=', 'persona_id')->where('id_persona',auth()->id())->get()->all();
-
             $clientesolicita = Cliente::where('cliente_id','=',$personaactual[0]->persona_id_cliente)->get('cliente_id');
-
             $clientesolicita = $clientesolicita[0]->cliente_id;
             $request['domicilio_id_cliente'] = $clientesolicita;
-
         }
 
-        //dd($request['domicilio_id_cliente']);
+        //DB::transaction(function () use ($request){
+            Domicilio::create($request->all()
+                + ['domicilio_fecha_solicitud'=> $this->hoy(),
+                ]);
+        //});
 
-        //dd($request);
-        DB::transaction(function () use ($request){
-            $domicilio = Domicilio::create($request->all());
-            return $domicilio;
-        });
-        //dd($domicilio);
         $notification = 'El domicilio se ha creado correctamente.';
 
         return redirect(route('domicilios.index'))->with(compact('notification'));
@@ -171,24 +182,24 @@ class DomicilioController extends Controller
             ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
             ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
-        $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
+        $mensajeros = User::where([['id_tipos_usuario','=',1],['usuestado_id','<>',2]])->orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
             ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
             ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
             ->get()->all();
 
         //CONSULTA AREAS ASIGNADAS AL USUARIO QUE SOLICITA
         $personaactual = User::join('personas', 'id_persona','=', 'id_persona')->where('id_persona',auth()->id())->get('persona_id_cliente');
+        //$clienteasignado = $personaactual[0]->persona_id_cliente;
+        $clienteasignado = $domicilio->domicilio_id_cliente;
+        //dd($clienteasignado);
         $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
-
-        $clientes = Cliente::all();
+        $clientes = Cliente::all()->where('cliente_id_estado','=',1);
         $sedes = CliSede::all();
         $tipovehiculos = Vehiculo::all();
         //dd($tipovehiculos);
         $tiposervicios = TipoServicio::all();
-
         //dd($domicilio->domicilio_id_tipo_vehiculo);
-
-        return view('domicilios.edit')->with(compact('domicilio','usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios','mensajeros'));
+        return view('domicilios.edit')->with(compact('domicilio','usuarios', 'tipovehiculos', 'clientes', 'sedes', 'areas','tiposervicios','mensajeros','clienteasignado'));
     }
 
     /**
@@ -252,7 +263,7 @@ class DomicilioController extends Controller
         $domicilio['domicilio_hora_solicitud'] =request('domicilio_hora_solicitud' );
         $domicilio['domicilio_fecha_entrega_solicita'] =request('domicilio_fecha_entrega_solicita' );
         $domicilio['domicilio_hora_entrega_solicita'] =request('domicilio_hora_entrega_solicita' );
-        //$domicilio['domicilio_id_cliente'] =request('domicilio_id_cliente' );
+        $domicilio['domicilio_id_cliente'] =request('domicilio_id_cliente' );
         $domicilio['domicilio_id_userid'] =request('domicilio_id_userid' );
         $domicilio['domicilio_notas'] =request('domicilio_notas' );
 
@@ -285,7 +296,17 @@ class DomicilioController extends Controller
         //dd($domicilios);
 
         return view('domicilios.misdomicilios', compact('domicilios'));
+    }
 
+    public function detalledomicilio($domicilioid){
+
+        $detalledomicilio = Domicilio::find($domicilioid)
+            ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
+            ->join('domicilios_estados', 'domicilios_estados.domiestado_id', 'domicilios.domicilio_id_estado_domicilio')
+            ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
+            ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo');
+        dd($detalledomicilio);
+return view('domicilios.detalledomicilio', compact($detalledomicilio));
     }
 
     public function createadmin(){

@@ -7,9 +7,14 @@
     <list default="true" id="eac24fc1-2bf1-4273-b8a1-a06f797d6291" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Domicilio/DomicilioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Mensajero/MensajeroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Mensajero/MensajeroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Domicilio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Domicilio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/js/areaxcliente.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/areaxcliente.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +227,10 @@
       <recent name="C:\xampp\htdocs\applvl9\public\assets" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.index.php">
+  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/applvl9/argonpro2/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/applvl9/argon2/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -240,6 +248,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.index.html (1)" />
         <item itemvalue="PHP Script.index.php" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
@@ -340,6 +349,8 @@
       <workItem from="1670237624940" duration="2495000" />
       <workItem from="1670579840364" duration="7026000" />
       <workItem from="1671190227627" duration="7752000" />
+      <workItem from="1671723409286" duration="588000" />
+      <workItem from="1671862667524" duration="10367000" />
     </task>
     <servers />
   </component>

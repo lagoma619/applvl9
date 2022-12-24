@@ -7,6 +7,23 @@
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
+    <script>
+        //Script para activar href en tr
+        $(document).ready(function(){
+            $('table tr').click(function(){
+                window.location = $(this).data('href');
+                return false;
+            });
+        });
+    </script>
+
+        table-row
+            tr[data - href]
+            {
+                pointer;
+            }
+
+
 
 @endsection
 
@@ -38,7 +55,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="table-responsive">
-                                <table class="table align-items-center mb-0 table-striped">
+                                <table class="table align-items-center mb-0 table-striped table-hover">
                                     <thead data-size="">
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">ID</th>
@@ -57,9 +74,9 @@
                                     <tbody >
                                     <!--dd($usuarios)-->
                                     @foreach($domicilios as $domicilio)
-                                        <tr>
+                                        <tr class="table-row" data-href="{{url('domicilios/detalledomicilio')}}{{'/'.$domicilio->domicilio_id}}">
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm">{{$domicilio->domicilio_id}}</span>
+                                                <span class="~text-blue-600 text-bold"><a href={{url('domicilios/detalledomicilio')}}{{'/'.$domicilio->domicilio_id}}>{{$domicilio->domicilio_id}}</a> </span>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">

@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('domicilios','App\Http\Controllers\Domicilio\DomicilioController');
     Route::get('/domicilios/misdomicilios/{userid}/{domicilioestado}', [App\Http\Controllers\Domicilio\DomicilioController::class, 'listarmisdomicilios'])
         ->name('domicilios.misdomicilios');
+    Route::get('/domicilios/detalledomicilio/{domicilioid}', [App\Http\Controllers\Domicilio\DomicilioController::class, 'detalledomicilio'])
+        ->name('domicilios.detalledomicilio');
 
 
 
@@ -39,7 +41,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('clients','App\Http\Controllers\Client\ClienteController');
     Route::resource('sedes','App\Http\Controllers\Sede\SedeController');
     Route::resource('areas','App\Http\Controllers\Area\AreaController');
+    //Route::get('/mensajero/{estado}',[\App\Http\Controllers\Mensajero\MensajeroController::class, 'show']);
     Route::resource('mensajeros','App\Http\Controllers\Mensajero\mensajeroController');
+
     //Route::get('/domicilios/createadmin', [\App\Http\Controllers\Domicilio\DomicilioController::class, 'createadmin']);
 
 /*

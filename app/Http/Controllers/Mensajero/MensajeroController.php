@@ -45,19 +45,58 @@ class mensajeroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show($estadomensajero)
+    public function show($estado)
     {
-        {
-            $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
-                ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
-                ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
-                ->where('id_usuestado','=', $estadomensajero)->get()->all();
-            //dd($mensajeros);
+        //dd($request);
+        switch ($estado){
+            case ('3'):
+                $mensajeros = User::where('id_tipos_usuario', '=', 1)
+                    ->where('id_usuestado', '=', 3)
+                    ->orderBy('personas.persona_nombres', 'asc')->join('personas', 'personas.persona_id', '=', 'users.id_persona')
+                    ->join('tipos_usuario', 'tipos_usuario.tipousu_id', 'users.id_tipos_usuario')
+                    ->join('usuario_estados', 'usuario_estados.usuestado_id', '=', 'users.id_usuestado')
+                    ->get()->all();
+                return view('mensajeros.index', compact('mensajeros'));
+            case ('4'):
+                $mensajeros = User::where('id_tipos_usuario', '=', 1)
+                    ->where('id_usuestado', '=', 4)
+                    ->orderBy('personas.persona_nombres', 'asc')->join('personas', 'personas.persona_id', '=', 'users.id_persona')
+                    ->join('tipos_usuario', 'tipos_usuario.tipousu_id', 'users.id_tipos_usuario')
+                    ->join('usuario_estados', 'usuario_estados.usuestado_id', '=', 'users.id_usuestado')
+                    ->get()->all();
+                return view('mensajeros.index', compact('mensajeros'));
 
-            return view('mensajeros.index', compact('mensajeros'));
-
+            case ('2'):
+                $mensajeros = User::where('id_tipos_usuario', '=', 1)
+                    ->where('id_usuestado', '=', 2)
+                    ->orderBy('personas.persona_nombres', 'asc')->join('personas', 'personas.persona_id', '=', 'users.id_persona')
+                    ->join('tipos_usuario', 'tipos_usuario.tipousu_id', 'users.id_tipos_usuario')
+                    ->join('usuario_estados', 'usuario_estados.usuestado_id', '=', 'users.id_usuestado')
+                    ->get()->all();
+                return view('mensajeros.index', compact('mensajeros'));
         }
-
+        /*
+            if ($estadomensajero = 3) {
+                $mensajeros = User::where('id_tipos_usuario', '=', 1)
+                    ->where('usuestado_id', '=', 3)
+                    ->orderBy('personas.persona_nombres', 'asc')->join('personas', 'personas.persona_id', '=', 'users.id_persona')
+                    ->join('tipos_usuario', 'tipos_usuario.tipousu_id', 'users.id_tipos_usuario')
+                    ->join('usuario_estados', 'usuario_estados.usuestado_id', '=', 'users.id_usuestado')
+                    ->get()->all();
+                //dd($mensajeros);
+            } elseif ($estadomensajero = 4) {
+                $mensajeros = User::where('id_tipos_usuario', '=', 1)
+                    ->where('usuestado_id', '=', 4)
+                    ->orderBy('personas.persona_nombres', 'asc')->join('personas', 'personas.persona_id', '=', 'users.id_persona')
+                    ->join('tipos_usuario', 'tipos_usuario.tipousu_id', 'users.id_tipos_usuario')
+                    ->join('usuario_estados', 'usuario_estados.usuestado_id', '=', 'users.id_usuestado')
+                    ->get()->all();
+                //dd($mensajeros);
+                //return view('mensajeros.index', compact('mensajeros'));
+            }
+            */
+        //dd($mensajeros);
+        return view('mensajeros.index', compact('mensajeros'));
 
     }
 

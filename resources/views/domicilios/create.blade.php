@@ -153,12 +153,12 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">FECHA DE ENTREGA</label>
                                 <div class="input-group">
-                                    <input class="form-control" id="domicilio_fecha_entrega_solicita" type="date" name="domicilio_fecha_entrega_solicita" placeholder="{{today()}}" value="{{old('fecha_entrega_solicita')}}" />
+                                    <input class="form-control" id="domicilio_fecha_entrega_solicita" type="date" name="domicilio_fecha_entrega_solicita" placeholder="{{today()}}" value="{{old('fecha_entrega_solicita', Carbon\Carbon::today()->format('Y-m-d'))}}" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">HORA DE ENTREGA</label>
-                                <input class="form-control" type="time" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" autocomplete="off" value="{{old('domicilio_hora_entrega_solicita')}}" />
+                                <input class="form-control" type="time" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" autocomplete="off" value="{{old('', Carbon\Carbon::now()->addHours(2)->format('H:m'))}}" />
                             </div>
                         </div>
                         <div class="row" hidden>

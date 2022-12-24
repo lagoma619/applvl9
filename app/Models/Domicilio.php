@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
                 'domicilio_id_tipo_servicio',
                 'domicilio_id_userid',
                 'domicilio_fecha_solicitud',
+                'domicilio_hora_solicitud',
                 'domicilio_fecha_entrega_solicita',
                 'domicilio_hora_entrega_solicita',
                 'domicilio_hora_entrega_real',
