@@ -305,7 +305,7 @@ class DomicilioController extends Controller
             ->join('domicilios_estados', 'domicilios_estados.domiestado_id', 'domicilios.domicilio_id_estado_domicilio')
             ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
             ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo');
-        dd($detalledomicilio);
+        //dd($detalledomicilio);
 return view('domicilios.detalledomicilio', compact($detalledomicilio));
     }
 

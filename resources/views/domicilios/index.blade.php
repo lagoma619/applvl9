@@ -4,25 +4,20 @@
     <!-- SELECTOR DE FECHA -->
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('assets/vendor/datepicker/css/bootstrap-datepicker3.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/css/cursortr.css')}}"> <!--Cursor para tr de la tabla-->
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
     <script>
         //Script para activar href en tr
-        $(document).ready(function(){
+        /* $(document).ready(function(){
             $('table tr').click(function(){
                 window.location = $(this).data('href');
                 return false;
             });
-        });
+        }); */
     </script>
-
-        table-row
-            tr[data - href]
-            {
-                pointer;
-            }
-
 
 
 @endsection
@@ -57,7 +52,7 @@
                             <div class="table-responsive">
                                 <table class="table align-items-center mb-0 table-striped table-hover">
                                     <thead data-size="">
-                                    <tr>
+                                    <tr data-bs-toggle="popover" title="Para ver los detalles del domicilio hacer clic en el ID" data-bs-trigger="hover focus" >
                                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">ID</th>
                                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">CLIENTE</th>
                                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-75">ASIGNADO A</th>
@@ -74,9 +69,10 @@
                                     <tbody >
                                     <!--dd($usuarios)-->
                                     @foreach($domicilios as $domicilio)
-                                        <tr class="table-row" data-href="{{url('domicilios/detalledomicilio')}}{{'/'.$domicilio->domicilio_id}}">
+                                        <tr>
                                             <td class="align-middle text-center">
-                                                <span class="~text-blue-600 text-bold"><a href={{url('domicilios/detalledomicilio')}}{{'/'.$domicilio->domicilio_id}}>{{$domicilio->domicilio_id}}</a> </span>
+
+                                                <span><a class="link-info" href={{url('domicilios/detalledomicilio')}}{{'/'.$domicilio->domicilio_id}}>{{$domicilio->domicilio_id}}</a> </span>
                                             </td>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
