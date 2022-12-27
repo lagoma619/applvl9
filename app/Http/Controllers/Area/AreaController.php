@@ -14,7 +14,9 @@ class AreaController extends Controller
 {
 
     public function selcliente($id){
-        return CliArea::where('area_id_cliente', $id)->get();
+        return CliArea::where('area_id_cliente', $id)
+            ->where('area_estado',1)
+            ->get();
     }
 
     /**

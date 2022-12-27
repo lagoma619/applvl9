@@ -42,16 +42,15 @@
                 <a href="{{url('/domicilios/')}}" class="btn btn-sm btn-success">CANCELAR</a>
             </div>
             <!-- Card Basic Info -->
-            <form action="{{url('domicilios')}}" method="POST">
-                @csrf
+            <!--<form action="{{url('domicilios')}}" method="POST"> -->
                 <div class="card mt-4" id="basic-info">
-
+                    @foreach($domicilio as $domicilio)
                     <div class="card-body">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <h5>DATOS DEL DOMICILIO</h5>
+                                        <h5>DATOS DETALLADOS DEL DOMICILIO</h5>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -66,22 +65,17 @@
                             <div class="col-6">
                                 <label class="form-label">QUIÉN SOLICITA?</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_userid" id="domicilio_id_userid">
+                                    <select class="form-control" name="domicilio_id_userid" id="domicilio_id_userid" disabled>
                                         @foreach($usuarios as $usuario)
                                             <option value="{{$usuario->userid}}" @selected(old('', $usuario->userid) == auth()->id())> {{$usuario->persona_nombres.' '.$usuario->persona_apellidos}} </option>
                                         @endforeach
                                     </select>
-                                    <!-- <input id="ususolicita" name="ususolicita" disabled class="form-control" type="text" required="required" value="{{old('',$usuario->nombres.' '.$usuario->apellidos)}}" onkeyup="this.value = this.value.toUpperCase();"/> -->
                                 </div>
                             </div>
                             <div class="col-6" @if(auth()->user()->id_tipos_usuario != 4) hidden @endif>
                                 <label class="form-label">CLIENTE</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_cliente" id="domicilio_id_cliente">
-                                        @foreach($clientes as $cliente)
-                                            <option value="{{$cliente->cliente_id}}"@selected(old('',$cliente->cliente_id) == $clienteasignado)>{{$cliente->cliente_nombre_comercial}}</option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" name="domicilio_id_cliente" id="domicilio_id_cliente" readonly value="{{$domicilio->cliente_nombre_comercial}}">
                                 </div>
                             </div>
                         </div>
@@ -89,76 +83,42 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">ORIGEN</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_origen1" id="domicilio_origen1">
-                                        <option value="">Seleccione una opción...</option>
-                                        @foreach($areas as $area)
-                                            <option value="{{$area->area_nombre}}">{{$area->area_nombre}} </option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" name="domicilio_origen" id="domicilio_origen" readonly value="{{$domicilio->domicilio_origen}}">
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <label class="form-label mt-4">OTRO ORIGEN</label>
-                                <div class="input-group">
-                                    <input id="domicilio_origen2" name="domicilio_origen2" class="form-control" type="text" value="{{old('origen')}}" placeholder="Escriba un origen en caso de no encontrarlo en la lista." onkeyup="this.value = this.value.toUpperCase();" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-6">
                                 <label class="form-label mt-4">DESTINO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_destino1" id="domicilio_destino1">
-                                        <option value="">Seleccione una opción...</option>
-                                        @foreach($areas as $area)
-                                            <option value="{{$area->area_nombre}}">{{$area->area_nombre}} </option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" name="domicilio_destino" id="domicilio_destino" readonly value={{$domicilio->domicilio_destino}}>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="row">
-                                    <label class="form-label mt-4">OTRO DESTINO</label>
-                                    <div class="input-group">
-                                        <input id="domicilio_destino2" name="domicilio_destino2" class="form-control" type="text" placeholder="Escriba un destino en caso de no encontrarlo en la lista." value="{{old('destino')}}" onkeyup="this.value = this.value.toUpperCase();"/>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+
                         <div class="row">
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DE SERVICIO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_tipo_servicio" id="domicilio_id_tipo_servicio">
-                                        @foreach($tiposervicios as $tiposervicio)
-                                            <option value="{{$tiposervicio->tiposervicio_id}}">{{$tiposervicio->tiposervicio_nombre}}</option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" name="domicilio_id_tipo_servicio" id="domicilio_id_tipo_servicio" readonly value="{{$domicilio->tiposervicio_nombre}}">
+
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">TIPO DE VEHÍCULO</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_id_tipo_vehiculo" id="domicilio_id_tipo_vehiculo">
-                                        @foreach($tipovehiculos as $tipovehiculo)
-                                            <option value="{{$tipovehiculo->tipovehiculo_id}}">{{$tipovehiculo->tipovehiculo_nombre}}</option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" name="domicilio_id_tipo_vehiculo" id="domicilio_id_tipo_vehiculo"readonly value="{{$domicilio->tipovehiculo_nombre}}">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-
                             <div class="col-6">
-                                <label class="form-label mt-4">FECHA DE ENTREGA</label>
+                                <label class="form-label mt-4">FECHA DE ENTREGA REQUERIDA</label>
                                 <div class="input-group">
-                                    <input class="form-control" id="domicilio_fecha_entrega_solicita" type="date" name="domicilio_fecha_entrega_solicita" placeholder="{{today()}}" value="{{old('fecha_entrega_solicita', Carbon\Carbon::today()->format('Y-m-d'))}}" />
+                                    <input class="form-control" id="domicilio_fecha_entrega_solicita" type="date" name="domicilio_fecha_entrega_solicita" readonly value="{{$domicilio->domicilio_fecha_entrega_solicita}}" />
                                 </div>
                             </div>
                             <div class="col-6">
-                                <label class="form-label mt-4">HORA DE ENTREGA</label>
-                                <input class="form-control" type="time" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" autocomplete="off" value="{{old('', Carbon\Carbon::now()->addHours(2)->format('H:m'))}}" />
+                                <label class="form-label mt-4">HORA DE ENTREGA REQUERIDA</label>
+                                <input class="form-control" type="time" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" readonly value="{{$domicilio->domicilio_hora_entrega_solicita}}" />
                             </div>
                         </div>
                         <div class="row" hidden>
@@ -183,8 +143,8 @@
                             <div class="col-md-6" >
                                 <label class="form-label mt-4">ASIGNADO A:</label>
                                 <div class="input-group">
-                                    <select class="form-control" name="domicilio_asignado_a" id="domicilio_asignado_a">
-                                        <option value="">Seleccione un mensajero...(SIN ASIGNAR)</option>
+                                    <select class="form-control" name="domicilio_asignado_a" id="domicilio_asignado_a" disabled>
+                                        <option value="">SIN ASIGNAR</option>
                                         @foreach($mensajeros as $mensajero)
                                             <option value="{{$mensajero->userid}}"> {{$mensajero->persona_nombres.' '.$mensajero->persona_apellidos}} </option>
                                         @endforeach
@@ -206,15 +166,23 @@
                             <label class="form-label mt-4">DESCRIPCIÓN DEL DOMICILIO:</label>
                             <div class="input-group">
                                 <div class="form-control" id="notes" type="text">
-                                    <textarea class="form-control-plaintext" required id="domicilio_descripcion" name="domicilio_descripcion" type="text" placeholder="DESCRIBA BREVEMENTE EL DETALLE DEL SERVICIO REQUERIDO">{{old('descripcion')}}</textarea>
+                                    <textarea class="form-control-plaintext" id="domicilio_descripcion" name="domicilio_descripcion" type="text" placeholder="DESCRIBA BREVEMENTE EL DETALLE DEL SERVICIO REQUERIDO" disabled>{{$domicilio->domicilio_descripcion}}</textarea>
                                 </div>
                             </div>
 
-                            <div class="d-flex justify-content-center mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg w-50">SOLICITAR DOMICILIO</button>
+                            <div>
+                                <br>
+                                <td>
+                                    <form action="{{url('/domicilios/'.$domicilio->domicilio_id)}}" method="post">
+                                        @csrf
+                                        <a href="{{url('/domicilios/'.$domicilio->domicilio_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                                    </form>
+                                </td>
                             </div>
+
                         </div>
                     </div>
+                @endforeach
                 </div>
-            </form>
+           <!-- </form> -->
 @endsection

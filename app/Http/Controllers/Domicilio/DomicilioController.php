@@ -145,7 +145,8 @@ class DomicilioController extends Controller
 
         $notification = 'El domicilio se ha creado correctamente.';
 
-        return redirect(route('domicilios.index'))->with(compact('notification'));
+        //return redirect(route('domicilios.index'))->with(compact('notification'));
+        return url('domicilios/misdomicilios/'.auth()->id().'/1')->with(compact('notification'));
         //return view('domicilios.index', compact('notification'));
 
     }
@@ -300,14 +301,27 @@ class DomicilioController extends Controller
 
     public function detalledomicilio($domicilioid){
 
-        $detalledomicilio = Domicilio::find($domicilioid)
+        $mensajeros = User::where('id_tipos_usuario','=',1)->orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
+            ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
+            ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
+            ->get()->all();
+
+        $domicilio = Domicilio::where('domicilios.domicilio_id','=', $domicilioid)
             ->join('clientes','clientes.cliente_id','domicilios.domicilio_id_cliente')
-            ->join('domicilios_estados', 'domicilios_estados.domiestado_id', 'domicilios.domicilio_id_estado_domicilio')
+            ->join('domicilios_estados', 'domicilios_estados.domiestado_id','domicilios.domicilio_id_estado_domicilio')
             ->join('tipos_servicio', 'tipos_servicio.tiposervicio_id','domicilios.domicilio_id_tipo_servicio')
-            ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo');
-        //dd($detalledomicilio);
-return view('domicilios.detalledomicilio', compact($detalledomicilio));
+            ->join('tipos_vehiculo','tipos_vehiculo.tipovehiculo_id','domicilios.domicilio_id_tipo_vehiculo')
+            ->join('personas','personas.persona_id','domicilios.domicilio_id_userid')
+            ->get()->all();
+
+        $usuarios = User::orderBy('personas.persona_nombres','asc')->join('personas', 'personas.persona_id','=', 'users.id_persona')
+            ->join('tipos_usuario', 'tipos_usuario.tipousu_id','users.id_tipos_usuario')
+            ->join('usuario_estados', 'usuario_estados.usuestado_id','=','users.id_usuestado')
+            ->get()->all();
+        //dd($domicilio);
+        return view('domicilios.detalledomicilio', compact('domicilio', 'mensajeros','usuarios'));
     }
+
 
     public function createadmin(){
         //dd("Funcionando");

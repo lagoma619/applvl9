@@ -13,7 +13,7 @@ class SedeController extends Controller
 {
     //
     public function selsede($id){
-        return CliSede::where('sede_id_cliente', $id)->get();
+        return CliSede::where('sede_id_cliente', $id)->where('sede_id_estado', 1)->get();
     }
 
     public function _construct()
