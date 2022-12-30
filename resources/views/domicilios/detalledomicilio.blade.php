@@ -79,6 +79,20 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label mt-4">FECHA DE SOLICITUD</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="domicilio_fecha_solicitud" type="text" name="domicilio_fecha_solicitud" readonly value="{{$domicilio->domicilio_fecha_solicitud}}" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label mt-4">HORA DE SOLICITUD</label>
+                                <input class="form-control" type="text" id="domicilio_hora_solicitud" name="domicilio_hora_solicitud" readonly value="{{$domicilio->domicilio_hora_solicitud}}" />
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-6">
                                 <label class="form-label mt-4">ORIGEN</label>
@@ -113,14 +127,39 @@
                             <div class="col-6">
                                 <label class="form-label mt-4">FECHA DE ENTREGA REQUERIDA</label>
                                 <div class="input-group">
-                                    <input class="form-control" id="domicilio_fecha_entrega_solicita" type="date" name="domicilio_fecha_entrega_solicita" readonly value="{{$domicilio->domicilio_fecha_entrega_solicita}}" />
+                                    <input class="form-control" id="domicilio_fecha_entrega_solicita" type="text" name="domicilio_fecha_entrega_solicita" readonly value="{{$domicilio->domicilio_fecha_entrega_solicita}}" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label mt-4">HORA DE ENTREGA REQUERIDA</label>
-                                <input class="form-control" type="time" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" readonly value="{{$domicilio->domicilio_hora_entrega_solicita}}" />
+                                <input class="form-control" type="text" id="domicilio_hora_entrega_solicita" name="domicilio_hora_entrega_solicita" readonly value="{{$domicilio->domicilio_hora_entrega_solicita}}" />
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label mt-4">FECHA DE INICIO </label>
+                                <div class="input-group">
+                                    <input class="form-control" id="domicilio_fecha_inicio" type="text" name="domicilio_fecha_inicio" readonly value="{{$domicilio->domicilio_fecha_inicio}}" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label mt-4">HORA DE INICIO </label>
+                                <input class="form-control" type="text" id="domicilio_hora_inicio" name="domicilio_hora_inicio" readonly value="{{$domicilio->domicilio_hora_inicio}}" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label mt-4">FECHA DE ENTREGA</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="domicilio_fecha_fin" type="text" name="domicilio_fecha_fin" readonly value="{{$domicilio->domicilio_fecha_fin}}" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label mt-4">HORA DE ENTREGA</label>
+                                <input class="form-control" type="text" id="domicilio_hora_entrega_real" name="domicilio_hora_entrega_real" readonly value="{{$domicilio->domicilio_hora_entrega_real}}" />
+                            </div>
+                        </div>
+
                         <div class="row" hidden>
                             <div class="col-md-6">
                                 <label class="form-label mt-4">TRANSPORTE DE DINERO?</label>
@@ -152,10 +191,10 @@
                                 </div>
 
                             </div>
-                            <div class="col-6" hidden>
-                                <label class="form-label mt-4">CUÁNTO?</label>
+                            <div class="col-6">
+                                <label class="form-label mt-4">ESTADO DEL DOMICILIO</label>
                                 <div class="input-group">
-                                    <input id="" name="" class="form-control" type="text"  onkeyup="this.value = this.value.toUpperCase();"/>
+                                    <input class="form-control" id="domiestado_nombre" type="text" name="domiestado_nombre" readonly value="{{$domicilio->domiestado_nombre}}" />
                                 </div>
                             </div>
 
@@ -173,7 +212,7 @@
                             <div>
                                 <br>
                                 <td>
-                                    <form action="{{url('/domicilios/'.$domicilio->domicilio_id)}}" method="post">
+                                    <form action="{{url('/domicilios/'.$domicilio->domicilio_id)}}" method="post" @if($domicilio->domiestado_id == "3")hidden @endif>
                                         @csrf
                                         <a href="{{url('/domicilios/'.$domicilio->domicilio_id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
                                     </form>
