@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('sedes','App\Http\Controllers\Sede\SedeController');
     Route::resource('areas','App\Http\Controllers\Area\AreaController');
     //Route::get('/mensajero/{estado}',[\App\Http\Controllers\Mensajero\MensajeroController::class, 'show']);
-    Route::resource('mensajeros','app\Http\Controllers\Mensajero\mensajeroController');
+    Route::resource('mensajeros','App\Http\Controllers\Mensajero\mensajeroController');
 
     //Route::get('/domicilios/createadmin', [\App\Http\Controllers\Domicilio\DomicilioController::class, 'createadmin']);
 
