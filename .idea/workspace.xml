@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eac24fc1-2bf1-4273-b8a1-a06f797d6291" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/applvl9.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/applvl9.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ClientesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ClientesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/areaxcliente.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/areaxcliente.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/domicilios/detalledomicilio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/domicilios/detalledomicilio.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +188,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/applvl9/public/assets/js&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/pos&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -353,6 +349,7 @@
       <workItem from="1671987228373" duration="4955000" />
       <workItem from="1672426645639" duration="2282000" />
       <workItem from="1672434073285" duration="3978000" />
+      <workItem from="1673597260105" duration="1232000" />
     </task>
     <servers />
   </component>
