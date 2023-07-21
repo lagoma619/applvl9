@@ -27,9 +27,6 @@
     <script src="{{asset('assets/vendor/datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/vendor/datepicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
 
-
-
-
     <script>
         $('.datepicker').datepicker({
             format: "yyyy-mm-dd",

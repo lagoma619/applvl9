@@ -62,7 +62,7 @@ class DomicilioController extends Controller
         //dd($personaactual);
         $clienteasignado = $personaactual[0]->persona_id_cliente;
         $areas = CliArea::all()->where('area_id_cliente','=',$personaactual[0]->persona_id_cliente);
-        $clientes = Cliente::all()->where('cliente_id_estado','=',1);
+        $clientes = Cliente::where('cliente_id_estado','=',1)->orderBy('clientes.cliente_nombre_comercial')->get()->all();
         $sedes = CliSede::all();
         //$areas = CliArea::all();
         //dd($areas);
